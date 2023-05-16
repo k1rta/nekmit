@@ -1,33 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000px" height="1000px" viewBox="0 0 1000 1000" zoomAndPan="disable">
     <style type="text/css"><![CDATA[
 		line {
-			stroke: rgb(66,73,73,0.5);
+			stroke: rgba(23,32,42,0.45);
 			stroke-width: 1px;
 		}
 		
 		polygon.one {
-			fill: rgb(248, 196, 113,1.000);
+			fill: rgba(199, 240, 219,1);
 		}
 		
 		polygon.two {
-			fill: rgb(39, 174, 96,0.8);
+			fill: rgba(139, 186, 187,0.45);
 		}
 		
 		polygon.three {
-			fill: rgb(52, 152, 219,0.4);
-		}
-
-		polygon.four {
-			fill: rgb(66, 73, 73,0.15);
+			fill: rgba(39,174,96,0.45);
 		}
 		
     ]]></style>
 	<polygon class="one" points="-350,0 650,1000 0,1000 0,0" />
 	<polygon class="two" points="0,0 1000,1000 0,1000 0,0" />
-	<polygon class="three" points="0,0 1000,1000 0,1000 0,0" />
-	<polygon class="four" points="350,0 1350,1000 0,1000 0,0" />
+	<polygon class="three" points="350,0 1350,1000 0,1000 0,0" />
 	<line x1="-350" y1="0" x2="650" y2="1000" />
-	<line x1="0" y1="0" x2="1000" y2="1000" />
 	<line x1="0" y1="0" x2="1000" y2="1000" />
 	<line x1="350" y1="0" x2="1350" y2="1000" />
 </svg>

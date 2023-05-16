@@ -99,7 +99,7 @@ input, select, textarea {
 		}
 
 	body, input, select, textarea {
-		color: #fff;
+		color: #17202A;
 		font-family: 'Source Code Pro', monospace;
 		font-size: 15pt;
 		font-weight: 300 !important;
@@ -127,6 +127,7 @@ input, select, textarea {
 	.icon {
 		text-decoration: none;
 		position: relative;
+		color: #17202A;
 	}
 
 		.icon:before {
@@ -226,11 +227,11 @@ input, select, textarea {
 		transform: translate3d(0,0,0);
 	/* Set your background with this */
 
-		background: #3498DB url("") bottom left;
+		background: #17202A bottom left;
 		background-repeat: repeat-x;
 		height: 100%;
 		left: 0;
-		opacity: 5;
+		opacity: 1;
 		position: fixed;
 		top: 0;
 	}
@@ -554,7 +555,7 @@ input, select, textarea {
 	}
 
 		#header h1 {
-			font-size: 4.35em;
+			font-size: 4em;
 			font-weight: 900;
 			letter-spacing: -0.035em;
 			line-height: 1em;
@@ -675,7 +676,7 @@ input, select, textarea {
 					-ms-transition: all 0.2s ease-in-out;
 					transition: all 0.2s ease-in-out;
 					border-radius: 100%;
-					border: solid 1px #fff;
+					border: solid 1px #17202A;
 					display: block;
 					font-size: 1.75em;
 					height: 2.5em;
@@ -692,7 +693,7 @@ input, select, textarea {
 
 					#header nav a:hover:before {
 						background-color: rgba(255, 255, 255, 0.175);
-						color: #fff;
+						color: #2ECC71;
 					}
 
 				#header nav a:active {
@@ -702,7 +703,7 @@ input, select, textarea {
 
 					#header nav a:active:before {
 						background-color: rgba(255, 255, 255, 0.35);
-						color: #fff;
+						color: #2ECC71;
 					}
 
 				#header nav a span {
@@ -712,13 +713,13 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 100%);
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 100%);
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 100%);
-		background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 100%);
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
+		/* background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 100%); */
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
+		background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
 		bottom: 0;
 		cursor: default;
-		height: 6em;
+		height: 5em;
 		left: 0;
 		line-height: 8em;
 		position: absolute;
