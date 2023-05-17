@@ -1,0 +1,30 @@
+{
+  "name": "cypress-nekmit-example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cypress",
+    "nekmit",
+    "automation"
+  ],
+  "author": "Kirta-Linda Karits",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k1rta/nekmit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/k1rta/nekmit/issues"
+  },
+  "homepage": "https://github.com/k1rta/nekmit#readme",
+  "dependencies": {
+    "cypress": "^12.12.0",
+    "save-dev": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "eslint": "^8.40.0"
+  }
+}
