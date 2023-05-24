@@ -99,7 +99,7 @@ input, select, textarea {
 		}
 
 	body, input, select, textarea {
-		color: #17202A;
+		color: #000000;
 		font-family: 'Source Code Pro', monospace;
 		font-size: 15pt;
 		font-weight: 300 !important;
@@ -734,7 +734,7 @@ input, select, textarea {
 		/* Basic */
 
 			body, input, select, textarea {
-				font-size: 13pt;
+				font-size: 11pt;
 			}
 
 		/* BG */

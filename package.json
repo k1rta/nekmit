@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/k1rta/nekmit#readme",
   "dependencies": {
-    "cypress": "^12.12.0",
     "save-dev": "^0.0.1-security"
   },
   "devDependencies": {
+    "cypress": "^12.12.0",
     "eslint": "^8.40.0"
   }
 }
