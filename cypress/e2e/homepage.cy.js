@@ -37,7 +37,7 @@ describe('Homepage', () => {
       .should('be.visible')
     cy.get(homepage.heading)
       .should('be.visible')
-      .and('have.text', text.heading)
+      .and('have.text', text.header)
       .and('have.css', 'color', css.color)
       .and('have.css', 'font-size', css.headingFontSize)
       .and('have.css', 'font-weight', css.headingFontWeight)

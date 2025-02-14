@@ -551,7 +551,7 @@ a:hover {
 	font-weight: 900;
 	letter-spacing: -0.035em;
 	line-height: 1em;
-	color: #42b5a9;
+	color: rgb(99, 230, 190);
 }
 
 #header p {
@@ -682,12 +682,12 @@ a:hover {
 
 /* Change hover color for icons */
 #header nav a:hover {
-	color: #80CBC4; /* Change this to a color that complements dark gray */
+	color: rgb(99, 230, 190); /* Change this to a color that complements dark gray */
 }
 
 #header nav a:hover:before {
 	background-color: rgba(128, 203, 196, 0.175); /* Keep this to match the hover color */
-	color: #80CBC4; /* Change this to match the hover color */
+	color: 	rgb(99, 230, 190); /* Change this to match the hover color */
 }
 
 #header nav a:active {
@@ -706,7 +706,7 @@ a:hover {
 
 /* Change hover color for icons */
 nav ul li a:hover {
-	color: #80CBC4; /* Change this to match the hover color */
+	color: rgb(99, 230, 190); /* Change this to match the hover color */
 }
 
 /* Tooltip container */
