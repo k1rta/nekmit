@@ -1,12 +1,12 @@
-const { defineConfig } = require('cypress')
+const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
   numTestsKeptInMemory: 15,
   defaultCommandTimeout: 15000,
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      // Implement node event listeners here if needed
     },
     baseUrl: process.env.CYPRESS_BASE_URL || "https://k1rta.github.io/nekmit/"
   },
-})
+});

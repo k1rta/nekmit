@@ -1,0 +1,55 @@
+name: 🧪 Cypress Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  test-local:
+    name: 🏠 Run Cypress Tests on Localhost (PR)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18  # Use latest stable Node.js
+
+      - name: 📦 Install Dependencies
+        run: npm install
+
+      - name: 🚀 Start Local Server
+        run: |
+          npm run start &  # Run Express server in the background
+          sleep 5          # Wait for the server to be ready
+
+      - name: 🧪 Run Cypress Tests (Localhost)
+        run: npm run cypress:run:local
+
+  test-prod:
+    name: 🔥 Run Cypress Tests on Production (Push)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: 📦 Install Dependencies
+        run: npm install
+
+      - name: 🔥 Run Cypress Tests (Production)
+        run: npm run cypress:run:prod
