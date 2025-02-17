@@ -7,6 +7,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: "https://k1rta.github.io/nekmit/"
+    baseUrl: process.env.CYPRESS_BASE_URL || "https://k1rta.github.io/nekmit/"
   },
 })
