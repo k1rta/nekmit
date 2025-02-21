@@ -4,7 +4,19 @@ const cors = require('cors');
 const admin = require('firebase-admin');
 
 // Load Firebase service account credentials
-const serviceAccount = require('./firebase-config.json');
+require('dotenv').config();  // Load .env variables
+
+let serviceAccount;
+try {
+  if (process.env.FIREBASE_CONFIG) {
+    serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
+  } else {
+    throw new Error('❌ FIREBASE_CONFIG is missing from .env');
+  }
+} catch (error) {
+  console.error('❌ Error loading Firebase config:', error);
+  process.exit(1);
+}
 
 admin.initializeApp({
   credential: admin.credential.cert({
