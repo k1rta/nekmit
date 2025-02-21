@@ -4,12 +4,20 @@ const cors = require('cors');
 const admin = require('firebase-admin');
 
 // Load Firebase service account credentials
-require('dotenv').config();  // Load .env variables
+require('dotenv').config();  // ✅ Load .env file
 
 let serviceAccount;
 try {
   if (process.env.FIREBASE_CONFIG) {
     serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
+
+    if (!serviceAccount.private_key) {
+      throw new Error('❌ private_key is missing from FIREBASE_CONFIG');
+    }
+
+    // Fix multiline private key issue (Ensure proper formatting)
+    serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
+
   } else {
     throw new Error('❌ FIREBASE_CONFIG is missing from .env');
   }
