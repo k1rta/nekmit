@@ -21,15 +21,19 @@ jobs:
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18  # Use latest stable Node.js
+          node-version: 18
 
       - name: 📦 Install Dependencies
         run: npm install
 
+      - name: 🛠️ Create Firebase Config File
+        run: |
+          echo '${{ secrets.FIREBASE_CONFIG }}' > firebase-config.json
+
       - name: 🚀 Start Local Server
         run: |
           npm run start &  # Run Express server in the background
-          sleep 5          # Wait for the server to be ready
+          sleep 5
 
       - name: 🧪 Run Cypress Tests (Localhost)
         run: npm run cypress:run:local
@@ -50,6 +54,10 @@ jobs:
 
       - name: 📦 Install Dependencies
         run: npm install
+
+      - name: 🛠️ Create Firebase Config File
+        run: |
+          echo '${{ secrets.FIREBASE_CONFIG }}' > firebase-config.json
 
       - name: 🔥 Run Cypress Tests (Production)
         run: npm run cypress:run:prod
