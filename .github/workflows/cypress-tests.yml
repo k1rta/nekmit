@@ -28,7 +28,7 @@ jobs:
 
       - name: 🛠️ Create Firebase Config File
         run: |
-          echo '${{ secrets.FIREBASE_CONFIG }}' > firebase-config.json
+          printf '%s' "${{ secrets.FIREBASE_CONFIG }}" > firebase-config.json
 
       - name: 🚀 Start Local Server
         run: |
