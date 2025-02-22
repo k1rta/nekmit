@@ -38,11 +38,16 @@ app.get('/', (req, res) => {
 // Pageview tracking API (Logs to Firebase Firestore)
 app.post('/api/pageview', async (req, res) => {
   try {
+    const { page, environment } = req.body;
     const timestamp = new Date().toISOString();
     
-    console.log(`📌 Pageview received at: ${timestamp}`);
+    console.log(`📌 Pageview received at: ${timestamp} from ${environment}`);
 
-    await db.collection('pageviews').add({ timestamp });
+    await db.collection('pageviews').add({ 
+      timestamp, 
+      page, 
+      environment 
+    });
 
     console.log('✅ Pageview successfully recorded in Firebase');
 

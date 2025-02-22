@@ -124,13 +124,21 @@
         window.onload = function() { document.body.classList.remove('is-preload'); }
         window.ontouchmove = function() { return false; }
         window.onorientationchange = function() { document.body.scrollTop = 0; }
+    
+        // Detect environment
+        const environment = window.location.hostname === 'localhost' ? 'localhost' : 'production';
+    
+        // Send pageview data with environment
         fetch('/api/pageview', {
             method: 'POST',
             headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ page: window.location.pathname })
-})
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                page: window.location.pathname,
+                environment: environment
+            })
+        });
     </script>
     <script type="application/ld+json">
     {
