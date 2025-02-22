@@ -125,25 +125,26 @@
         window.ontouchmove = function() { return false; }
         window.onorientationchange = function() { document.body.scrollTop = 0; }
     
-        // Detect if running on localhost or production
-        const isLocalhost = window.location.hostname.includes("localhost");
-    
-        // Use the correct API URL
-        const apiUrl = isLocalhost 
-            ? "http://localhost:3000/api/pageview"  // Local development
-            : "https://nekmit.onrender.com/api/pageview";  // Production API on Render
-    
-        // Send pageview data
-        fetch(apiUrl, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                page: window.location.pathname,
-                environment: isLocalhost ? "localhost" : "production"
-            })
-        }).then(response => response.json())
-          .then(data => console.log("✅ Pageview logged:", data))
-          .catch(error => console.error("❌ Pageview logging failed:", error));
+// Detect if running in GitHub Actions
+const isCI = window.location.hostname === "localhost" && window.location.port === "4000";
+const isLocalhost = window.location.hostname.includes("localhost");
+
+// Use correct API URL
+const apiUrl = isLocalhost 
+    ? `http://localhost:${isCI ? 4000 : 3000}/api/pageview`
+    : "https://nekmit.onrender.com/api/pageview";
+
+// Send pageview data
+fetch(apiUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+        page: window.location.pathname,
+        environment: isLocalhost ? "localhost" : "production"
+    })
+}).then(response => response.json())
+  .then(data => console.log("✅ Pageview logged:", data))
+  .catch(error => console.error("❌ Pageview logging failed:", error));
     </script>
     <script type="application/ld+json">
     {
