@@ -4,11 +4,28 @@ const cors = require('cors');
 
 // ✅ Load Firebase credentials from JSON
 const admin = require("firebase-admin");
-const serviceAccount = require("./firebase-config.json");  // Direct file reference
+const fs = require("fs"); // File system to check if local config exists
 
+let serviceAccount;
+
+// Check if running locally by looking for firebase-config.json
+if (fs.existsSync("./firebase-config.json")) {
+    console.log("✅ Using local firebase-config.json");
+    serviceAccount = require("./firebase-config.json");
+} else if (process.env.FIREBASE_CONFIG) {
+    console.log("✅ Using Firebase config from environment variables");
+    serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
+} else {
+    console.error("❌ ERROR: No Firebase credentials found! Set up FIREBASE_CONFIG in Render.");
+    process.exit(1);
+}
+
+// Initialize Firebase
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+    credential: admin.credential.cert(serviceAccount),
 });
+
+const db = admin.firestore();
 
 // ✅ Check if Firebase is already initialized
 if (!admin.apps.length) {
@@ -16,9 +33,6 @@ if (!admin.apps.length) {
     credential: admin.credential.cert(serviceAccount)
   });
 }
-
-// ✅ Firestore Database
-const db = admin.firestore();
 
 const app = express();
 const port = process.env.PORT || 3000;
