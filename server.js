@@ -1,10 +1,14 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const admin = require('firebase-admin');
 
 // ✅ Load Firebase credentials from JSON
-const serviceAccount = require('./firebase-config.json');
+const admin = require("firebase-admin");
+const serviceAccount = require("./firebase-config.json");  // Direct file reference
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
 // ✅ Check if Firebase is already initialized
 if (!admin.apps.length) {
