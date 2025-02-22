@@ -20,6 +20,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      CI: true  # ✅ Set CI to true for GitHub Actions
+
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v4

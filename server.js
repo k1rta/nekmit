@@ -2,9 +2,8 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 
-// ✅ Load Firebase credentials from JSON
 const admin = require("firebase-admin");
-const fs = require("fs"); // File system to check if local config exists
+const fs = require("fs");
 
 let serviceAccount;
 
@@ -16,7 +15,7 @@ if (fs.existsSync("./firebase-config.json")) {
     console.log("✅ Using Firebase config from environment variables");
     serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
 } else {
-    console.error("❌ ERROR: No Firebase credentials found! Set up FIREBASE_CONFIG in Render.");
+    console.error("❌ ERROR: No Firebase credentials found! Set up FIREBASE_CONFIG.");
     process.exit(1);
 }
 
@@ -27,17 +26,9 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-// ✅ Check if Firebase is already initialized
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-  });
-}
-
 const app = express();
-const port = process.env.PORT || 3000;
 
-// Enable CORS for development
+// Enable CORS
 app.use(cors());
 app.use(express.json());
 
@@ -49,7 +40,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Pageview tracking API (Logs to Firebase Firestore)
+// Detect if running inside GitHub Actions
+const isCI = process.env.CI === "true"; 
+const port = isCI ? 4000 : 3000; // Different port for GitHub Actions
+
+// Pageview tracking API
 app.post('/api/pageview', async (req, res) => {
   try {
     const { page, environment } = req.body;
@@ -72,7 +67,7 @@ app.post('/api/pageview', async (req, res) => {
   }
 });
 
-// Start the server
+// Start server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
