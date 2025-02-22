@@ -63,3 +63,6 @@ build/
 # Temporary files
 tmp/
 temp/
+
+# Firebase service account credentials
+firebase-config.json
