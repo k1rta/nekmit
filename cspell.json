@@ -1,0 +1,7 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": ["ajlkn", "esbenp", "Kirta", "Nekmit"],
+  "ignorePaths": ["node_modules", "dist", "coverage"],
+  "enableFiletypes": ["js", "json", "html", "css", "md"]
+}
