@@ -1,3 +1,5 @@
+import Ajv from 'ajv'
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -23,3 +25,47 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('validateLink', ($a, expectedLinks) => {
+  const href = $a.attr('href')
+  expect(href, 'href should be defined').to.not.be.undefined
+
+  const decodedHref = decodeURIComponent(href).replace(/\/$/, '').trim()
+  const decodedExpectedLinks = expectedLinks.map((link) =>
+    decodeURIComponent(link).replace(/\/$/, '').trim()
+  )
+
+  expect(decodedExpectedLinks, `Expected link: ${decodedHref}`).to.include(decodedHref)
+
+  if (href.startsWith('http')) {
+    expect($a, `External link should open in a new tab: ${href}`).to.have.attr('target', '_blank')
+  } else if (href.startsWith('mailto:')) {
+    expect(href, 'Email should be in a valid format').to.match(/^mailto:.+@.+\..+$/)
+  } else if (href.endsWith('.pdf')) {
+    expect(href, 'PDF link should end with .pdf').to.match(/\.pdf$/)
+  }
+})
+
+Cypress.Commands.add('validateApiSchema', (response, schemaFile) => {
+  cy.fixture(schemaFile).then((schema) => {
+    const ajv = new Ajv()
+    const validate = ajv.compile(schema)
+    const valid = validate(response)
+    if (!valid) {
+      cy.log('Schema Validation Errors:', JSON.stringify(validate.errors, null, 2))
+      console.error('Schema Validation Errors:', validate.errors)
+    }
+    expect(valid, 'Response should match schema').to.be.true
+  })
+})
+
+Cypress.Commands.add('validateRequestBody', (requestBody) => {
+  expect(requestBody).to.have.property('page', '/')
+  const expectedEnv = Cypress.env('ENVIRONMENT') || 'localhost'
+  expect(requestBody).to.have.property('environment', expectedEnv)
+  expect(requestBody).to.have.property('timestamp').that.is.a('string')
+})
+
+Cypress.Commands.add('debugApiResponse', (responseBody) => {
+  cy.log('API Response:', JSON.stringify(responseBody, null, 2))
+})

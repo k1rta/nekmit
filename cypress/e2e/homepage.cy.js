@@ -1,77 +1,135 @@
 import homepage from '../selectors/homepage.js'
 
 describe('Homepage', () => {
-
   const text = {
-    header: 'Kirta-Linda Karits',
-    paragraph: 'Software testing for great products • QA outsourcing • Customized testing solutions & methodologies • Automation'
-  };
+    headingText: 'Kirta-Linda Karits { }',
+    paragraphText:
+      '\n            Smarter Tests  •  Faster Automation  •  Better Releases\n          ',
+    footerText: '\n          © Nekmit LLC. Design:\n            HTML5 UP.\n        ',
+  }
 
   const css = {
-    color: 'rgb(99, 230, 190)',
+    headingColor: 'rgb(99, 230, 190)',
+    paragraphColor: 'rgb(255, 255, 255)',
+    headingFontFamily: '"JetBrains Mono", monospace',
+    paragraphFontFamily: '"JetBrains Mono", monospace',
     headingFontSize: '69.6px',
-    paragraphFontSize: '24px',
+    paragraphFontSize: '20px',
     headingFontWeight: '900',
     paragraphFontWeight: '300',
     headingLetterSpacing: '-2.436px',
-    paragraphLetterSpacing: '-0.4px',
+    paragraphLetterSpacing: '0',
     headingLineHeight: '69.6px',
-    paragraphLineHeight: '28px'
-  };
+    paragraphLineHeight: '28px',
+  }
 
-  const links = [
-    'https://www.cypress.io/',
+  const expectedIcons = [
+    'fa-user-astronaut',
+    'fa-check',
+    'fa-github',
+    'fa-paper-plane',
+    'fa-briefcase',
+  ]
+
+  const expectedLinks = [
+    'assets/Resume_KLK.pdf',
     'https://github.com/k1rta/nekmit/',
-    'https://github.com/k1rta/nekmit/issues',
-    'http://html5up.net/'
-  ];
-
-  const footerText = '© Nekmit LLC. Design: HTML5 UP.';
+    'https://github.com/k1rta?tab=repositories',
+    'mailto:kirtalindakarits@icloud.com',
+    'https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C',
+    'http://html5up.net/',
+  ]
 
   beforeEach(() => {
     cy.visit('')
-  });
 
-  it('should display the correct header', () => {
-    cy.get(homepage.header)
-      .should('be.visible')
+    // Wait until the body class no longer includes "is-preload"
+    cy.get('body').should('not.have.class', 'is-preload')
+
+    // Wait for #wrapper (or any key element) to fully load
+    cy.get('#wrapper', { timeout: 5000 }).should('be.visible')
+  })
+
+  it('should load the page in under 2 seconds', () => {
+    const start = performance.now()
+
+    cy.visit('').then(() => {
+      cy.window().then((win) => {
+        const loadTime = performance.now() - start
+        cy.log(`Page load time: ${loadTime.toFixed(2)}ms`)
+        expect(loadTime).to.be.lessThan(2000)
+      })
+    })
+  })
+
+  it('should display the correct header text', () => {
+    cy.get(homepage.header).should('be.visible')
     cy.get(homepage.heading)
       .should('be.visible')
-      .and('have.text', text.header)
-      .and('have.css', 'color', css.color)
+      .and('not.be.empty')
+      .and('have.text', text.headingText)
+      .and('have.css', 'font-family', css.headingFontFamily)
+      .and('have.css', 'color', css.headingColor)
       .and('have.css', 'font-size', css.headingFontSize)
       .and('have.css', 'font-weight', css.headingFontWeight)
       .and('have.css', 'letter-spacing', css.headingLetterSpacing)
       .and('have.css', 'line-height', css.headingLineHeight)
-  });
-  
-  /* it('check paragraph', () => {
+  })
+
+  it('should display the correct paragraph text', () => {
     cy.get(homepage.paragraph)
       .should('be.visible')
-      .and('have.text', text[1])
-      .and('have.css', 'color', css[0])
-      .and('have.css', 'font-size', css[2])
-      .and('have.css', 'font-weight', css[4])
-      .and('have.css', 'letter-spacing', css[6])
-      .and('have.css', 'line-height', css[8])
-  });
+      .and('not.be.empty')
+      .and('have.text', text.paragraphText)
+      .and('have.css', 'font-family', css.paragraphFontFamily)
+      .and('have.css', 'color', css.paragraphColor)
+      .and('have.css', 'font-size', css.paragraphFontSize)
+      .and('have.css', 'font-weight', css.paragraphFontWeight)
+      .and('have.css', 'letter-spacing', css.paragraphLetterSpacing)
+      .and('have.css', 'line-height', css.paragraphLineHeight)
+  })
 
-  it('check links', () => {
-      cy.get(homepage.links).each($a => {
-          expect($a, links).to.have.attr("href").not.contain("undefined")
-          expect($a, links).to.have.attr("target").contain("_blank")
-      });
-  });
+  it('should display all navigation icons', () => {
+    cy.get(homepage.navIcons).each(($icon) => {
+      cy.wrap($icon)
+        .should('be.visible') // Ensure the icon container is visible
+        .and('have.class', 'icon') // Ensure it has the base "icon" class
+    })
+  })
 
-  it('check email', () => {
-    cy.get(homepage.emailLink).each($a => {
-        expect($a, email).to.have.attr("href").not.contain("undefined")
-    });
-  });
+  it('should have the correct Font Awesome icon classes', () => {
+    cy.get(homepage.navIcons).each(($icon, index) => {
+      cy.wrap($icon).should('have.class', 'icon').and('have.class', expectedIcons[index])
+    })
+  })
 
-it('check footer', () => {
-  cy.get(homepage.footer)
-    .should('be.visible')
-    .and('have.text', footerText[0])
-  }); */
+  /* it('should display tooltips on hover', () => {
+    cy.get(homepage.tooltip).each(($tooltip) => {
+      cy.wrap($tooltip).trigger('mouseover', { force: true }) // Ensure hover event is triggered
+
+      cy.wrap($tooltip)
+        .find('.tooltiptext', { timeout: 5000 }) // Wait up to 5s for visibility
+        .should('be.visible') // Tooltip should appear
+        .and('have.css', 'opacity', '1') // Ensure tooltip is fully visible
+    })
+  }) */
+
+  it('should validate all navigation links including external, email, and PDFs', () => {
+    cy.get(homepage.navLinks).each(($a) => {
+      cy.validateLink($a, expectedLinks)
+    })
+  })
+  it('should validate footer text and external link', () => {
+    cy.get(homepage.footer).should('be.visible').and('contain.text', text.footerText)
+
+    cy.get(homepage.footer)
+      .find('a')
+      .each(($a) => {
+        cy.validateLink($a, expectedLinks)
+      })
+  })
+
+  it('should have animations enabled', () => {
+    cy.get(homepage.wrapper).should('have.css', 'animation-name', 'wrapper')
+  })
 })

@@ -25,7 +25,7 @@ jobs:
 
       - name: 📦 Install Dependencies
         run: npm install
-       
+
       - name: 🛠️ Create Firebase Config File
         env:
           FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}

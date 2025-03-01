@@ -1,10 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
 
-# Get the list of staged files
-FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|ts|jsx|tsx|html|css|md|json)$' || true)
-
-# Run spell check and linting only on staged files
-if [ -n "$FILES" ]; then
-  npx cspell --no-summary --no-progress --no-must-find-files $FILES
-  npx eslint --fix $FILES
-fi
+npm test
+npx prettier --write . && git add .
+npx prettier --write . && npx eslint . --fix && git add .
