@@ -3,7 +3,7 @@ describe('Pageview API - Error Handling', () => {
     cy.visit('')
   })
 
-  it('should return a 500 error when the server fails', () => {
+  it('should return HTTP 500 when the server fails', () => {
     cy.intercept('POST', '/api/pageview', {
       statusCode: 500,
       body: { message: 'Server Error' },
@@ -16,7 +16,7 @@ describe('Pageview API - Error Handling', () => {
     })
   })
 
-  it('should return a 404 error when the API endpoint is missing', () => {
+  it('should return HTTP 404 when the API endpoint is missing', () => {
     cy.intercept('POST', '/api/pageview', {
       statusCode: 404,
       body: { message: 'Not Found' },
@@ -29,7 +29,7 @@ describe('Pageview API - Error Handling', () => {
     })
   })
 
-  it('should return a 401 error if the request is unauthorized', () => {
+  it('should return HTTP 401 when the request is unauthorized', () => {
     cy.intercept('POST', '/api/pageview', {
       statusCode: 401,
       body: { message: 'Unauthorized' },
@@ -42,9 +42,9 @@ describe('Pageview API - Error Handling', () => {
     })
   })
 
-  it('should return a 400 error when required parameters are missing', () => {
+  it('should return HTTP 400 when required parameters are missing', () => {
     cy.intercept('POST', '/api/pageview', (req) => {
-      req.body = {} // Send an empty body
+      req.body = {}
       req.reply({
         statusCode: 400,
         body: { message: 'Bad Request: Missing required parameters' },

@@ -17,14 +17,14 @@ describe('Pageview API - Success Cases', () => {
     })
   })
 
-  it('should validate request body when sending pageview data', () => {
+  it('should send the correct request body when recording a pageview', () => {
     cy.wait('@pageview').then((interception) => {
       expect(interception.request.headers).to.have.property('content-type', 'application/json')
       cy.validateRequestBody(interception.request.body)
     })
   })
 
-  it('should return a 200 status when recording a pageview', () => {
+  it('should return HTTP 200 when pageview is recorded successfully', () => {
     cy.wait('@pageview').then((interception) => {
       expect(interception.response.statusCode).to.eq(200)
       expect(interception.response.body).to.have.property(

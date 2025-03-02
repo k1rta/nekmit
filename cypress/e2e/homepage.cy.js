@@ -62,7 +62,7 @@ describe('Homepage', () => {
     })
   })
 
-  it('should display the correct header text', () => {
+  it('should display the correct heading with proper styles', () => {
     cy.get(homepage.header).should('be.visible')
     cy.get(homepage.heading)
       .should('be.visible')
@@ -76,7 +76,7 @@ describe('Homepage', () => {
       .and('have.css', 'line-height', css.headingLineHeight)
   })
 
-  it('should display the correct paragraph text', () => {
+  it('should display the correct paragraph with proper styles', () => {
     cy.get(homepage.paragraph)
       .should('be.visible')
       .and('not.be.empty')
@@ -89,7 +89,7 @@ describe('Homepage', () => {
       .and('have.css', 'line-height', css.paragraphLineHeight)
   })
 
-  it('should display all navigation icons', () => {
+  it('should render all navigation icons and validate their visibility', () => {
     cy.get(homepage.navIcons).each(($icon) => {
       cy.wrap($icon)
         .should('be.visible') // Ensure the icon container is visible
@@ -97,13 +97,13 @@ describe('Homepage', () => {
     })
   })
 
-  it('should have the correct Font Awesome icon classes', () => {
+  it('should validate the Font Awesome icon classes for navigation', () => {
     cy.get(homepage.navIcons).each(($icon, index) => {
       cy.wrap($icon).should('have.class', 'icon').and('have.class', expectedIcons[index])
     })
   })
 
-  /* it('should display tooltips on hover', () => {
+  /* it('should show tooltips on hover', () => {
     cy.get(homepage.tooltip).each(($tooltip) => {
       cy.wrap($tooltip).trigger('mouseover', { force: true }) // Ensure hover event is triggered
 
@@ -114,12 +114,12 @@ describe('Homepage', () => {
     })
   }) */
 
-  it('should validate all navigation links including external, email, and PDFs', () => {
+  it('should validate all navigation links (external, email, PDFs)', () => {
     cy.get(homepage.navLinks).each(($a) => {
       cy.validateLink($a, expectedLinks)
     })
   })
-  it('should validate footer text and external link', () => {
+  it('should display the correct footer text and validate external link', () => {
     cy.get(homepage.footer).should('be.visible').and('contain.text', text.footerText)
 
     cy.get(homepage.footer)
@@ -129,7 +129,7 @@ describe('Homepage', () => {
       })
   })
 
-  it('should have animations enabled', () => {
+  it('should ensure animations are enabled on the wrapper', () => {
     cy.get(homepage.wrapper).should('have.css', 'animation-name', 'wrapper')
   })
 })
