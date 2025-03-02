@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Validate commit message format
+npx --no-install commitlint --edit "$1"
+
+# If commit message is missing, suggest one based on file changes
+if [ -z "$(cat "$1")" ]; then
+  COMMIT_MSG=$(git diff --cached --name-only | npx cz --hook || echo "fix: update files")
+  echo "$COMMIT_MSG" > "$1"
+fi

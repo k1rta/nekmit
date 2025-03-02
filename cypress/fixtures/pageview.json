@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string"
+    },
+    "page": {
+      "type": "string"
+    },
+    "environment": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": ["message", "page", "environment", "timestamp"]
+}

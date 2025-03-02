@@ -6,23 +6,23 @@
 
 /* Wrapper */
 
-    #wrapper {
-        opacity: 1 !important;
-        background-color: #333; /* Dark gray background */
-    }
+#wrapper {
+  opacity: 1 !important;
+  background-color: #333; /* Dark gray background */
+}
 
 /* Overlay */
 
-    #overlay {
-        opacity: 1 !important;
-    }
+#overlay {
+  opacity: 1 !important;
+}
 
 /* Header */
 
-    #header {
-        opacity: 1 !important;
-    }
+#header {
+  opacity: 1 !important;
+}
 
-        #header nav li {
-            opacity: 1 !important;
-        }
+#header nav li {
+  opacity: 1 !important;
+}
