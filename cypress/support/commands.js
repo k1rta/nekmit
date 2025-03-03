@@ -60,8 +60,9 @@ Cypress.Commands.add('validateApiSchema', (response, schemaFile) => {
 })
 
 Cypress.Commands.add('validateRequestBody', (requestBody) => {
-  expect(requestBody).to.have.property('page', '/')
-  const expectedEnv = Cypress.env('ENVIRONMENT') || 'localhost'
+  const expectedPage = Cypress.config('baseUrl').endsWith('nekmit/') ? '/nekmit/' : '/'
+  expect(requestBody).to.have.property('page', expectedPage)
+  const expectedEnv = Cypress.config('baseUrl').includes('localhost') ? 'localhost' : 'production'
   expect(requestBody).to.have.property('environment', expectedEnv)
   expect(requestBody).to.have.property('timestamp').that.is.a('string')
 })
