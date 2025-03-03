@@ -8,11 +8,12 @@ describe('Pageview API - Success Cases', () => {
     cy.wait('@pageview').then((interception) => {
       cy.validateApiSchema(interception.response.body, 'pageview.json')
 
-      expect(interception.response.body).to.have.property('page', '/')
-      expect(interception.response.body).to.have.property(
-        'environment',
-        Cypress.env('ENVIRONMENT') || 'localhost'
-      )
+      const expectedPage = Cypress.config('baseUrl').endsWith('nekmit/') ? '/nekmit/' : '/'
+      expect(interception.response.body).to.have.property('page', expectedPage)
+      const expectedEnv = Cypress.config('baseUrl').includes('localhost')
+        ? 'localhost'
+        : 'production'
+      expect(interception.response.body).to.have.property('environment', expectedEnv)
       expect(interception.response.body).to.have.property('timestamp').that.is.a('string')
     })
   })
