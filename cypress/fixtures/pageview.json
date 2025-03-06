@@ -11,8 +11,7 @@
       "type": "string"
     },
     "timestamp": {
-      "type": "string",
-      "format": "date-time"
+      "type": "string"
     }
   },
   "required": ["message", "page", "environment", "timestamp"]

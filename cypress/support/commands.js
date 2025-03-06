@@ -1,4 +1,4 @@
-import Ajv from 'ajv'
+const Ajv = require('ajv')
 
 // ***********************************************
 // This example commands.js shows you how to
