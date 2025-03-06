@@ -2,25 +2,26 @@ import homepage from '../selectors/homepage.js'
 
 describe('Homepage', () => {
   const text = {
-    headingText: 'Kirta-Linda Karits { }',
-    paragraphText:
-      '\n            Smarter Tests  •  Faster Automation  •  Better Releases\n          ',
+    headingText: 'Kirta-Linda Karits',
+    paragraphText: '\n            Smarter Tests • Faster Automation • Better Releases\n          ',
     footerText: '\n          © Nekmit LLC. Design:\n            HTML5 UP.\n        ',
   }
 
   const css = {
     headingColor: 'rgb(99, 230, 190)',
-    paragraphColor: 'rgb(255, 255, 255)',
+    paragraphColor: 'rgb(99, 230, 190)',
     headingFontFamily: '"JetBrains Mono", monospace',
     paragraphFontFamily: '"JetBrains Mono", monospace',
-    headingFontSize: '69.6px',
-    paragraphFontSize: '20px',
-    headingFontWeight: '900',
-    paragraphFontWeight: '300',
-    headingLetterSpacing: '-2.436px',
+    headingFontSize: '64px',
+    paragraphFontSize: '20.8px',
+    headingFontWeight: '700',
+    paragraphFontWeight: '100',
+    headingLetterSpacing: '0',
     paragraphLetterSpacing: '0',
-    headingLineHeight: '69.6px',
+    headingLineHeight: '64px',
     paragraphLineHeight: '28px',
+    paragraphOpacity: '0.75',
+    paragraphMargin: '15.6px 0px 5.2px',
   }
 
   const expectedIcons = [
@@ -47,7 +48,7 @@ describe('Homepage', () => {
     cy.get('body').should('not.have.class', 'is-preload')
 
     // Wait for #wrapper (or any key element) to fully load
-    cy.get('#wrapper', { timeout: 5000 }).should('be.visible')
+    cy.get(homepage.navCompany, { timeout: 5000 }).should('be.visible')
   })
 
   it('should load the page in under 2 seconds', () => {
@@ -87,6 +88,8 @@ describe('Homepage', () => {
       .and('have.css', 'font-weight', css.paragraphFontWeight)
       .and('have.css', 'letter-spacing', css.paragraphLetterSpacing)
       .and('have.css', 'line-height', css.paragraphLineHeight)
+      .and('have.css', 'opacity', css.paragraphOpacity)
+      .and('have.css', 'margin', css.paragraphMargin)
   })
 
   it('should render all navigation icons and validate their visibility', () => {
