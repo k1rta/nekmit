@@ -48,7 +48,7 @@ describe('Homepage', () => {
     cy.get('body').should('not.have.class', 'is-preload')
 
     // Wait for #wrapper (or any key element) to fully load
-    cy.get(homepage.navCompany, { timeout: 5000 }).should('be.visible')
+    cy.get('#wrapper', { timeout: 5000 }).should('be.visible')
   })
 
   it('should load the page in under 2 seconds', () => {
