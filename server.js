@@ -52,28 +52,30 @@ app.get('/', (req, res) => {
 // Pageview tracking API (Logs to Firebase Firestore)
 app.post('/api/pageview', async (req, res) => {
   const { page, environment } = req.body
-  const timestamp = new Date() // Use Date object instead of string
+  const timestamp = new Date() // Get current timestamp
 
   if (!page || !environment) {
     return res.status(400).json({ message: 'Missing required parameters' })
   }
 
   try {
-    // Add the pageview to Firestore
-    await db.collection('pageviews').add({
+    // ✅ Ensure Firestore stores the timestamp properly
+    const docRef = await db.collection('pageviews').add({
       page,
       environment,
-      timestamp: admin.firestore.Timestamp.fromDate(timestamp),
+      timestamp: admin.firestore.Timestamp.fromDate(timestamp), // ✅ Correct Firestore timestamp format
     })
+
+    console.log(`✅ Pageview saved: ${docRef.id}`)
 
     res.status(200).json({
       message: 'Pageview recorded in Firebase',
-      page: page,
-      environment: environment,
-      timestamp: timestamp.toISOString(),
+      page,
+      environment,
+      timestamp: timestamp.toISOString(), // Send ISO string only in response, not in Firestore
     })
   } catch (error) {
-    console.error('Error recording pageview:', error)
+    console.error('❌ Firestore Error:', error)
     res.status(500).json({ message: 'Failed to record pageview' })
   }
 })

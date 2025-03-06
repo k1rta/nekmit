@@ -25,10 +25,13 @@
     "prettier": "^3.5.2"
   },
   "dependencies": {
+    "ajv-formats": "^3.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "firebase-admin": "^13.1.0"
+    "firebase-admin": "^13.2.0",
+    "glob": "^11.0.1",
+    "lru-cache": "^11.0.2"
   },
   "config": {
     "commitizen": {
