@@ -21,18 +21,16 @@ if (fs.existsSync('./firebase-config.json')) {
 }
 
 // Initialize Firebase
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-})
-
-const db = admin.firestore()
-
-// ✅ Check if Firebase is already initialized
-if (!admin.apps.length) {
+try {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   })
+  console.log('✅ Firebase initialized successfully.')
+} catch (error) {
+  console.error('❌ Firebase initialization failed:', error)
 }
+
+const db = admin.firestore()
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -59,6 +57,9 @@ app.post('/api/pageview', async (req, res) => {
   }
 
   try {
+    // Log the data being sent to Firestore
+    console.log('📄 Data to be saved:', { page, environment, timestamp })
+
     // ✅ Ensure Firestore stores the timestamp properly
     const docRef = await db.collection('pageviews').add({
       page,
