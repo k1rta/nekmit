@@ -3,8 +3,8 @@ import homepage from '../selectors/home_page.js'
 describe('Home page', () => {
   const text = {
     headingText: 'Kirta-Linda Karits',
-    paragraphText: '\n            Smarter Tests • Faster Automation • Better Releases\n          ',
-    footerText: '\n          © Nekmit LLC. Design:\n            HTML5 UP.\n        ',
+    paragraphText: '\n          Smarter Tests • Faster Automation • Better Releases\n        ',
+    footerText: '\n        © Nekmit LLC. Design:\n          HTML5 UP.\n      ',
   }
 
   const css = {
