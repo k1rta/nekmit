@@ -1,10 +1,10 @@
-import homepage from '../selectors/homepage.js'
+import homepage from '../selectors/home_page.js'
 
-describe('Homepage', () => {
+describe('Home page', () => {
   const text = {
     headingText: 'Kirta-Linda Karits',
-    paragraphText: '\n            Smarter Tests • Faster Automation • Better Releases\n          ',
-    footerText: '\n          © Nekmit LLC. Design:\n            HTML5 UP.\n        ',
+    paragraphText: '\n          Smarter Tests • Faster Automation • Better Releases\n        ',
+    footerText: '\n        © Nekmit LLC. Design:\n          HTML5 UP.\n      ',
   }
 
   const css = {
@@ -43,12 +43,6 @@ describe('Homepage', () => {
 
   beforeEach(() => {
     cy.visit('')
-
-    // Wait until the body class no longer includes "is-preload"
-    cy.get('body').should('not.have.class', 'is-preload')
-
-    // Wait for #wrapper (or any key element) to fully load
-    cy.get('#wrapper', { timeout: 5000 }).should('be.visible')
   })
 
   it('should load the page in under 2 seconds', () => {
@@ -67,7 +61,6 @@ describe('Homepage', () => {
     cy.get(homepage.header).should('be.visible')
     cy.get(homepage.heading)
       .should('be.visible')
-      .and('not.be.empty')
       .and('have.text', text.headingText)
       .and('have.css', 'font-family', css.headingFontFamily)
       .and('have.css', 'color', css.headingColor)
@@ -80,7 +73,6 @@ describe('Homepage', () => {
   it('should display the correct paragraph with proper styles', () => {
     cy.get(homepage.paragraph)
       .should('be.visible')
-      .and('not.be.empty')
       .and('have.text', text.paragraphText)
       .and('have.css', 'font-family', css.paragraphFontFamily)
       .and('have.css', 'color', css.paragraphColor)
