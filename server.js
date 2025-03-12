@@ -81,6 +81,38 @@ app.post('/api/page_view', async (req, res) => {
   }
 })
 
+// Icon click tracking API
+app.post('/api/icon_click', async (req, res) => {
+  const { icon, environment, timestamp } = req.body
+
+  if (!icon) {
+    return res.status(400).json({ message: 'Missing icon name' })
+  }
+
+  try {
+    console.log('🖱️ Icon Clicked:', { icon, timestamp })
+
+    // Store icon click data in Firestore
+    const docRef = await db.collection('icon_click_logs').add({
+      icon,
+      environment,
+      timestamp: admin.firestore.Timestamp.fromDate(new Date(timestamp)),
+    })
+
+    console.log(`✅ Icon click recorded: ${docRef.id}`)
+
+    res.status(200).json({
+      message: 'Icon click recorded',
+      icon,
+      environment,
+      timestamp,
+    })
+  } catch (error) {
+    console.error('❌ Firestore Error:', error)
+    res.status(500).json({ message: 'Failed to record icon click' })
+  }
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`)

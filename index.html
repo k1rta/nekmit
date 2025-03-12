@@ -34,7 +34,7 @@
                 class="icon solid fa-user-astronaut"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-cy="nav-resume-link">
+                data-cy="resume-link">
                 <span class="label">Resume</span>
               </a>
               <span class="tooltiptext" data-cy="nav-resume-tooltip">Resume</span>
@@ -45,10 +45,10 @@
                 class="icon solid fa-check"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-cy="nav-check-link">
-                <span class="label">Demo</span>
+                data-cy="portfolio-link">
+                <span class="label">Portfolio</span>
               </a>
-              <span class="tooltiptext" data-cy="nav-work-in-practice-tooltip">Demo</span>
+              <span class="tooltiptext" data-cy="nav-work-in-practice-tooltip">Portfolio</span>
             </li>
             <li class="tooltip" data-cy="nav-github">
               <a
@@ -56,7 +56,7 @@
                 class="icon brands fa-github"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-cy="nav-github-link">
+                data-cy="github-link">
                 <span class="label">Other Works</span>
               </a>
               <span class="tooltiptext" data-cy="nav-other-works-tooltip">Other Works</span>
@@ -65,7 +65,7 @@
               <a
                 href="mailto:kirtalindakarits@icloud.com"
                 class="icon regular fa-paper-plane"
-                data-cy="nav-mail-link">
+                data-cy="mail-link">
                 <span class="label">Contact Me</span>
               </a>
               <span class="tooltiptext" data-cy="nav-contact-me-tooltip">Contact Me</span>
@@ -76,7 +76,7 @@
                 class="icon solid fa-briefcase"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-cy="nav-company-link">
+                data-cy="company-link">
                 <span class="label">Company Info</span>
               </a>
               <span class="tooltiptext" data-cy="nav-company-info-tooltip">Company Info</span>
@@ -123,6 +123,31 @@
     })
       .then((response) => response.json())
       .catch((error) => {})
+
+    // Track icon clicks
+    document.addEventListener('DOMContentLoaded', function () {
+      const clickApiUrl = isLocalhost
+        ? 'http://localhost:3000/api/icon_click'
+        : 'https://nekmit.onrender.com/api/icon_click'
+
+      document.querySelectorAll('nav ul li a').forEach((icon) => {
+        icon.addEventListener('click', function (event) {
+          const iconName = this.getAttribute('data-cy') // Extract icon name from data-cy attribute
+
+          fetch(clickApiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              icon: iconName,
+              environment: isLocalhost ? 'localhost' : 'production',
+              timestamp: new Date().toISOString(),
+            }),
+          })
+            .then((response) => response.json())
+            .catch((error) => console.error('Error logging icon click:', error))
+        })
+      })
+    })
   </script>
   <script type="application/ld+json">
     {
