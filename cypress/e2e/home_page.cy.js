@@ -1,4 +1,4 @@
-import homepage from '../selectors/home_page.js'
+import home_page from '../selectors/home_page.js'
 
 describe('Home page', () => {
   const text = {
@@ -58,8 +58,8 @@ describe('Home page', () => {
   })
 
   it('should display the correct heading with proper styles', () => {
-    cy.get(homepage.header).should('be.visible')
-    cy.get(homepage.heading)
+    cy.get(home_page.header).should('be.visible')
+    cy.get(home_page.heading)
       .should('be.visible')
       .and('have.text', text.headingText)
       .and('have.css', 'font-family', css.headingFontFamily)
@@ -71,7 +71,7 @@ describe('Home page', () => {
   })
 
   it('should display the correct paragraph with proper styles', () => {
-    cy.get(homepage.paragraph)
+    cy.get(home_page.paragraph)
       .should('be.visible')
       .and('have.text', text.paragraphText)
       .and('have.css', 'font-family', css.paragraphFontFamily)
@@ -85,7 +85,7 @@ describe('Home page', () => {
   })
 
   it('should render all navigation icons and validate their visibility', () => {
-    cy.get(homepage.navIcons).each(($icon) => {
+    cy.get(home_page.navIcons).each(($icon) => {
       cy.wrap($icon)
         .should('be.visible') // Ensure the icon container is visible
         .and('have.class', 'icon') // Ensure it has the base "icon" class
@@ -93,7 +93,7 @@ describe('Home page', () => {
   })
 
   it('should validate the Font Awesome icon classes for navigation', () => {
-    cy.get(homepage.navIcons).each(($icon, index) => {
+    cy.get(home_page.navIcons).each(($icon, index) => {
       cy.wrap($icon).should('have.class', 'icon').and('have.class', expectedIcons[index])
     })
   })
@@ -110,14 +110,14 @@ describe('Home page', () => {
   }) */
 
   it('should validate all navigation links (external, email, PDFs)', () => {
-    cy.get(homepage.navLinks).each(($a) => {
+    cy.get(home_page.navLinks).each(($a) => {
       cy.validateLink($a, expectedLinks)
     })
   })
   it('should display the correct footer text and validate external link', () => {
-    cy.get(homepage.footer).should('be.visible').and('contain.text', text.footerText)
+    cy.get(home_page.footer).should('be.visible').and('contain.text', text.footerText)
 
-    cy.get(homepage.footer)
+    cy.get(home_page.footer)
       .find('a')
       .each(($a) => {
         cy.validateLink($a, expectedLinks)
@@ -125,6 +125,6 @@ describe('Home page', () => {
   })
 
   it('should ensure animations are enabled on the wrapper', () => {
-    cy.get(homepage.wrapper).should('have.css', 'animation-name', 'wrapper')
+    cy.get(home_page.wrapper).should('have.css', 'animation-name', 'wrapper')
   })
 })

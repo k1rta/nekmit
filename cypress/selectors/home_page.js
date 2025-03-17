@@ -1,4 +1,4 @@
-const homepage = {
+const home_page = {
   wrapper: '[data-cy="wrapper"]',
   header: '[data-cy="header"]',
   heading: '[data-cy="header-title"]',
@@ -13,4 +13,4 @@ const homepage = {
   footer: '[data-cy="footer"]',
 }
 
-export default homepage
+export default home_page
