@@ -113,10 +113,6 @@ section {
   display: block;
 }
 
-body {
-  line-height: 1;
-}
-
 ol,
 ul {
   list-style: none;
@@ -181,7 +177,6 @@ body {
   font-size: 20pt;
   font-weight: 300 !important;
   letter-spacing: 0em;
-  line-height: 1.75em;
   text-align: center;
 }
 

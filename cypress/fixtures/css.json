@@ -1,0 +1,18 @@
+{
+  "bodyBackgroundColor": "rgb(38, 38, 38)",
+  "bodyFontFamily": "\"JetBrains Mono\", monospace",
+  "bodyFontSize": "16px",
+  "bodyMargin": "0px",
+  "bodyPadding": "0px",
+  "headingColor": "rgb(99, 230, 190)",
+  "headingFontFamily": "\"JetBrains Mono\", monospace",
+  "headingFontSize": "64px",
+  "headingFontWeight": "700",
+  "headingLineHeight": "64px",
+  "paragraphColor": "rgb(99, 230, 190)",
+  "paragraphFontFamily": "\"JetBrains Mono\", monospace",
+  "paragraphFontSize": "20.8px",
+  "paragraphLineHeight": "normal",
+  "paragraphOpacity": "0.75",
+  "paragraphMargin": "15.6px 0px 5.2px"
+}

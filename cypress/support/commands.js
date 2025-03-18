@@ -26,12 +26,12 @@ const Ajv = require('ajv')
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('validateLink', ($a, expectedLinks) => {
+Cypress.Commands.add('validateLink', ($a, links) => {
   const href = $a.attr('href')
   expect(href, 'href should be defined').to.not.be.undefined
 
   const decodedHref = decodeURIComponent(href).replace(/\/$/, '').trim()
-  const decodedExpectedLinks = expectedLinks.map((link) =>
+  const decodedExpectedLinks = links.map((link) =>
     decodeURIComponent(link).replace(/\/$/, '').trim()
   )
 

@@ -1,6 +1,6 @@
 const home_page = {
+  body: 'body',
   wrapper: '[data-cy="wrapper"]',
-  header: '[data-cy="header"]',
   heading: '[data-cy="header-title"]',
   paragraph: '[data-cy="paragraph"]',
   navLinks: 'nav a',
