@@ -28,21 +28,32 @@ const Ajv = require('ajv')
 
 Cypress.Commands.add('validateLink', ($a, links) => {
   const href = $a.attr('href')
-  expect(href, 'href should be defined').to.not.be.undefined
 
-  const decodedHref = decodeURIComponent(href).replace(/\/$/, '').trim()
-  const decodedExpectedLinks = links.map((link) =>
-    decodeURIComponent(link).replace(/\/$/, '').trim()
+  // Ensure href is defined and not empty
+  expect(href, 'href should be defined and not empty').to.not.be.undefined.and.not.be.empty
+
+  // Normalize href and expected links
+  const normalizedHref = decodeURIComponent(href).replace(/\/+$/, '').trim()
+  const normalizedExpectedLinks = links.map((link) =>
+    decodeURIComponent(link).replace(/\/+$/, '').trim()
   )
 
-  expect(decodedExpectedLinks, `Expected link: ${decodedHref}`).to.include(decodedHref)
+  // Validate the link is in the expected list
+  expect(normalizedExpectedLinks, `Expected link: ${normalizedHref}`).to.include(normalizedHref)
 
-  if (href.startsWith('http')) {
+  // External link should open in a new tab
+  if (/^https?:\/\//.test(href)) {
     expect($a, `External link should open in a new tab: ${href}`).to.have.attr('target', '_blank')
+    expect($a, `External link should have rel="noopener noreferrer": ${href}`).to.have.attr(
+      'rel',
+      'noopener noreferrer'
+    )
   } else if (href.startsWith('mailto:')) {
-    expect(href, 'Email should be in a valid format').to.match(/^mailto:.+@.+\..+$/)
-  } else if (href.endsWith('.pdf')) {
-    expect(href, 'PDF link should end with .pdf').to.match(/\.pdf$/)
+    expect(href, 'Email should be in a valid format').to.match(
+      /^mailto:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    )
+  } else if (/\.pdf(?:$|[?#])/.test(href)) {
+    expect(href, 'PDF link should end with .pdf').to.match(/\.pdf(?:$|[?#])/)
   }
 })
 

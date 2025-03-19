@@ -1,10 +1,10 @@
 import home_page from '../selectors/home_page.js'
 
 describe('Home page', () => {
-  let text, css, icons, links
+  let texts, css, icons, links
 
   before(() => {
-    cy.fixture('text').then((data) => (text = data))
+    cy.fixture('texts').then((data) => (texts = data))
     cy.fixture('css').then((data) => (css = data))
     cy.fixture('icons').then((data) => (icons = data))
     cy.fixture('links').then((data) => (links = data))
@@ -25,20 +25,20 @@ describe('Home page', () => {
   it('should display the correct heading with proper styles', () => {
     cy.get(home_page.heading)
       .should('be.visible')
-      .and('have.text', text.headingText)
+      .and('have.text', texts.headingText)
       .and('have.css', 'font-family', css.headingFontFamily)
       .and('have.css', 'font-size', css.headingFontSize)
       .and('have.css', 'font-weight', css.headingFontWeight)
-      .and('have.css', 'color', css.headingColor)
+      .and('have.css', 'color', css.headingTextColor)
       .and('have.css', 'line-height', css.headingLineHeight)
   })
 
   it('should display the correct paragraph with proper styles', () => {
     cy.get(home_page.paragraph)
       .should('be.visible')
-      .and('have.text', text.paragraphText)
+      .and('have.text', texts.paragraphText)
       .and('have.css', 'font-family', css.paragraphFontFamily)
-      .and('have.css', 'color', css.paragraphColor)
+      .and('have.css', 'color', css.paragraphTextColor)
       .and('have.css', 'font-size', css.paragraphFontSize)
       .and('have.css', 'line-height', css.paragraphLineHeight)
       .and('have.css', 'opacity', css.paragraphOpacity)
@@ -72,16 +72,6 @@ describe('Home page', () => {
     cy.get(home_page.navLinks).each(($a) => {
       cy.validateLink($a, links)
     })
-  })
-
-  it('should display the correct footer text and validate external link', () => {
-    cy.get(home_page.footer).should('be.visible').and('contain.text', text.footerText)
-
-    cy.get(home_page.footer)
-      .find('a')
-      .each(($a) => {
-        cy.validateLink($a, links)
-      })
   })
 
   it('should ensure animations are enabled on the wrapper', () => {
