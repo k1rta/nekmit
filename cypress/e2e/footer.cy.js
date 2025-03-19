@@ -4,9 +4,9 @@ describe('Footer section', () => {
   let texts, css, links
 
   before(() => {
-    cy.fixture('texts').then((data) => (texts = data))
-    cy.fixture('css').then((data) => (css = data))
-    cy.fixture('links').then((data) => (links = data))
+    cy.fixture('home_page/texts').then((data) => (texts = data))
+    cy.fixture('home_page/css').then((data) => (css = data))
+    cy.fixture('home_page/links').then((data) => (links = data))
   })
 
   beforeEach(() => {

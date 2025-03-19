@@ -4,10 +4,10 @@ describe('Home page', () => {
   let texts, css, icons, links
 
   before(() => {
-    cy.fixture('texts').then((data) => (texts = data))
-    cy.fixture('css').then((data) => (css = data))
-    cy.fixture('icons').then((data) => (icons = data))
-    cy.fixture('links').then((data) => (links = data))
+    cy.fixture('home_page/texts').then((data) => (texts = data))
+    cy.fixture('home_page/css').then((data) => (css = data))
+    cy.fixture('home_page/icons').then((data) => (icons = data))
+    cy.fixture('home_page/links').then((data) => (links = data))
   })
 
   beforeEach(() => {
