@@ -6,7 +6,7 @@ describe('Page View API - Success Cases', () => {
 
   it('should validate API response schema', () => {
     cy.wait('@page_view').then((interception) => {
-      cy.validateApiSchema(interception.response.body, 'page_view.json')
+      cy.validateApiSchema(interception.response.body, 'api/page_view.json')
 
       const expectedPage = Cypress.config('baseUrl').endsWith('nekmit/') ? '/nekmit/' : '/'
       expect(interception.response.body).to.have.property('page', expectedPage)
