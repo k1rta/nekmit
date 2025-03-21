@@ -26,36 +26,112 @@ const Ajv = require('ajv')
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('validateLink', ($a, links) => {
+Cypress.Commands.add('validateLinks', ($a, links) => {
+  // Ensure the link is visible
+  cy.wrap($a).should('be.visible')
+
   const href = $a.attr('href')
 
   // Ensure href is defined and not empty
-  expect(href, 'href should be defined and not empty').to.not.be.undefined.and.not.be.empty
+  expect(href, 'Link href should be defined and not empty').to.not.be.undefined.and.not.be.empty
 
-  // Normalize href and expected links
-  const normalizedHref = decodeURIComponent(href).replace(/\/+$/, '').trim()
-  const normalizedExpectedLinks = links.map((link) =>
-    decodeURIComponent(link).replace(/\/+$/, '').trim()
-  )
+  // Normalize href and expected links for comparison
+  const normalizedHref = normalizeUrl(href)
+  const normalizedExpectedLinks = links.map(normalizeUrl)
 
   // Validate the link is in the expected list
-  expect(normalizedExpectedLinks, `Expected link: ${normalizedHref}`).to.include(normalizedHref)
+  expect(
+    normalizedExpectedLinks,
+    `Expected link "${normalizedHref}" to be in the list of expected links`
+  ).to.include(normalizedHref)
 
-  // External link should open in a new tab
-  if (/^https?:\/\//.test(href)) {
-    expect($a, `External link should open in a new tab: ${href}`).to.have.attr('target', '_blank')
-    expect($a, `External link should have rel="noopener noreferrer": ${href}`).to.have.attr(
-      'rel',
-      'noopener noreferrer'
-    )
-  } else if (href.startsWith('mailto:')) {
-    expect(href, 'Email should be in a valid format').to.match(
-      /^mailto:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-    )
-  } else if (/\.pdf(?:$|[?#])/.test(href)) {
-    expect(href, 'PDF link should end with .pdf').to.match(/\.pdf(?:$|[?#])/)
+  // Perform specific validations based on the type of link
+  if (isExternalLink(href)) {
+    validateExternalLink($a, href)
+  } else if (isMailtoLink(href)) {
+    validateMailtoLink(href)
+  } else if (isPdfLink(href)) {
+    validatePdfLink(href)
   }
 })
+
+// Helper function to normalize URLs
+function normalizeUrl(url) {
+  return decodeURIComponent(url).replace(/\/+$/, '').trim()
+}
+
+// Helper function to check if a link is external
+function isExternalLink(href) {
+  return /^https?:\/\//.test(href)
+}
+
+// Helper function to validate external links
+function validateExternalLink($a, href) {
+  expect($a, `External link "${href}" should open in a new tab`).to.have.attr('target', '_blank')
+  expect($a, `External link "${href}" should have rel="noopener noreferrer"`).to.have.attr(
+    'rel',
+    'noopener noreferrer'
+  )
+}
+
+// Helper function to check if a link is a mailto link
+function isMailtoLink(href) {
+  return href.startsWith('mailto:')
+}
+
+// Helper function to validate mailto links
+function validateMailtoLink(href) {
+  expect(href, `Mailto link "${href}" should be in a valid format`).to.match(
+    /^mailto:[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+  )
+}
+
+// Helper function to check if a link is a PDF link
+function isPdfLink(href) {
+  return /\.pdf(?:$|[?#])/.test(href)
+}
+
+// Helper function to validate PDF links
+function validatePdfLink(href) {
+  expect(href, `PDF link "${href}" should end with .pdf`).to.match(/\.pdf(?:$|[?#])/)
+}
+
+Cypress.Commands.add('validateNavigationIcons', (selector, expectedIcons) => {
+  cy.get(selector).each(($icon, index) => {
+    cy.wrap($icon)
+      .should('be.visible') // Ensure the icon is visible
+      .and('have.class', 'icon') // Ensure it has the base "icon" class
+      .and('have.class', expectedIcons[index]) // Ensure it has the expected class
+  })
+})
+
+Cypress.Commands.add(
+  'validateIconWithTooltip',
+  (iconSelector, tooltipSelector, expectedText, cssProps, animationProps) => {
+    // Validate the tooltip is initially not visible
+    cy.get(tooltipSelector)
+      .should('not.be.visible')
+      .and('have.css', 'visibility', cssProps.visibility)
+
+    // Validate the icon's animation and other properties
+    cy.get(iconSelector)
+      .should('be.visible')
+      .and('have.css', 'animation-delay', animationProps.animationDelay)
+      .and('have.css', 'animation', animationProps.animation)
+      .and('have.css', 'cursor', cssProps.cursor)
+      .and('have.css', 'width', cssProps.width)
+      .realHover()
+
+    // Validate the tooltip after hover
+    cy.get(tooltipSelector)
+      .should('be.visible')
+      .and('have.text', expectedText)
+      .and('have.css', 'visibility', cssProps.visibilityWhenHovered)
+      .and('have.css', 'color', cssProps.color)
+      .and('have.css', 'font-family', cssProps.fontFamily)
+      .and('have.css', 'font-size', cssProps.fontSize)
+  }
+)
 
 Cypress.Commands.add('validateApiSchema', (response, schemaFile) => {
   cy.fixture(schemaFile).then((schema) => {

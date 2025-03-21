@@ -1,4 +1,4 @@
-import home_page from '../selectors/home_page.js'
+import home_page from '../../selectors/home_page.js'
 
 describe('Home page', () => {
   let texts, css, icons, links
@@ -26,23 +26,23 @@ describe('Home page', () => {
     cy.get(home_page.heading)
       .should('be.visible')
       .and('have.text', texts.headingText)
-      .and('have.css', 'font-family', css.headingFontFamily)
-      .and('have.css', 'font-size', css.headingFontSize)
-      .and('have.css', 'font-weight', css.headingFontWeight)
+      .and('have.css', 'font-family', css.headingTextFontFamily)
+      .and('have.css', 'font-size', css.headingTextFontSize)
+      .and('have.css', 'font-weight', css.headingTextFontWeight)
       .and('have.css', 'color', css.headingTextColor)
-      .and('have.css', 'line-height', css.headingLineHeight)
+      .and('have.css', 'line-height', css.headingTextLineHeight)
   })
 
   it('should display the correct paragraph with proper styles', () => {
     cy.get(home_page.paragraph)
       .should('be.visible')
       .and('have.text', texts.paragraphText)
-      .and('have.css', 'font-family', css.paragraphFontFamily)
+      .and('have.css', 'font-family', css.paragraphTextFontFamily)
       .and('have.css', 'color', css.paragraphTextColor)
-      .and('have.css', 'font-size', css.paragraphFontSize)
-      .and('have.css', 'line-height', css.paragraphLineHeight)
-      .and('have.css', 'opacity', css.paragraphOpacity)
-      .and('have.css', 'margin', css.paragraphMargin)
+      .and('have.css', 'font-size', css.paragraphTextFontSize)
+      .and('have.css', 'line-height', css.paragraphTextLineHeight)
+      .and('have.css', 'opacity', css.paragraphTextOpacity)
+      .and('have.css', 'margin', css.paragraphTextMargin)
   })
 
   it('should render all navigation icons and validate their visibility', () => {
@@ -70,7 +70,7 @@ describe('Home page', () => {
 
   it('should validate all navigation links (external, email, PDFs)', () => {
     cy.get(home_page.navLinks).each(($a) => {
-      cy.validateLink($a, links)
+      cy.validateLinks($a, links)
     })
   })
 

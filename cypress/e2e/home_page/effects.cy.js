@@ -1,4 +1,4 @@
-import footer from '../selectors/footer.js'
+import footer from '../../selectors/footer.js'
 
 describe('Footer section', () => {
   let texts, css, links
@@ -19,10 +19,10 @@ describe('Footer section', () => {
       .and('contain.text', texts.footerText)
       .and('have.css', 'background', css.footerBackgroundColor)
       .and('have.css', 'color', css.footerTextColor)
-      .and('have.css', 'font-family', css.footerFontFamily)
-      .and('have.css', 'font-size', css.footerFontSize)
-      .and('have.css', 'padding', css.footerPadding)
-      .and('have.css', 'width', css.footerWidth)
+      .and('have.css', 'font-family', css.footerTextFontFamily)
+      .and('have.css', 'font-size', css.footerTextFontSize)
+      .and('have.css', 'padding', css.footerTextPadding)
+      .and('have.css', 'width', css.footerTextWidth)
   })
 
   it('should display the link with correct styles', () => {
@@ -36,7 +36,7 @@ describe('Footer section', () => {
 
   it('should have valid and working link', () => {
     cy.get(footer.footerLink).each(($a) => {
-      cy.validateLink($a, links)
+      cy.validateLinks($a, links)
     })
   })
 
