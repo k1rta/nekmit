@@ -1,6 +1,8 @@
-const footer = {
-  footer: '[data-cy="footer"]',
-  footerLink: '[data-cy="footer-link"]',
+const footer = '[data-cy="footer"]'
+
+const footerSelectors = {
+  footer: footer,
+  footerLink: `${footer} [data-cy="footer-link"]`,
 }
 
-export default footer
+export default footerSelectors

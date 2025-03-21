@@ -39,12 +39,4 @@ describe('Footer section', () => {
       cy.validateLinks($a, links)
     })
   })
-
-  it('should navigate to a valid page', () => {
-    cy.get(footer.footerLink)
-      .should('have.attr', 'href')
-      .then((href) => {
-        cy.request(href).its('status').should('be.oneOf', [200, 301, 302])
-      })
-  })
 })

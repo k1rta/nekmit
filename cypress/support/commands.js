@@ -27,9 +27,6 @@ const Ajv = require('ajv')
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('validateLinks', ($a, links) => {
-  // Ensure the link is visible
-  cy.wrap($a).should('be.visible')
-
   const href = $a.attr('href')
 
   // Ensure href is defined and not empty

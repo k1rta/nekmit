@@ -1,26 +1,26 @@
-import navigation from '../../selectors/navigation.js'
+import icons from '../../selectors/icons.js'
 
-describe('Navigation', () => {
-  let texts, css, links, icons, effects
+describe('Icons section', () => {
+  let texts, css, links, effects, avatars
 
   before(() => {
     cy.fixture('home_page/texts').then((data) => (texts = data))
     cy.fixture('home_page/css').then((data) => (css = data))
-    cy.fixture('home_page/icons').then((data) => (icons = data))
+    cy.fixture('home_page/avatars').then((data) => (avatars = data))
     cy.fixture('home_page/links').then((data) => (links = data))
     cy.fixture('home_page/effects').then((data) => (effects = data))
   })
 
   beforeEach(() => {
     cy.visit('')
-    cy.get(navigation.navigation)
+    cy.get(icons.navigation)
       .should('be.visible')
       .and('have.css', 'padding', css.navigationPadding)
       .and('have.css', 'margin', css.navigationMargin)
   })
 
   it('should render all navigation icons and validate their visibility', () => {
-    cy.get(navigation.navigationIcons).each(($icon) => {
+    cy.get(icons.icons).each(($icon) => {
       cy.wrap($icon)
         .should('be.visible') // Ensure the icon container is visible
         .and('have.class', 'icon') // Ensure it has the base "icon" class
@@ -28,13 +28,13 @@ describe('Navigation', () => {
   })
 
   it('should validate the Font Awesome icon classes for navigation', () => {
-    cy.get(navigation.navigationIcons).each(($icon, index) => {
-      cy.wrap($icon).should('have.class', 'icon').and('have.class', icons[index])
+    cy.get(icons.icons).each(($icon, index) => {
+      cy.wrap($icon).should('have.class', 'icon').and('have.class', avatars[index])
     })
   })
 
   it('should validate links (external, email, PDFs)', () => {
-    cy.get(navigation.navigationLinks).each(($a) => {
+    cy.get(icons.links).each(($a) => {
       cy.validateLinks($a, links)
     })
   })
@@ -42,8 +42,8 @@ describe('Navigation', () => {
   it('should display the correct styles for icons and tooltips', () => {
     // Validate Resume Icon and Tooltip
     cy.validateIconWithTooltip(
-      navigation.resumeIcon,
-      navigation.resumeTooltipText,
+      icons.resumeIcon,
+      icons.resumeTooltipText,
       texts.resumeTooltipText,
       {
         visibility: css.iconsTooltipTextVisibility,
@@ -62,8 +62,8 @@ describe('Navigation', () => {
 
     // Validate Portfolio Icon and Tooltip
     cy.validateIconWithTooltip(
-      navigation.portfolioIcon,
-      navigation.portfolioTooltipText,
+      icons.portfolioIcon,
+      icons.portfolioTooltipText,
       texts.portfolioTooltipText,
       {
         visibility: css.iconsTooltipTextVisibility,
@@ -82,8 +82,8 @@ describe('Navigation', () => {
 
     // Validate GitHub Icon and Tooltip
     cy.validateIconWithTooltip(
-      navigation.githubIcon,
-      navigation.githubTooltipText,
+      icons.githubIcon,
+      icons.githubTooltipText,
       texts.githubTooltipText,
       {
         visibility: css.iconsTooltipTextVisibility,
@@ -102,8 +102,8 @@ describe('Navigation', () => {
 
     // Validate Mail Icon and Tooltip
     cy.validateIconWithTooltip(
-      navigation.mailIcon,
-      navigation.mailTooltipText,
+      icons.mailIcon,
+      icons.mailTooltipText,
       texts.mailTooltipText,
       {
         visibility: css.iconsTooltipTextVisibility,
@@ -122,8 +122,8 @@ describe('Navigation', () => {
 
     // Validate Company Icon and Tooltip
     cy.validateIconWithTooltip(
-      navigation.companyIcon,
-      navigation.companyTooltipText,
+      icons.companyIcon,
+      icons.companyTooltipText,
       texts.companyTooltipText,
       {
         visibility: css.iconsTooltipTextVisibility,
