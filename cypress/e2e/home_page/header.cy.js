@@ -1,12 +1,12 @@
 import home_page from '../../selectors/home_page.js'
 
 describe('Home page', () => {
-  let texts, css, icons, links
+  let texts, css, avatars, links
 
   before(() => {
     cy.fixture('home_page/texts').then((data) => (texts = data))
     cy.fixture('home_page/css').then((data) => (css = data))
-    cy.fixture('home_page/icons').then((data) => (icons = data))
+    cy.fixture('home_page/avatars').then((data) => (avatars = data))
     cy.fixture('home_page/links').then((data) => (links = data))
   })
 
@@ -46,14 +46,17 @@ describe('Home page', () => {
   })
 
   it('should render all navigation icons and validate their visibility', () => {
-    cy.get(home_page.navIcons).each(($icon, index) => {
-      cy.wrap($icon).should('be.visible').and('have.class', 'icon').and('have.class', icons[index])
+    cy.get(home_page.navIcons).each(($avatars, index) => {
+      cy.wrap($avatars)
+        .should('be.visible')
+        .and('have.class', 'icon')
+        .and('have.class', avatars[index])
     })
   })
 
   it('should validate the Font Awesome icon classes for navigation', () => {
-    cy.get(home_page.navIcons).each(($icon, index) => {
-      cy.wrap($icon).should('have.class', 'icon').and('have.class', icons[index])
+    cy.get(home_page.navIcons).each(($avatars, index) => {
+      cy.wrap($avatars).should('have.class', 'icon').and('have.class', avatars[index])
     })
   })
 
