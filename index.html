@@ -22,13 +22,13 @@
     <div id="bg" data-cy="bg"></div>
     <div id="main" data-cy="main">
       <header id="header" data-cy="header">
-        <h1 class="heading" data-cy="header-title">Kirta-Linda Karits</h1>
+        <h1 class="heading" data-cy="heading">Kirta-Linda Karits</h1>
         <p data-cy="paragraph">
           Smarter Tests&nbsp;&bull;&nbsp;Faster Automation&nbsp;&bull;&nbsp;Better Releases
         </p>
-        <nav aria-label="Main navigation" data-cy="main-nav">
+        <nav aria-label="Main navigation" data-cy="navigation">
           <ul>
-            <li class="tooltip" data-cy="nav-resume">
+            <li class="tooltip" data-cy="resume-icon">
               <a
                 href="assets/Resume_KLK.pdf"
                 class="icon solid fa-user-astronaut"
@@ -37,9 +37,9 @@
                 data-cy="resume-link">
                 <span class="label">Resume</span>
               </a>
-              <span class="tooltiptext" data-cy="nav-resume-tooltip">Resume</span>
+              <span class="tooltiptext" data-cy="resume-tooltip-text">Resume</span>
             </li>
-            <li class="tooltip" data-cy="nav-check">
+            <li class="tooltip" data-cy="portfolio-icon">
               <a
                 href="https://github.com/k1rta?tab=repositories"
                 class="icon solid fa-check"
@@ -48,9 +48,9 @@
                 data-cy="portfolio-link">
                 <span class="label">Portfolio</span>
               </a>
-              <span class="tooltiptext" data-cy="nav-work-in-practice-tooltip">Portfolio</span>
+              <span class="tooltiptext" data-cy="portfolio-tooltip-text">Portfolio</span>
             </li>
-            <li class="tooltip" data-cy="nav-github">
+            <li class="tooltip" data-cy="github-icon">
               <a
                 href="https://github.com/k1rta?tab=repositories"
                 class="icon brands fa-github"
@@ -59,18 +59,18 @@
                 data-cy="github-link">
                 <span class="label">Other Works</span>
               </a>
-              <span class="tooltiptext" data-cy="nav-other-works-tooltip">Other Works</span>
+              <span class="tooltiptext" data-cy="github-tooltip-text">Other Works</span>
             </li>
-            <li class="tooltip" data-cy="nav-mail">
+            <li class="tooltip" data-cy="mail-icon">
               <a
                 href="mailto:kirtalindakarits@icloud.com"
                 class="icon regular fa-paper-plane"
                 data-cy="mail-link">
                 <span class="label">Contact Me</span>
               </a>
-              <span class="tooltiptext" data-cy="nav-contact-me-tooltip">Contact Me</span>
+              <span class="tooltiptext" data-cy="mail-tooltip-text">Contact Me</span>
             </li>
-            <li class="tooltip" data-cy="nav-company">
+            <li class="tooltip" data-cy="company-icon">
               <a
                 href="https://ariregister.rik.ee/eng/company/14401168/Nekmit-OÜ"
                 class="icon solid fa-briefcase"
@@ -79,7 +79,7 @@
                 data-cy="company-link">
                 <span class="label">Company Info</span>
               </a>
-              <span class="tooltiptext" data-cy="nav-company-info-tooltip">Company Info</span>
+              <span class="tooltiptext" data-cy="company-tooltip-text">Company Info</span>
             </li>
           </ul>
         </nav>
@@ -87,7 +87,13 @@
       <footer id="footer" data-cy="footer">
         <span class="copyright"
           >&copy; Nekmit LLC. Design:
-          <a href="http://html5up.net" target="_blank">HTML5 UP</a>.</span
+          <a
+            href="http://html5up.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cy="footer-link"
+            >HTML5 UP</a
+          >.</span
         >
       </footer>
     </div>
