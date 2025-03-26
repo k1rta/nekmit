@@ -1,0 +1,18 @@
+{
+  "styles": {
+    "background": "rgba(0, 0, 0, 0) linear-gradient(to top, rgba(59, 131, 91, 0.616), rgb(38, 38, 38)) repeat scroll 0% 0% / auto padding-box border-box",
+    "color": "rgb(99, 230, 190)",
+    "fontFamily": "\"JetBrains Mono\", monospace",
+    "fontSize": "8px",
+    "padding": "10px",
+    "width": "1000px"
+  },
+  "linkStyles": {
+    "color": "rgb(99, 230, 190)",
+    "cursor": "pointer",
+    "textDecoration": "none solid rgb(99, 230, 190)"
+  },
+  "text": {
+    "footerText": "© Nekmit LLC. Design: HTML5 UP."
+  }
+}

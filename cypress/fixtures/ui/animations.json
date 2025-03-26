@@ -1,0 +1,20 @@
+{
+  "wrapper": {
+    "animation": "2s ease 0s 1 normal forwards running wrapper",
+    "opacity": "1"
+  },
+  "background": {
+    "animation": "60s linear 0s infinite normal none running bg"
+  },
+  "header": {
+    "animation": "1s ease 2.25s 1 normal forwards running header",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "opacity": "1"
+  },
+  "icons": {
+    "baseAnimation": "0.5s ease-in-out",
+    "animationName": "nav-icons",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)",
+    "opacity": "1"
+  }
+}

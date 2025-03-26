@@ -1,0 +1,24 @@
+{
+  "styles": {
+    "navigationMargin": "0px",
+    "navigationPadding": "0px",
+    "iconsCursor": "pointer",
+    "iconsWidth": "96px"
+  },
+  "iconDelays": {
+    "resume": "2.5s",
+    "portfolio": "2.75s",
+    "github": "3s",
+    "mail": "3.25s",
+    "company": "3.5s"
+  },
+  "iconAvatars": ["fa-user-astronaut", "fa-check", "fa-github", "fa-paper-plane", "fa-briefcase"],
+  "links": [
+    "assets/Resume_KLK.pdf",
+    "https://github.com/k1rta/nekmit/",
+    "https://github.com/k1rta?tab=repositories",
+    "mailto:kirtalindakarits@icloud.com",
+    "https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C",
+    "http://html5up.net/"
+  ]
+}
