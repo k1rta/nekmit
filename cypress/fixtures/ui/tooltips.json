@@ -1,0 +1,18 @@
+{
+  "texts": {
+    "resumeTooltipText": "Resume",
+    "portfolioTooltipText": "Portfolio",
+    "githubTooltipText": "Other Works",
+    "mailTooltipText": "Contact Me",
+    "companyTooltipText": "Company Info"
+  },
+  "styles": {
+    "iconsTooltipTextVisibility": "hidden",
+    "iconsTooltipTextVisibilityWhenHovered": "visible",
+    "iconsTooltipTextColor": "rgb(99, 230, 190)",
+    "iconsTooltipTextFontFamily": "\"JetBrains Mono\", monospace",
+    "iconsTooltipTextFontSize": "11.2px",
+    "iconsCursor": "pointer",
+    "iconsWidth": "96px"
+  }
+}

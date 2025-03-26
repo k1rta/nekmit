@@ -1,8 +1,11 @@
 const footer = '[data-cy="footer"]'
+const footerText = '[data-cy="footer-text"]'
+const footerLink = '[data-cy="footer-link"]'
 
 const footerSelectors = {
-  footer: footer,
-  footerLink: `${footer} [data-cy="footer-link"]`,
+  footer,
+  footerText,
+  footerLink,
 }
 
 export default footerSelectors

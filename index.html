@@ -22,10 +22,14 @@
     <div id="bg" data-cy="bg"></div>
     <div id="main" data-cy="main">
       <header id="header" data-cy="header">
-        <h1 class="heading" data-cy="heading">Kirta-Linda Karits</h1>
-        <p data-cy="paragraph">
-          Smarter Tests&nbsp;&bull;&nbsp;Faster Automation&nbsp;&bull;&nbsp;Better Releases
-        </p>
+        <div data-cy="heading">
+          <h1 data-cy="heading-text" class="heading">Kirta-Linda Karits</h1>
+        </div>
+        <div data-cy="paragraph">
+          <p data-cy="paragraph-text" class="paragraph">
+            Smarter Tests • Faster Automation • Better Releases
+          </p>
+        </div>
         <nav aria-label="Main navigation" data-cy="navigation">
           <ul>
             <li class="tooltip" data-cy="resume-icon">
@@ -85,16 +89,16 @@
         </nav>
       </header>
       <footer id="footer" data-cy="footer">
-        <span class="copyright"
-          >&copy; Nekmit LLC. Design:
+        <span data-cy="footer-text">
+          &copy; Nekmit LLC. Design:
           <a
             href="http://html5up.net"
             target="_blank"
             rel="noopener noreferrer"
             data-cy="footer-link"
             >HTML5 UP</a
-          >.</span
-        >
+          >.
+        </span>
       </footer>
     </div>
   </div>

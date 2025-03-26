@@ -1,0 +1,28 @@
+{
+  "body": {
+    "backgroundColor": "rgb(38, 38, 38)",
+    "fontFamily": "\"JetBrains Mono\", monospace",
+    "fontSize": "16px",
+    "margin": "0px",
+    "padding": "0px"
+  },
+  "heading": {
+    "fontFamily": "\"JetBrains Mono\", monospace",
+    "fontSize": "64px",
+    "fontWeight": "700",
+    "color": "rgb(99, 230, 190)",
+    "lineHeight": "64px"
+  },
+  "paragraph": {
+    "fontFamily": "\"JetBrains Mono\", monospace",
+    "color": "rgb(99, 230, 190)",
+    "fontSize": "20.8px",
+    "lineHeight": "normal",
+    "opacity": "0.75",
+    "margin": "15.6px 0px 5.2px"
+  },
+  "text": {
+    "heading": "Kirta-Linda Karits",
+    "paragraph": "Smarter Tests • Faster Automation • Better Releases"
+  }
+}
