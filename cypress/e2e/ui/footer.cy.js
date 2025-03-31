@@ -1,8 +1,8 @@
 import footer from '../../selectors/footer'
 
-let footerData
-
 describe('Footer', () => {
+  let footerData
+
   before(() => {
     cy.fixture('ui/footer').then((data) => {
       footerData = data

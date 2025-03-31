@@ -804,21 +804,19 @@ nav ul li a:hover {
 
 /* Footer Styles */
 #footer {
-  background: linear-gradient(to top, #3b835b9d, #262626);
-  padding: 10px;
-  color: rgb(99, 230, 190);
+  position: fixed;
   bottom: 0;
-  cursor: default;
-  height: auto;
   left: 0;
-  line-height: 1.5em;
-  position: absolute;
-  width: 100%; /* Set width to 100% */
+  width: 100vw;
+  background: linear-gradient(to top, #3b835b9d, #262626);
+  color: rgb(99, 230, 190);
   font-size: 0.5em;
-  text-align: center; /* Ensure text is centered */
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically */
+  text-align: center;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 /* Media Queries */
