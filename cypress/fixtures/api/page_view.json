@@ -2,8 +2,7 @@
   "type": "object",
   "properties": {
     "success": {
-      "type": "boolean",
-      "enum": [true]
+      "type": "boolean"
     },
     "message": {
       "type": "string"
@@ -21,8 +20,7 @@
       "required": ["page", "environment"]
     },
     "timestamp": {
-      "type": "string",
-      "format": "date-time"
+      "type": "string"
     }
   },
   "required": ["success", "message", "data", "timestamp"]
