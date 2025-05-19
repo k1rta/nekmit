@@ -11,14 +11,14 @@
     "data": {
       "type": "object",
       "properties": {
-        "page": {
+        "icon": {
           "type": "string"
         },
         "environment": {
           "type": "string"
         }
       },
-      "required": ["page", "environment"]
+      "required": ["icon", "environment"]
     },
     "timestamp": {
       "type": "string",

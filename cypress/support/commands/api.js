@@ -13,14 +13,15 @@ Cypress.Commands.add('validateApiSchema', (response, schemaFile) => {
   })
 })
 
-Cypress.Commands.add('validateRequestBody', (requestBody) => {
+Cypress.Commands.add('validateRequestBody', (requestBody, type) => {
   const expectedPage = Cypress.config('baseUrl').endsWith('nekmit/') ? '/nekmit/' : '/'
-  expect(requestBody).to.have.property('page', expectedPage)
   const expectedEnv = Cypress.config('baseUrl').includes('localhost') ? 'localhost' : 'production'
   expect(requestBody).to.have.property('environment', expectedEnv)
   expect(requestBody).to.have.property('timestamp').that.is.a('string')
-})
 
-Cypress.Commands.add('debugApiResponse', (responseBody) => {
-  cy.log('API Response:', JSON.stringify(responseBody, null, 2))
+  if (type === 'page_view') {
+    expect(requestBody).to.have.property('page', expectedPage)
+  } else if (type === 'icon_click') {
+    expect(requestBody).to.have.property('icon').that.is.a('string')
+  }
 })
