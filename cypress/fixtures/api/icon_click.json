@@ -2,7 +2,8 @@
   "type": "object",
   "properties": {
     "success": {
-      "type": "boolean"
+      "type": "boolean",
+      "enum": [true]
     },
     "message": {
       "type": "string"
@@ -10,17 +11,18 @@
     "data": {
       "type": "object",
       "properties": {
-        "page": {
+        "icon": {
           "type": "string"
         },
         "environment": {
           "type": "string"
         }
       },
-      "required": ["page", "environment"]
+      "required": ["icon", "environment"]
     },
     "timestamp": {
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     }
   },
   "required": ["success", "message", "data", "timestamp"]

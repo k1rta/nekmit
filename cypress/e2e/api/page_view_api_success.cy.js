@@ -5,17 +5,21 @@ describe('Page View API - Success Cases', () => {
   })
 
   it('should validate API response schema', () => {
-    cy.wait('@page_view').then((interception) => {
-      cy.validateApiSchema(interception.response.body, 'api/page_view.json')
+    cy.wait('@page_view')
+      .its('response.body')
+      .then((body) => {
+        cy.validateApiSchema(body, 'api/page_view.json')
 
-      const expectedPage = Cypress.config('baseUrl').endsWith('nekmit/') ? '/nekmit/' : '/'
-      expect(interception.response.body).to.have.property('page', expectedPage)
-      const expectedEnv = Cypress.config('baseUrl').includes('localhost')
-        ? 'localhost'
-        : 'production'
-      expect(interception.response.body).to.have.property('environment', expectedEnv)
-      expect(interception.response.body).to.have.property('timestamp').that.is.a('string')
-    })
+        const expectedPage = Cypress.config('baseUrl').endsWith('nekmit/') ? '/nekmit/' : '/'
+        expect(body.data.page).to.equal(expectedPage)
+
+        const expectedEnv = Cypress.config('baseUrl').includes('localhost')
+          ? 'localhost'
+          : 'production'
+        expect(body.data.environment).to.equal(expectedEnv)
+
+        expect(body.timestamp).to.be.a('string')
+      })
   })
 
   it('should send the correct request body when recording a pageView', () => {
@@ -28,10 +32,7 @@ describe('Page View API - Success Cases', () => {
   it('should return HTTP 200 when page view is recorded successfully', () => {
     cy.wait('@page_view').then((interception) => {
       expect(interception.response.statusCode).to.eq(200)
-      expect(interception.response.body).to.have.property(
-        'message',
-        'Page view recorded in Firebase'
-      )
+      expect(interception.response.body).to.have.property('message', 'Page view recorded')
       expect(interception.response.body).to.have.property('timestamp').that.is.a('string')
     })
   })

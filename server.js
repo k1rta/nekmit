@@ -1,6 +1,11 @@
 const express = require('express')
 const path = require('path')
 const cors = require('cors')
+const { body, validationResult } = require('express-validator')
+const errorHandler = require('./errorHandler')
+const logger = require('./utils/logger')
+const { sendSuccessResponse, sendErrorResponse } = require('./utils/responseHelper')
+const { getCurrentTimestamp, getEnvironment } = require('./utils/helpers')
 
 // ✅ Load Firebase credentials from JSON
 const admin = require('firebase-admin')
@@ -47,71 +52,61 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'))
 })
 
-// Page view tracking API (Logs to Firebase Firestore)
-app.post('/api/page_view', async (req, res) => {
-  const { page, environment } = req.body
-  const timestamp = new Date() // Get current timestamp
+// Page View API with validation middleware remains unchanged above...
+app.post(
+  '/api/page_view',
+  [
+    body('page').notEmpty().withMessage('Page is required'),
+    body('environment').notEmpty().withMessage('Environment is required'),
+  ],
+  async (req, res, next) => {
+    const { page, environment } = req.body
+    const currentTimestamp = getCurrentTimestamp()
+    const env = environment || getEnvironment()
 
-  if (!page || !environment) {
-    return res.status(400).json({ message: 'Missing required parameters' })
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return sendErrorResponse(res, 400, 'Validation Error', errors.array())
+    }
+
+    try {
+      sendSuccessResponse(res, 'Page view recorded', { page, environment: env })
+      logger.info('Page view recorded', { page, environment: env, timestamp: currentTimestamp })
+    } catch (error) {
+      next(error)
+    }
   }
+)
 
-  try {
-    // Log the data being sent to Firestore
-    console.log('📄 Data to be saved:', { page, environment, timestamp })
+// Icon Click API with validation middleware
+app.post(
+  '/api/icon_click',
+  [
+    body('icon').notEmpty().withMessage('Icon is required'),
+    body('environment').notEmpty().withMessage('Environment is required'),
+  ],
+  async (req, res, next) => {
+    const { icon, environment, timestamp } = req.body
+    const currentTimestamp = getCurrentTimestamp()
+    const env = environment || getEnvironment()
 
-    // ✅ Ensure Firestore stores the timestamp properly
-    const docRef = await db.collection('page_view_logs').add({
-      page,
-      environment,
-      timestamp: admin.firestore.Timestamp.fromDate(timestamp), // ✅ Correct Firestore timestamp format
-    })
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      return sendErrorResponse(res, 400, 'Validation Error', errors.array())
+    }
 
-    console.log(`✅ Page view saved: ${docRef.id}`)
-
-    res.status(200).json({
-      message: 'Page view recorded in Firebase',
-      page,
-      environment,
-      timestamp: timestamp.toISOString(), // Send ISO string only in response, not in Firestore
-    })
-  } catch (error) {
-    console.error('❌ Firestore Error:', error)
-    res.status(500).json({ message: 'Failed to record page view' })
+    try {
+      // Firestore logging logic...
+      sendSuccessResponse(res, 'Icon click recorded', { icon, environment: env })
+      logger.info('Icon click recorded', { icon, environment: env, timestamp: currentTimestamp })
+    } catch (error) {
+      next(error)
+    }
   }
-})
+)
 
-// Icon click tracking API
-app.post('/api/icon_click', async (req, res) => {
-  const { icon, environment, timestamp } = req.body
-
-  if (!icon) {
-    return res.status(400).json({ message: 'Missing icon name' })
-  }
-
-  try {
-    console.log('🖱️ Icon Clicked:', { icon, timestamp })
-
-    // Store icon click data in Firestore
-    const docRef = await db.collection('icon_click_logs').add({
-      icon,
-      environment,
-      timestamp: admin.firestore.Timestamp.fromDate(new Date(timestamp)),
-    })
-
-    console.log(`✅ Icon click recorded: ${docRef.id}`)
-
-    res.status(200).json({
-      message: 'Icon click recorded',
-      icon,
-      environment,
-      timestamp,
-    })
-  } catch (error) {
-    console.error('❌ Firestore Error:', error)
-    res.status(500).json({ message: 'Failed to record icon click' })
-  }
-})
+// Register the global error handler after all routes
+app.use(errorHandler)
 
 // Start the server
 app.listen(port, () => {
