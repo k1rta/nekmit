@@ -40,28 +40,58 @@ jobs:
       - name: 🧪 Run Cypress Tests (Localhost)
         run: npm run cypress:run:local
 
-  test-prod:
-    name: 🔥 Run Cypress Tests on Production (Push)
+  approve-prod:
+    name: 👤 Wait for Approval Before Deploy
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
+    steps:
+      - name: Wait for human approval
+        uses: trstringer/manual-approval@v1
+        with:
+          secret: ${{ github.TOKEN }}
+          approvers: k1rta
+          minimum-approvals: 1
 
+  deploy-prod:
+    name: 🚀 Deploy to Production
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    needs: approve-prod
     steps:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
-
       - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
       - name: 📦 Install Dependencies
         run: npm install
-
       - name: 🛠️ Create Firebase Config File
         env:
           FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
         run: |
           echo "$FIREBASE_CONFIG" | jq -r '."private_key" |= gsub("\\\\n"; "\n")' > firebase-config.json
+      - name: 🚀 Deploy
+        run: npm run deploy
 
+  test-prod:
+    name: 🔥 Run Cypress Tests on Production (Push)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    needs: deploy-prod
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: 📦 Install Dependencies
+        run: npm install
+      - name: 🛠️ Create Firebase Config File
+        env:
+          FIREBASE_CONFIG: ${{ secrets.FIREBASE_CONFIG }}
+        run: |
+          echo "$FIREBASE_CONFIG" | jq -r '."private_key" |= gsub("\\\\n"; "\n")' > firebase-config.json
       - name: 🔥 Run Cypress Tests (Production)
         run: npm run cypress:run:prod
