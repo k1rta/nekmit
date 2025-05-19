@@ -51,6 +51,11 @@ jobs:
           secret: ${{ github.TOKEN }}
           approvers: k1rta
           minimum-approvals: 1
+          timeout-minutes: 1440
+          on-approval: success
+          message: |
+            Please approve the deployment to production.
+            This action requires approval from the designated approvers.
 
   deploy-prod:
     name: 🚀 Deploy to Production
