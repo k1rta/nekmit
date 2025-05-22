@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: 🧪 Cypress Tests
 
 on:
   pull_request:
@@ -12,20 +12,20 @@ permissions:
 
 jobs:
   test-local:
-    name: Run Cypress Tests on Localhost (PR)
+    name: 🖥️ Run Cypress Tests on Localhost (PR)
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install Dependencies
+      - name: 📦 Install Dependencies
         run: npm install
 
       - name: 🔐 Create Firebase Config File
@@ -36,29 +36,29 @@ jobs:
             | jq -r '."private_key" |= gsub("\\n"; "\n")' \
             > firebase-config.json
 
-      - name: Start Local Server
+      - name: 🚀 Start Local Server
         run: |
           npm run start &    # spin up your app
           sleep 5
 
-      - name: Run Cypress Tests (Localhost)
+      - name: 🧪 Run Cypress Tests (Localhost)
         run: npm run cypress:run:local
 
   test-prod:
-    name: Run Cypress Tests on Production
+    name: 🌍 Run Cypress Tests on Production
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install Dependencies
+      - name: 📦 Install Dependencies
         run: npm install
 
       - name: 🔐 Create Firebase Config File
@@ -69,5 +69,5 @@ jobs:
             | jq -r '."private_key" |= gsub("\\n"; "\n")' \
             > firebase-config.json
 
-      - name: Run Cypress Tests (Production)
+      - name: 🧪 Run Cypress Tests (Production)
         run: npm run cypress:run:prod
