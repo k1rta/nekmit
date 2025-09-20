@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+# Run pre-commit linters/formatters
+npx --no-install lint-staged
