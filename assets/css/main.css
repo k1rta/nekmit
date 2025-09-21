@@ -172,8 +172,24 @@ html {
   box-sizing: inherit;
 }
 
+:root {
+  /* Default background */
+  --bg-color: #121212; /* charcoal */
+}
+
+/* Theme options (apply on <body> as a class) */
+body.theme-charcoal {
+  --bg-color: #121212;
+} /* charcoal */
+body.theme-slate {
+  --bg-color: #0f172a;
+} /* deep slate */
+body.theme-graphite {
+  --bg-color: #1f2937;
+} /* graphite */
+
 body {
-  background: #fff;
+  background: var(--bg-color);
   overflow: hidden;
 }
 
@@ -304,30 +320,28 @@ a:hover {
   width: 100%;
 }
 
-/* BG */
+/* BG: replace animated image with solid color */
 
 #bg {
-  -moz-animation: bg 60s linear infinite;
-  -webkit-animation: bg 60s linear infinite;
-  -ms-animation: bg 60s linear infinite;
-  animation: bg 60s linear infinite;
-  -moz-backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
+  /* Disable previous animation and image */
+  -moz-animation: none;
+  -webkit-animation: none;
+  -ms-animation: none;
+  animation: none;
   backface-visibility: hidden;
   -moz-transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  /* Set your background with this */
-
-  background: #348cb2 url('images/bg.jpg') bottom left;
-  background-repeat: repeat-x;
+  background: var(--bg-color);
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
   left: 0;
   opacity: 1;
   position: fixed;
   top: 0;
+  width: 100%;
 }
 
 @-moz-keyframes bg {
@@ -395,8 +409,8 @@ a:hover {
 }
 
 #bg {
-  background-size: 2250px auto;
-  width: 6750px;
+  background-size: cover;
+  width: 100%;
 }
 
 /* Overlay */
@@ -446,13 +460,15 @@ a:hover {
   -webkit-animation: overlay 1.5s 1.5s forwards;
   -ms-animation: overlay 1.5s 1.5s forwards;
   animation: overlay 1.5s 1.5s forwards;
-  background-attachment: fixed, fixed;
-  background-image: url('images/overlay-pattern.png'), url('images/overlay.svg');
-  background-position:
-    top left,
-    center center;
-  background-repeat: repeat, no-repeat;
-  background-size: auto, cover;
+  /* Bottom fade overlay: darker near footer, transparent upwards */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.45) 25%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0) 75%
+  );
+  pointer-events: none;
   height: 100%;
   left: 0;
   opacity: 0;
@@ -902,8 +918,8 @@ a:hover {
   }
 
   #bg {
-    background-size: 1500px auto;
-    width: 4500px;
+    background-size: cover;
+    width: 100%;
   }
 }
 
@@ -1074,8 +1090,8 @@ a:hover {
   }
 
   #bg {
-    background-size: 300px auto;
-    width: 900px;
+    background-size: cover;
+    width: 100%;
   }
 
   /* Header */
@@ -1171,8 +1187,8 @@ a:hover {
   }
 
   #bg {
-    background-size: 412.5px auto;
-    width: 1237.5px;
+    background-size: cover;
+    width: 100%;
   }
 
   /* Header */
