@@ -175,6 +175,13 @@ html {
 :root {
   /* Default background */
   --bg-color: #121212; /* charcoal */
+  /* Accent color for subtle effects */
+  --accent-color: #22d3ee; /* cyan */
+  --accent-rgb: 34, 211, 238; /* cyan rgb */
+  /* Footer fade base color (used inside rgba()) */
+  --footer-fade-rgb: 34, 211, 238; /* default: cyan */
+  /* Pulse color (defaults to accent) */
+  --pulse-rgb: 34, 211, 238;
 }
 
 /* Theme options (apply on <body> as a class) */
@@ -188,9 +195,77 @@ body.theme-graphite {
   --bg-color: #1f2937;
 } /* graphite */
 
+/* Accent theme options (apply on <body>) */
+body.accent-cyan {
+  --accent-color: #22d3ee;
+  --accent-rgb: 34, 211, 238;
+}
+body.accent-violet {
+  --accent-color: #a78bfa;
+  --accent-rgb: 167, 139, 250;
+}
+body.accent-lime {
+  --accent-color: #a3e635;
+  --accent-rgb: 163, 230, 53;
+}
+body.accent-blue {
+  --accent-color: #60a5fa;
+  --accent-rgb: 96, 165, 250;
+}
+body.accent-magenta {
+  --accent-color: #ec4899;
+  --accent-rgb: 236, 72, 153;
+}
+
+/* Footer fade theme options (apply on <body>) */
+body.footerfade-cyan {
+  --footer-fade-rgb: 34, 211, 238;
+}
+body.footerfade-red {
+  --footer-fade-rgb: 239, 68, 68;
+}
+body.footerfade-violet {
+  --footer-fade-rgb: 167, 139, 250;
+}
+body.footerfade-lime {
+  --footer-fade-rgb: 163, 230, 53;
+}
+
+/* Pulse color options (apply on <body>) */
+body.pulse-cyan {
+  --pulse-rgb: 34, 211, 238;
+}
+body.pulse-violet {
+  --pulse-rgb: 167, 139, 250;
+}
+body.pulse-lime {
+  --pulse-rgb: 163, 230, 53;
+}
+body.pulse-blue {
+  --pulse-rgb: 96, 165, 250;
+}
+body.pulse-magenta {
+  --pulse-rgb: 236, 72, 153;
+}
+body.pulse-red {
+  --pulse-rgb: 239, 68, 68;
+}
+
 body {
   background: var(--bg-color);
   overflow: hidden;
+}
+
+/* Accent focus ring for interactive elements */
+#header nav a:focus,
+#header nav a:focus-visible,
+#footer a:focus,
+#footer a:focus-visible,
+.skip-link:focus,
+.skip-link:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 body.is-preload *,
@@ -250,7 +325,7 @@ a:hover {
   line-height: 1;
   text-transform: none !important;
   font-family: 'Font Awesome 5 Free';
-  font-weight: 400;
+  font-weight: 400; /* keep non-bold */
 }
 
 .icon > .label {
@@ -463,10 +538,10 @@ a:hover {
   /* Bottom fade overlay: darker near footer, transparent upwards */
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.6) 0%,
-    rgba(0, 0, 0, 0.45) 25%,
-    rgba(0, 0, 0, 0.2) 50%,
-    rgba(0, 0, 0, 0) 75%
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.65) 50%,
+    rgba(0, 0, 0, 0.25) 85%,
+    rgba(0, 0, 0, 0) 100%
   );
   pointer-events: none;
   height: 100%;
@@ -475,6 +550,24 @@ a:hover {
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+/* Extra depth: subtle vignette and center glow */
+#overlay::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(
+      ellipse at center,
+      rgba(var(--accent-rgb), 0.05) 0%,
+      rgba(var(--accent-rgb), 0) 55%
+    ),
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.22) 100%);
 }
 
 /* Main */
@@ -514,6 +607,28 @@ a:hover {
     -ms-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     opacity: 1;
+  }
+}
+
+/* Subtle accent pulse for icon rings (preserves layered glows) */
+@keyframes icon-pulse {
+  0% {
+    box-shadow:
+      inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
+      0 0 0 6px rgba(var(--accent-rgb), 0.08),
+      0 0 0 0 rgba(var(--pulse-rgb), 0.35);
+  }
+  70% {
+    box-shadow:
+      inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
+      0 0 0 6px rgba(var(--accent-rgb), 0.08),
+      0 0 0 18px rgba(var(--pulse-rgb), 0);
+  }
+  100% {
+    box-shadow:
+      inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
+      0 0 0 6px rgba(var(--accent-rgb), 0.08),
+      0 0 0 0 rgba(var(--pulse-rgb), 0);
   }
 }
 
@@ -667,6 +782,7 @@ a:hover {
 }
 
 #header h1 {
+  color: var(--accent-color);
   font-size: 4.35em;
   font-weight: 900;
   letter-spacing: -0.035em;
@@ -674,6 +790,7 @@ a:hover {
 }
 
 #header p {
+  color: rgba(var(--accent-rgb), 0.85); /* accent, slightly softer for readability */
   font-size: 1.25em;
   margin: 0.75em 0 0.25em 0;
   opacity: 0.75;
@@ -681,6 +798,11 @@ a:hover {
 
 #header nav {
   margin: 1.5em 0 0 0;
+}
+
+#header nav ul {
+  display: inline-flex;
+  gap: 1.25em; /* more space between icons */
 }
 
 #header nav li {
@@ -788,7 +910,7 @@ a:hover {
   -ms-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   border-radius: 100%;
-  border: solid 1px #fff;
+  border: solid 2px rgba(var(--accent-rgb), 0.6);
   display: block;
   font-size: 1.75em;
   height: 2.5em;
@@ -797,6 +919,13 @@ a:hover {
   text-align: center;
   top: 0;
   width: 2.5em;
+  color: var(--accent-color);
+  /* Pulse effect */
+  animation: icon-pulse 3.6s ease-out infinite;
+  box-shadow:
+    inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
+    0 0 0 6px rgba(var(--accent-rgb), 0.08),
+    0 0 0 0 rgba(var(--pulse-rgb), 0.35);
 }
 
 #header nav a:hover {
@@ -804,8 +933,9 @@ a:hover {
 }
 
 #header nav a:hover:before {
-  background-color: rgba(255, 255, 255, 0.175);
-  color: #fff;
+  background-color: rgba(var(--accent-rgb), 0.12);
+  border-color: rgba(var(--accent-rgb), 0.85);
+  color: var(--accent-color);
 }
 
 #header nav a:active {
@@ -814,8 +944,15 @@ a:hover {
 }
 
 #header nav a:active:before {
-  background-color: rgba(255, 255, 255, 0.35);
-  color: #fff;
+  background-color: rgba(var(--accent-rgb), 0.35);
+  color: var(--accent-color);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #header nav a:before {
+    animation: none;
+  }
 }
 
 #header nav a span {
@@ -825,18 +962,92 @@ a:hover {
 /* Footer */
 
 #footer {
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 75%);
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 75%);
-  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 75%);
-  background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5) 75%);
+  /* Smaller, cleaner footer */
+  background: transparent;
+  border-top: none;
   bottom: 0;
   cursor: default;
-  height: 6em;
+  height: auto;
   left: 0;
-  line-height: 8em;
+  line-height: 1.6;
   position: absolute;
-  text-align: center;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.72em;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+  color: rgba(var(--accent-rgb), 0.9); /* accent footer text */
+}
+
+#footer .footer-left,
+#footer .footer-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#footer a {
+  border-bottom: 0;
+  color: inherit; /* remove special link color */
+}
+
+#footer a:hover {
+  color: inherit; /* keep same color */
+  text-decoration: underline; /* subtle emphasis instead of color change */
+}
+
+@media screen and (max-width: 480px) {
+  #footer {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  #header nav ul {
+    gap: 0.75em;
+  }
+  #footer .footer-right {
+    display: none; /* hide extra links on very small screens */
+  }
+}
+
+/* Accent fade from the bottom inside the footer */
+#footer {
+  position: absolute;
+}
+
+#footer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -24px; /* half the previous fade height */
+  bottom: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(var(--footer-fade-rgb), 0.14) 0%,
+    rgba(var(--footer-fade-rgb), 0.1) 40%,
+    rgba(var(--footer-fade-rgb), 0.05) 80%,
+    rgba(var(--footer-fade-rgb), 0) 100%
+  );
+}
+
+#footer .footer-grid {
+  position: relative; /* keep text above gradient */
+  z-index: 1;
+}
+
+/* Grid footer rows */
+#footer .footer-grid {
+  text-align: center;
+}
+
+#footer .footer-grid .row {
+  display: block;
+  opacity: 0.9;
 }
 
 /* Wide */
