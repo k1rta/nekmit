@@ -6,6 +6,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+concurrency:
+  group: "reports-${{ github.ref || github.run_id }}"
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -38,11 +42,24 @@ jobs:
           path: playwright-report
           if-no-files-found: error
 
-      - name: Publish HTML report to gh-pages (/reports/latest)
+      - name: Publish HTML report to gh-pages (per-branch path)
         if: github.ref_name != 'gh-pages'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: playwright-report
-          destination_dir: reports/latest
+          publish_branch: gh-pages
+          destination_dir: reports/${{ github.ref_name }}/latest
           keep_files: true
+          force_orphan: true
+
+      - name: Publish HTML report to gh-pages (canonical main path)
+        if: github.ref_name == 'main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: playwright-report
+          publish_branch: gh-pages
+          destination_dir: reports/main/latest
+          keep_files: true
+          force_orphan: true
