@@ -2,3 +2,26 @@
 node_modules/
 dist/
 .vite/
+
+# Playwright artifacts
+playwright-report/
+test-results/
+
+# Coverage
+coverage/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Local env & platform
+.env
+.env.*
+!.env.example
+.vercel/
