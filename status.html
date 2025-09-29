@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Status • Nekmit</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+      .status-card {
+        max-width: 640px;
+        margin: 4rem auto;
+        padding: 1.25rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+      .status-ok {
+        color: #10b981;
+      }
+      .status-bad {
+        color: #ef4444;
+      }
+      .mono {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+          monospace;
+      }
+      a {
+        color: var(--accent-color);
+      }
+    </style>
+  </head>
+  <body class="theme-slate accent-blue tw-antialiased">
+    <div class="status-card">
+      <h1>Website Status</h1>
+      <p id="status">Loading…</p>
+      <pre id="json" class="mono" style="white-space: pre-wrap"></pre>
+      <p>
+        <a href="/">← Back to home</a>
+      </p>
+    </div>
+    <script>
+      async function load() {
+        const el = document.getElementById('status');
+        const pre = document.getElementById('json');
+        try {
+          const res = await fetch('/api/health', { cache: 'no-store' });
+          const data = await res.json();
+          if (data.status === 'ok') {
+            el.textContent = 'Status: OK';
+            el.className = 'status-ok';
+          } else {
+            el.textContent = 'Status: ERROR';
+            el.className = 'status-bad';
+          }
+          pre.textContent = JSON.stringify(data, null, 2);
+        } catch (e) {
+          el.textContent = 'Status: ERROR';
+          el.className = 'status-bad';
+          pre.textContent = JSON.stringify(
+            { status: 'error', message: e?.message || String(e) },
+            null,
+            2
+          );
+        }
+      }
+      load();
+    </script>
+  </body>
+</html>
