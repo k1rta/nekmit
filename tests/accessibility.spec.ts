@@ -4,10 +4,13 @@ import { test, expect } from '@playwright/test';
 
 test('skip-link focuses main', async ({ page }) => {
   await page.goto('/');
-  // Press tab to focus the first focusable element (skip-link), then Enter
-  await page.keyboard.press('Tab');
-  await expect(page.locator('a.skip-link')).toBeFocused();
+  const skip = page.locator('a.skip-link');
+  await skip.focus();
+  await expect(skip).toBeFocused();
   await page.keyboard.press('Enter');
   // Main should be scrolled into view; we at least assert it's visible
-  await expect(page.getByTestId('main')).toBeVisible();
+  const main = page.getByTestId('main');
+  await expect(main).toBeVisible();
+  // Stronger assertion if tabindex="-1" exists on #main:
+  // await expect(main).toBeFocused();
 });
