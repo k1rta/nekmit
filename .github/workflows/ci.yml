@@ -44,6 +44,14 @@ jobs:
           path: playwright-report
           if-no-files-found: error
 
+      - name: Add vercel.json to reports (skip Vercel build on gh-pages)
+        run: |
+          cat > playwright-report/vercel.json << 'EOF'
+          {
+            "ignoreCommand": "echo 'Skipping Vercel build for gh-pages reports' && exit 0"
+          }
+          EOF
+
       - name: Publish HTML report to gh-pages (per-branch path)
         if: github.ref_name != 'gh-pages'
         uses: peaceiris/actions-gh-pages@v3

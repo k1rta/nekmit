@@ -1,17 +1,18 @@
-// Vercel serverless function: /api/health
+/* eslint-env node */
+/* eslint-disable no-undef */
+// Vercel serverless function: /api/health (CommonJS)
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   try {
-    const pkg = await import('../package.json', { assert: { type: 'json' } })
-      .then((m) => m.default)
-      .catch(() => ({ version: '0.0.0' }));
+    const version =
+      (process.env.VERCEL_GIT_COMMIT_SHA || process.env.COMMIT_SHA || '').slice(0, 7) || 'unknown';
     res.setHeader('Cache-Control', 'no-store');
     res.status(200).json({
       status: 'ok',
-      version: pkg.version || '0.0.0',
+      version,
       timestamp: new Date().toISOString(),
     });
   } catch (e) {
-    res.status(500).json({ status: 'error', message: e?.message || 'unknown' });
+    res.status(500).json({ status: 'error', message: (e && e.message) || 'unknown' });
   }
-}
+};
