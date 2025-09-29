@@ -132,24 +132,25 @@ video {
   white-space: nowrap;
 }
 
-/* Final tiny-landscape rule: force 1-row icons on very small landscape screens only */
+/* Tiny-landscape (SE landscape): force icons into a single row (6 columns) */
 @media screen and (orientation: landscape) and (max-width: 736px) and (max-height: 420px) {
-  #header nav ul {
-    display: grid !important;
-    grid-template-columns: repeat(6, 1fr) !important;
+  /* Specificity beats base inline-flex without !important */
+  #wrapper #header nav ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     justify-items: center;
     align-items: center;
-    column-gap: 0.35em;
-    row-gap: 0.25em;
+    column-gap: 0.26em; /* tight to fit, still tappable */
+    row-gap: 0.2em;
   }
-  #header nav li {
-    width: auto !important; /* prevent fixed width from forcing wrap */
+  #wrapper #header nav li {
+    width: auto;
   }
-  #header nav a:before {
-    width: 1.9em;
-    height: 1.9em;
-    line-height: 1.9em;
-    font-size: 1.36em;
+  #wrapper #header nav a:before {
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    font-size: 1.42em;
   }
 }
 
