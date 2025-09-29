@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Use: npm run test:e2e\" && exit 0",
     "prepare": "husky",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --open",
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx --no-error-on-unmatched-pattern",
-    "lint:fix": "eslint . --ext .js,.jsx --fix --no-error-on-unmatched-pattern"
+    "lint:fix": "eslint . --ext .js,.jsx --fix --no-error-on-unmatched-pattern",
+    "test:e2e": "playwright test",
+    "test:e2e:report": "playwright show-report",
+    "pw:install": "playwright install --with-deps"
   },
   "repository": {
     "type": "git",
@@ -48,6 +51,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.1.6",
     "prettier": "^3.6.2",
+    "@playwright/test": "^1.47.2",
     "tailwindcss": "^4.1.13",
     "vite": "^7.1.6"
   }
