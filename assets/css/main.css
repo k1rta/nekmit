@@ -153,6 +153,76 @@ video {
   }
 }
 
+/* Landscape scroll fix for short viewports (e.g., iPhone 15 Pro landscape) */
+@media screen and (orientation: landscape) and (max-height: 560px) {
+  html,
+  body {
+    height: auto !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    /* Match the mesh background seen behind content */
+    background: var(--bg-color) !important;
+    background-image:
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, rgba(0, 0, 0, 0) 1px),
+      linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, rgba(0, 0, 0, 0) 1px) !important;
+    background-size:
+      48px 48px,
+      48px 48px !important;
+    background-repeat: repeat !important;
+  }
+  #wrapper,
+  #main {
+    position: relative !important; /* allow a bottom underlay */
+    height: auto !important;
+  }
+  #main:before {
+    display: none !important; /* disable full-height pseudo element */
+  }
+  #main {
+    padding-bottom: calc(
+      1.25rem + env(safe-area-inset-bottom)
+    ) !important; /* tighter bottom spacing */
+    background: var(--bg-color) !important; /* ensure no gap shows through under underlay */
+  }
+  #header {
+    margin-top: 0.5rem !important;
+    padding-top: calc(0.5rem + env(safe-area-inset-top));
+  }
+  #header h1 {
+    font-size: clamp(1rem, 4vw, 1.6rem) !important;
+    line-height: 1.1 !important;
+  }
+  #header nav {
+    margin-top: 0.9em !important;
+  }
+  #footer {
+    position: relative !important;
+    bottom: auto !important;
+    margin-bottom: 0 !important; /* eliminate extra gap under footer */
+    background: var(--bg-color) !important; /* solid background to avoid banding */
+  }
+  /* Extend the teal band beneath the footer to avoid any dark gap */
+  #main::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 128px; /* extend further below footer */
+    pointer-events: none;
+    background: linear-gradient(
+      to top,
+      rgba(var(--footer-fade-rgb), 0.34) 0%,
+      rgba(var(--footer-fade-rgb), 0.18) 55%,
+      rgba(var(--footer-fade-rgb), 0) 100%
+    );
+  }
+  /* Extend footer fade so the area just below it blends smoothly */
+  #footer::after {
+    display: none !important; /* disable fade overlay on short landscape */
+  }
+}
+
 /* (Removed) Mobile Landscape overrides: reverting to base/mobile behavior */
 
 article,
