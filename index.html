@@ -70,20 +70,24 @@
   <body class="is-preload theme-slate accent-blue pulse-cyan footerfade-cyan tw-antialiased">
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div id="wrapper">
-      <div id="bg"></div>
+    <div id="wrapper" data-testid="wrapper">
+      <div id="bg" data-testid="bg"></div>
       <div id="overlay"></div>
-      <div id="main" role="main">
+      <div id="main" role="main" data-testid="main" tabindex="-1">
         <!-- Header -->
-        <header id="header" class="tw-mt-8 md:tw-mt-12 tw-space-y-2">
-          <h1 class="tw-tracking-tight">Kirta‑Linda Karits</h1>
-          <p class="tw-opacity-90 tw-text-base tagline bullet">From pipelines to pixels</p>
-          <p class="tw-opacity-90 tw-text-base tagline bullet">
+        <header id="header" class="tw-mt-8 md:tw-mt-12 tw-space-y-2" data-testid="header">
+          <h1 class="tw-tracking-tight" data-testid="title">Kirta‑Linda Karits</h1>
+          <p class="tw-opacity-90 tw-text-base tagline bullet" data-testid="tagline-1">
+            From pipelines to pixels
+          </p>
+          <p class="tw-opacity-90 tw-text-base tagline bullet" data-testid="tagline-2">
             Building resilient, automated systems and thoughtful UIs
           </p>
-          <p class="tw-opacity-90 tw-text-base tagline">Strong QA mindset</p>
-          <nav>
-            <ul>
+          <p class="tw-opacity-90 tw-text-base tagline" data-testid="tagline-3">
+            Strong QA mindset
+          </p>
+          <nav data-testid="nav">
+            <ul data-testid="icon-list">
               <li>
                 <a
                   href="#"
@@ -91,6 +95,7 @@
                   title="Download my resume"
                   aria-label="Resume"
                   rel="noopener noreferrer"
+                  data-testid="icon-resume"
                   ><span class="label">Resume</span></a
                 >
               </li>
@@ -101,17 +106,19 @@
                   title="View my projects on GitHub"
                   aria-label="GitHub"
                   rel="noopener noreferrer"
+                  data-testid="icon-github"
                   ><span class="label">GitHub</span></a
                 >
               </li>
               <!-- Email/Company moved to end to meet desired order -->
               <li>
                 <a
-                  href="#"
+                  href="https://k1rta.github.io/nekmit/reports/main/latest/"
                   class="icon solid fa-clipboard-check tw-opacity-80 hover:tw-opacity-100 tw-transition tw-duration-200"
                   title="See the latest automated test report"
                   aria-label="Test Report"
                   rel="noopener noreferrer"
+                  data-testid="icon-test-report"
                   ><span class="label">Test Report</span></a
                 >
               </li>
@@ -122,6 +129,7 @@
                   title="Live status and uptime checks"
                   aria-label="Website Health"
                   rel="noopener noreferrer"
+                  data-testid="icon-health"
                   ><span class="label">Website Health</span></a
                 >
               </li>
@@ -132,6 +140,7 @@
                   title="Contact me"
                   aria-label="Contact"
                   rel="noopener noreferrer"
+                  data-testid="icon-contact"
                   ><span class="label">Contact</span></a
                 >
               </li>
@@ -142,6 +151,7 @@
                   title="Visit my company website"
                   aria-label="Company"
                   rel="noopener noreferrer"
+                  data-testid="icon-company"
                   ><span class="label">Company</span></a
                 >
               </li>
@@ -150,9 +160,9 @@
         </header>
 
         <!-- Footer -->
-        <footer id="footer">
+        <footer id="footer" data-testid="footer">
           <div class="footerfade-red">
-            <span class="row"
+            <span class="row" data-testid="copyright"
               >&copy; Nekmit LLC • Design: <a href="http://html5up.net">HTML5 UP</a></span
             >
           </div>
