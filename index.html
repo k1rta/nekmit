@@ -8,7 +8,10 @@
   <head>
     <title>Kirta‑Linda Karits — DevOps × Frontend x QA</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover"
+    />
     <link rel="canonical" href="https://nekmit.vercel.app" />
     <meta
       name="description"
@@ -74,10 +77,11 @@
         <!-- Header -->
         <header id="header" class="tw-mt-8 md:tw-mt-12 tw-space-y-2">
           <h1 class="tw-tracking-tight">Kirta‑Linda Karits</h1>
-          <p class="tw-opacity-90 tw-text-base">
-            From pipelines to pixels &nbsp;&bull;&nbsp; Keen on DevOps and Frontend
-            &nbsp;&bull;&nbsp; Strong QA skills
+          <p class="tw-opacity-90 tw-text-base tagline bullet">From pipelines to pixels</p>
+          <p class="tw-opacity-90 tw-text-base tagline bullet">
+            Building resilient, automated systems and thoughtful UIs
           </p>
+          <p class="tw-opacity-90 tw-text-base tagline">Strong QA mindset</p>
           <nav>
             <ul>
               <li>
@@ -93,7 +97,7 @@
               <li>
                 <a
                   href="#"
-                  class="icon brands fa-github tw-opacity-80 hover:tw-opacity-100 tw-transition tw-duration-200"
+                  class="icon solid fa-code-branch tw-opacity-80 hover:tw-opacity-100 tw-transition tw-duration-200"
                   title="View my projects on GitHub"
                   aria-label="GitHub"
                   rel="noopener noreferrer"
@@ -124,7 +128,7 @@
               <li>
                 <a
                   href="#"
-                  class="icon solid fa-envelope tw-opacity-80 hover:tw-opacity-100 tw-transition tw-duration-200"
+                  class="icon solid fa-paper-plane tw-opacity-80 hover:tw-opacity-100 tw-transition tw-duration-200"
                   title="Contact me"
                   aria-label="Contact"
                   rel="noopener noreferrer"
@@ -155,17 +159,12 @@
         </footer>
       </div>
     </div>
-    <script src="assets/js/main.js"></script>
+    <!-- Removed missing JS: assets/js/main.js (no script needed) -->
     <script>
       window.onload = function () {
         document.body.classList.remove('is-preload');
       };
-      window.ontouchmove = function () {
-        return false;
-      };
-      window.onorientationchange = function () {
-        document.body.scrollTop = 0;
-      };
+      // Removed touchmove blocker and forced scroll reset to allow natural scrolling on mobile
     </script>
   </body>
 </html>
