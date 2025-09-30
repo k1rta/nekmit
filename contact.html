@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact • Nekmit</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+      .card {
+        max-width: 720px;
+        margin: 4rem auto;
+        padding: 1.25rem;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+      label {
+        display: block;
+        margin-top: 0.75rem;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.6rem 0.7rem;
+        margin-top: 0.25rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(0, 0, 0, 0.2);
+        color: #e5e7eb;
+      }
+      button {
+        margin-top: 1rem;
+        padding: 0.6rem 0.9rem;
+        border-radius: 8px;
+        border: 1px solid rgba(var(--accent-rgb), 0.5);
+        background: rgba(var(--accent-rgb), 0.15);
+        color: #e5e7eb;
+        cursor: pointer;
+      }
+      .ok {
+        color: #10b981;
+      }
+      .err {
+        color: #ef4444;
+      }
+      a {
+        color: var(--accent-color);
+      }
+    </style>
+  </head>
+  <body class="theme-slate accent-blue tw-antialiased">
+    <div class="card">
+      <h1>Contact</h1>
+      <p>Send me a note. This posts to <code>/api/contact</code>.</p>
+      <form id="f">
+        <label>
+          Name
+          <input name="name" required />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" required />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit">Send</button>
+      </form>
+      <p id="status"></p>
+      <pre id="out" style="white-space: pre-wrap"></pre>
+      <p><a href="/">← Back to home</a></p>
+    </div>
+    <script>
+      const form = document.getElementById('f');
+      const statusEl = document.getElementById('status');
+      const outEl = document.getElementById('out');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusEl.textContent = 'Sending…';
+        outEl.textContent = '';
+        const fd = new FormData(form);
+        const payload = Object.fromEntries(fd.entries());
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (res.ok && data.status === 'ok') {
+            statusEl.textContent = 'Sent ✔';
+            statusEl.className = 'ok';
+          } else {
+            statusEl.textContent = 'Failed ✖';
+            statusEl.className = 'err';
+          }
+          outEl.textContent = JSON.stringify(data, null, 2);
+        } catch (err) {
+          statusEl.textContent = 'Failed ✖';
+          statusEl.className = 'err';
+          outEl.textContent = String(err);
+        }
+      });
+    </script>
+  </body>
+</html>
