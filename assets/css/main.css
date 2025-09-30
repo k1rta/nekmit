@@ -433,7 +433,20 @@ body {
 .skip-link:focus-visible {
   outline: 2px solid var(--accent-color);
   outline-offset: 3px;
-  border-radius: 4px;
+}
+
+/* Make header icon focus rings circular, without square overlay */
+#header nav a:focus,
+#header nav a:focus-visible {
+  outline: none; /* avoid square outline over circular icon */
+}
+#header nav a:focus::before,
+#header nav a:focus-visible::before {
+  border-radius: 50%;
+  /* draw an external ring using box-shadow to emulate outline */
+  box-shadow:
+    0 0 0 2px var(--accent-color),
+    inset 0 0 0 1.25px rgba(var(--accent-rgb), 0.22);
 }
 
 /* Theme Toggle */
