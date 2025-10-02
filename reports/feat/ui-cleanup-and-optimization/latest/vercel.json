@@ -1,0 +1,3 @@
+{
+  "ignoreCommand": "echo 'Skipping Vercel build for gh-pages reports' && exit 1"
+}
