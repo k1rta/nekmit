@@ -3,66 +3,105 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Status • Nekmit</title>
+    <title>Status</title>
     <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
     <style>
-      .status-card {
-        max-width: 640px;
-        margin: 4rem auto;
-        padding: 1.25rem;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.06);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      }
-      .status-ok {
-        color: #10b981;
-      }
-      .status-bad {
-        color: #ef4444;
-      }
-      .mono {
-        font-family:
-          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
-          monospace;
-      }
-      a {
-        color: var(--accent-color);
+      /* Status page specific layout */
+      .center {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
       }
     </style>
   </head>
-  <body class="theme-slate accent-blue tw-antialiased">
-    <div class="status-card">
-      <h1>Website Status</h1>
-      <p id="status">Loading…</p>
-      <pre id="json" class="mono" style="white-space: pre-wrap"></pre>
-      <p>
-        <a href="/">← Back to home</a>
-      </p>
+  <body
+    class="is-preload theme-slate accent-blue pulse-cyan footerfade-cyan tw-antialiased status-page"
+  >
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div id="wrapper">
+      <div id="bg" data-testid="bg"></div>
+      <div id="overlay"></div>
+      <div id="main" role="main" tabindex="-1" data-testid="main">
+        <div class="center">
+          <div style="display: flex; flex-direction: column; align-items: center">
+            <section class="status-card" data-testid="status-card">
+              <div class="tw-mb-6" style="margin-top: -0.25rem">
+                <span
+                  id="statusCode"
+                  class="mono tw-flex tw-items-center tw-gap-2"
+                  style="color: #e5e7eb"
+                  data-testid="status-code"
+                >
+                  <span id="statusIndicator" style="color: #10b981" data-testid="status-indicator"
+                    >●</span
+                  >
+                  <span id="httpStatus" data-testid="http-status">Loading...</span>
+                </span>
+              </div>
+              <pre><code id="json" class="mono" data-testid="json-content"></code></pre>
+            </section>
+            <a
+              href="/"
+              class="back-icon icon solid fa-home"
+              title="Back to homepage"
+              aria-label="Back to homepage"
+              data-testid="back-button"
+              ><span class="label">Back to homepage</span></a
+            >
+          </div>
+        </div>
+        <footer id="footer" data-testid="footer">
+          <div class="footerfade-red">
+            <span class="row" data-testid="copyright">
+              &copy; Nekmit LLC • Design: <a href="http://html5up.net">HTML5 UP</a>
+            </span>
+          </div>
+        </footer>
+      </div>
     </div>
     <script>
       async function load() {
-        const el = document.getElementById('status');
-        const pre = document.getElementById('json');
+        // Match index.html behavior so content isn't hidden by preload styles
+        document.body.classList.remove('is-preload');
+        const statusIndicator = document.getElementById('statusIndicator');
+        const httpStatus = document.getElementById('httpStatus');
+        const code = document.getElementById('json');
         try {
           const res = await fetch('/api/health', { cache: 'no-store' });
           const data = await res.json();
           if (data.status === 'ok') {
-            el.textContent = 'Status: OK';
-            el.className = 'status-ok';
+            statusIndicator.style.color = '#10b981'; // green
+            httpStatus.textContent = '200 OK';
           } else {
-            el.textContent = 'Status: ERROR';
-            el.className = 'status-bad';
+            statusIndicator.style.color = '#f87171'; // red
+            httpStatus.textContent = `${res.status} ERROR`;
           }
-          pre.textContent = JSON.stringify(data, null, 2);
+          code.innerHTML = highlightJson(data);
         } catch (e) {
-          el.textContent = 'Status: ERROR';
-          el.className = 'status-bad';
-          pre.textContent = JSON.stringify(
-            { status: 'error', message: e?.message || String(e) },
-            null,
-            2
-          );
+          statusIndicator.style.color = '#f87171'; // red
+          httpStatus.textContent = 'NETWORK ERROR';
+          code.innerHTML = highlightJson({ status: 'error', message: e?.message || String(e) });
         }
+      }
+      function highlightJson(obj) {
+        const json = JSON.stringify(obj, null, 2)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+        return json
+          .replace(/("[^"]+":)/g, '<span class="json-key">$1</span>')
+          .replace(/: (".*?")/g, ': <span class="json-str">$1</span>')
+          .replace(/: (\b\d+(?:\.\d+)?\b)/g, ': <span class="json-num">$1</span>')
+          .replace(/: (true|false)/g, ': <span class="json-bool">$1</span>')
+          .replace(/: (null)/g, ': <span class="json-null">$1</span>');
       }
       load();
     </script>
