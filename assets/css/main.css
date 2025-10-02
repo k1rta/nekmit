@@ -433,7 +433,20 @@ body {
 .skip-link:focus-visible {
   outline: 2px solid var(--accent-color);
   outline-offset: 3px;
-  border-radius: 4px;
+}
+
+/* Make header icon focus rings circular, without square overlay */
+#header nav a:focus,
+#header nav a:focus-visible {
+  outline: none; /* avoid square outline over circular icon */
+}
+#header nav a:focus::before,
+#header nav a:focus-visible::before {
+  border-radius: 50%;
+  /* draw an external ring using box-shadow to emulate outline */
+  box-shadow:
+    0 0 0 2px var(--accent-color),
+    inset 0 0 0 1.25px rgba(var(--accent-rgb), 0.22);
 }
 
 /* Theme Toggle */
@@ -1834,4 +1847,134 @@ body.theme-light #header nav a:hover:before {
     column-gap: 0.9em;
     row-gap: 0.8em;
   }
+}
+
+/* Status Page Styles */
+.status-page #main {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* Status page should inherit the same background and overlay as homepage */
+
+.status-card {
+  max-width: 800px;
+  margin: 0; /* centered by wrapper */
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: rgba(31, 41, 55, 0.9); /* dark gray background */
+  border: 1px solid rgba(75, 85, 99, 0.3); /* subtle gray border */
+  color: #e5e7eb; /* ensure readable text over dark bg */
+  position: relative;
+  z-index: 2; /* above overlay */
+  text-align: left; /* force left alignment for contents */
+}
+
+.status-ok {
+  color: #10b981;
+}
+
+.status-bad {
+  color: #ef4444;
+}
+
+/* Status icon inherits homepage icon behavior */
+.status-icon {
+  color: var(--accent-color);
+}
+
+/* Make heading use homepage accent color and font */
+.status-card h1 {
+  color: #60a5fa;
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.status-card pre {
+  background: transparent;
+  border: none;
+  padding: 0;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.status-card code {
+  color: #e5e7eb;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/* JSON syntax highlighting */
+.json-key {
+  color: #60a5fa;
+}
+.json-str {
+  color: #34d399;
+}
+.json-num {
+  color: #fbbf24;
+}
+.json-bool {
+  color: #f87171;
+}
+.json-null {
+  color: #9ca3af;
+}
+
+/* Back button styling - exactly like homepage icons */
+.back-icon {
+  display: inline-block;
+  margin-top: 1.5rem;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  text-align: center;
+  line-height: 2.5em;
+  color: var(--accent-color);
+  font-size: 1.75em;
+  /* Pulse effect - exactly like homepage */
+  animation: icon-pulse 3.6s ease-out infinite;
+  box-shadow:
+    inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
+    0 0 0 10px rgba(var(--accent-rgb), 0.08),
+    0 0 0 0 rgba(var(--pulse-rgb), 0.35);
+}
+
+.back-icon:hover {
+  color: var(--accent-color);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.85),
+    0 0 0 10px rgba(var(--accent-rgb), 0.12),
+    0 0 0 0 rgba(var(--pulse-rgb), 0.35);
+}
+
+.back-icon:active {
+  color: var(--accent-color);
+  box-shadow:
+    inset 0 0 0 1.5px rgba(var(--accent-rgb), 1),
+    0 0 0 10px rgba(var(--accent-rgb), 0.35),
+    0 0 0 0 rgba(var(--pulse-rgb), 0.35);
+}
+
+.back-icon:focus {
+  outline: none;
+}
+
+.back-icon:focus-visible {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
+    0 0 0 10px rgba(var(--accent-rgb), 0.08),
+    0 0 22px rgba(var(--accent-rgb), 0.12),
+    0 0 0 3px var(--accent-color);
 }

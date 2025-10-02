@@ -52,6 +52,28 @@ jobs:
           }
           EOF
 
+      - name: Prepare gh-pages root config (vercel.json + .nojekyll)
+        if: github.ref_name != 'gh-pages'
+        run: |
+          mkdir -p ghpages-root
+          cat > ghpages-root/vercel.json << 'EOF'
+          {
+            "ignoreCommand": "echo 'Skipping Vercel build for gh-pages branch' && exit 0"
+          }
+          EOF
+          touch ghpages-root/.nojekyll
+
+      - name: Publish gh-pages root config
+        if: github.ref_name != 'gh-pages'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ghpages-root
+          publish_branch: gh-pages
+          destination_dir: .
+          keep_files: true
+          force_orphan: true
+
       - name: Publish HTML report to gh-pages (per-branch path)
         if: github.ref_name != 'gh-pages'
         uses: peaceiris/actions-gh-pages@v3

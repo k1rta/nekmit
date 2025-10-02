@@ -29,4 +29,12 @@ export const s = {
 
   // A11y
   skipLink: 'a.skip-link',
+
+  // Status Page
+  statusCard: '[data-testid="status-card"]',
+  statusIndicator: '[data-testid="status-indicator"]',
+  statusCode: '[data-testid="status-code"]',
+  jsonContent: '[data-testid="json-content"]',
+  backButton: '[data-testid="back-button"]',
+  httpStatus: '[data-testid="http-status"]',
 };
