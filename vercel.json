@@ -12,8 +12,5 @@
       "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
     }
   ],
-  "rewrites": [
-    { "source": "/status", "destination": "/status.html" },
-    { "source": "/contact", "destination": "/contact.html" }
-  ]
+  "rewrites": [{ "source": "/status", "destination": "/status.html" }]
 }
