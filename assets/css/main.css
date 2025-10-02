@@ -1943,8 +1943,12 @@ body.theme-light #header nav a:hover:before {
   color: var(--accent-color);
   font-size: 1.75em;
   transition: all 0.2s ease-in-out;
-  /* Pulse effect - exactly like homepage */
-  animation: icon-pulse 3.6s ease-out infinite;
+  /* Entrance animation - same as homepage icons */
+  animation: nav-icons 0.5s ease-in-out forwards, icon-pulse 3.6s ease-out infinite;
+  animation-delay: 2.5s, 2.5s; /* Start entrance and pulse at same time as first homepage icon */
+  /* Initial state - hidden until animation starts */
+  opacity: 0;
+  transform: translate3d(0, 1em, 0);
   box-shadow:
     inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
     0 0 0 10px rgba(var(--accent-rgb), 0.08),
