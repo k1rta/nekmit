@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Use: npm run test:e2e\" && exit 0",
+    "test": "npm run test:smoke",
     "prepare": "husky",
     "dev": "vite",
     "build": "vite build",
@@ -12,8 +12,11 @@
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx --no-error-on-unmatched-pattern",
     "lint:fix": "eslint . --ext .js,.jsx --fix --no-error-on-unmatched-pattern",
+    "test:smoke": "playwright test --config=playwright.smoke.config.ts",
+    "test:smoke:report": "playwright show-report playwright-report-smoke",
     "test:e2e": "playwright test",
     "test:e2e:report": "playwright show-report",
+    "test:full": "playwright test",
     "pw:install": "playwright install --with-deps"
   },
   "repository": {
