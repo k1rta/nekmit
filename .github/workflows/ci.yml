@@ -1,4 +1,4 @@
-name: CI E2E and Report
+name: Comprehensive Testing CI/CD
 
 on:
   push:
@@ -7,17 +7,20 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: "reports-${{ github.ref || github.run_id }}"
-  cancel-in-progress: false
+  group: "tests-${{ github.ref || github.run_id }}"
+  cancel-in-progress: true
 
 permissions:
   contents: write
   pull-requests: write
   issues: write
+  deployments: read
 
 jobs:
-  e2e:
+  # Smoke tests run on every push (fast feedback)
+  smoke-tests:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,32 +31,71 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install deps
+      - name: Install dependencies
         run: npm ci
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
-        run: npm run test:e2e
+      - name: Run smoke tests
+        run: npm run test:smoke
 
-      - name: Upload HTML report artifact
+      - name: Upload smoke test report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
-          path: playwright-report
-          if-no-files-found: error
+          name: smoke-test-report-${{ github.sha }}
+          path: playwright-report-smoke
+          retention-days: 30
 
-      - name: Add vercel.json to reports (skip Vercel build on gh-pages)
+  # Full test suite runs on PRs and main branch
+  full-tests:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' || github.ref_name == 'main'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run full test suite
+        run: npm run test:full
+
+      - name: Upload full test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: full-test-report-${{ github.sha }}
+          path: playwright-report
+          retention-days: 30
+
+      - name: Prepare test report for publishing
+        if: always()
         run: |
+          # Add vercel.json to skip build on gh-pages
           cat > playwright-report/vercel.json << 'EOF'
           {
             "ignoreCommand": "echo 'Skipping Vercel build for gh-pages reports' && exit 0"
           }
           EOF
+          
+          # Add commit info to report
+          echo "Commit: ${{ github.sha }}" > playwright-report/commit-info.txt
+          echo "Branch: ${{ github.ref_name }}" >> playwright-report/commit-info.txt
+          echo "Timestamp: $(date -u)" >> playwright-report/commit-info.txt
 
-      - name: Prepare gh-pages root config (vercel.json + .nojekyll)
-        if: github.ref_name != 'gh-pages'
+      - name: Setup gh-pages configuration
+        if: always() && github.ref_name != 'gh-pages'
         run: |
           mkdir -p ghpages-root
           cat > ghpages-root/vercel.json << 'EOF'
@@ -64,7 +106,7 @@ jobs:
           touch ghpages-root/.nojekyll
 
       - name: Publish gh-pages root config
-        if: github.ref_name != 'gh-pages'
+        if: always() && github.ref_name != 'gh-pages'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -72,10 +114,21 @@ jobs:
           publish_branch: gh-pages
           destination_dir: .
           keep_files: true
-          force_orphan: true
 
-      - name: Publish HTML report to gh-pages (per-branch path)
-        if: github.ref_name != 'gh-pages'
+      # Publish commit-specific report
+      - name: Publish commit-specific test report
+        if: always() && github.ref_name != 'gh-pages'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: playwright-report
+          publish_branch: gh-pages
+          destination_dir: reports/${{ github.ref_name }}/${{ github.sha }}
+          keep_files: true
+
+      # Publish latest report for branch
+      - name: Publish latest test report for branch
+        if: always() && github.ref_name != 'gh-pages'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -83,41 +136,145 @@ jobs:
           publish_branch: gh-pages
           destination_dir: reports/${{ github.ref_name }}/latest
           keep_files: true
-          force_orphan: true
 
-      - name: Publish HTML report to gh-pages (canonical main path)
-        if: github.ref_name == 'main'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: playwright-report
-          publish_branch: gh-pages
-          destination_dir: reports/main/latest
-          keep_files: true
-          force_orphan: true
-
-      - name: Comment PR with report link
-        if: github.event_name == 'pull_request'
+      - name: Comment PR with test reports
+        if: always() && github.event_name == 'pull_request'
         uses: actions/github-script@v7
         with:
           script: |
-            // Derive the actual branch name for PR events
             const branch = '${{ github.head_ref || github.ref_name }}';
-            const url = `https://k1rta.github.io/nekmit/reports/${branch}/latest/`;
-            const body = `🧪 Playwright report for this branch: ${url}`;
-            // Skip commenting for PRs from forks (token has limited perms)
+            const commit = '${{ github.sha }}';
+            const latestUrl = `https://k1rta.github.io/nekmit/reports/${branch}/latest/`;
+            const commitUrl = `https://k1rta.github.io/nekmit/reports/${branch}/${commit}/`;
+            
+            const body = `## 🧪 Test Results
+            
+            **Latest Results:** [View Report](${latestUrl})
+            **This Commit:** [View Report](${commitUrl})
+            
+            - **Commit:** \`${commit.substring(0, 7)}\`
+            - **Branch:** \`${branch}\`
+            - **Timestamp:** ${new Date().toISOString()}
+            `;
+            
             if (context.payload.pull_request && context.payload.pull_request.head.repo.fork) {
               core.info('PR is from a fork; skipping comment due to limited permissions.');
               return;
             }
+            
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
             });
-            const existing = comments.find(c => c.user.type === 'Bot' && c.body && c.body.includes('Playwright report for this branch'));
+            
+            const existing = comments.find(c => 
+              c.user.type === 'Bot' && 
+              c.body && 
+              c.body.includes('🧪 Test Results')
+            );
+            
             if (existing) {
-              await github.rest.issues.updateComment({ owner: context.repo.owner, repo: context.repo.repo, comment_id: existing.id, body });
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body
+              });
             } else {
-              await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body
+              });
+            }
+
+  # Test against Vercel preview deployment
+  vercel-preview-tests:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    needs: []
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Wait for Vercel preview deployment
+        uses: patrickedqvist/wait-for-vercel-preview@v1.3.1
+        id: vercel-preview
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 300
+          check_interval: 10
+
+      - name: Run tests against Vercel preview
+        env:
+          PLAYWRIGHT_BASE_URL: ${{ steps.vercel-preview.outputs.url }}
+        run: npm run test:vercel
+
+      - name: Upload Vercel test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: vercel-test-report-${{ github.sha }}
+          path: playwright-report-vercel
+          retention-days: 30
+
+      - name: Comment PR with Vercel test results
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const previewUrl = '${{ steps.vercel-preview.outputs.url }}';
+            const body = `## 🚀 Vercel Preview Tests
+            
+            **Preview URL:** ${previewUrl}
+            **Status:** Tests completed
+            
+            The tests have been run against your Vercel preview deployment.
+            `;
+            
+            if (context.payload.pull_request && context.payload.pull_request.head.repo.fork) {
+              core.info('PR is from a fork; skipping comment due to limited permissions.');
+              return;
+            }
+            
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const existing = comments.find(c => 
+              c.user.type === 'Bot' && 
+              c.body && 
+              c.body.includes('🚀 Vercel Preview Tests')
+            );
+            
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body
+              });
             }

@@ -1,8 +1,14 @@
 import { test, expect } from '@playwright/test';
-import { s } from './selectors';
+import { s } from '../selectors';
 
-// Status page tests - can be run in a separate branch
-test.describe('Status Page', () => {
+/**
+ * Integration Tests - Status Page
+ *
+ * Comprehensive testing of the status page functionality and API integration.
+ * Run on PR creation to ensure status page works correctly.
+ */
+
+test.describe('Integration Tests - Status Page', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to status page before each test
     await page.goto('/status');

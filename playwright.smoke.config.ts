@@ -1,26 +1,29 @@
 import { defineConfig, devices } from '@playwright/test';
 
+/**
+ * Playwright configuration for smoke tests only
+ * Used for quick validation on every push
+ */
 export default defineConfig({
-  testDir: './tests',
-  timeout: 30 * 1000,
-  expect: { timeout: 5000 },
+  testDir: './tests/smoke',
+  timeout: 15 * 1000, // Shorter timeout for smoke tests
+  expect: { timeout: 3000 },
   fullyParallel: true,
   reporter: [
     [
       'html',
       {
         open: 'never',
-        outputFolder: 'playwright-report',
+        outputFolder: 'playwright-report-smoke',
       },
     ],
     ['list'],
-    ['json', { outputFile: 'playwright-report/results.json' }],
+    ['json', { outputFile: 'playwright-report-smoke/results.json' }],
   ],
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:4173',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
   },
   webServer: process.env.PLAYWRIGHT_BASE_URL
     ? undefined
@@ -32,20 +35,8 @@ export default defineConfig({
       },
   projects: [
     {
-      name: 'Chromium Desktop',
+      name: 'Smoke - Chromium',
       use: { ...devices['Desktop Chrome'] },
-      testMatch: /.*\.spec\.ts/,
-    },
-    {
-      name: 'WebKit Desktop',
-      use: { ...devices['Desktop Safari'] },
-      testMatch: /.*\.spec\.ts/,
-    },
-    // Mobile testing project
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-      testMatch: /.*\/(smoke|e2e)\/.*\.spec\.ts/,
     },
   ],
 });
