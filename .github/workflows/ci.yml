@@ -51,7 +51,7 @@ jobs:
           mkdir -p playwright-report
           cat > playwright-report/vercel.json << 'EOF'
           {
-            "ignoreCommand": "echo 'Skipping Vercel build for gh-pages reports' && exit 0"
+            "ignoreCommand": "echo 'Skipping Vercel build for gh-pages reports' && exit 1"
           }
           EOF
 
@@ -61,7 +61,7 @@ jobs:
           mkdir -p ghpages-root
           cat > ghpages-root/vercel.json << 'EOF'
           {
-            "ignoreCommand": "echo 'Skipping Vercel build for gh-pages branch' && exit 0"
+            "ignoreCommand": "echo 'Skipping Vercel build for gh-pages branch' && exit 1"
           }
           EOF
           touch ghpages-root/.nojekyll
