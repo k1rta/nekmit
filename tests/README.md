@@ -43,11 +43,10 @@ npm run test:smoke
 
 ```bash
 npm run test:full        # Full test suite against local build
-npm run test:vercel      # Tests against Vercel preview deployment
 ```
 
 - Complete test coverage
-- Tests against both local and live preview environments
+- Tests against local build environment
 - Generates comprehensive reports
 
 ### Local Development

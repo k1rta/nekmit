@@ -14,7 +14,6 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
-  deployments: read
 
 jobs:
   # Smoke tests run on every push (fast feedback)
@@ -190,91 +189,3 @@ jobs:
               });
             }
 
-  # Test against Vercel preview deployment
-  vercel-preview-tests:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    needs: []
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps
-
-      - name: Wait for Vercel preview deployment
-        uses: patrickedqvist/wait-for-vercel-preview@v1.3.1
-        id: vercel-preview
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          max_timeout: 300
-          check_interval: 10
-
-      - name: Run tests against Vercel preview
-        env:
-          PLAYWRIGHT_BASE_URL: ${{ steps.vercel-preview.outputs.url }}
-        run: npm run test:vercel
-
-      - name: Upload Vercel test report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: vercel-test-report-${{ github.sha }}
-          path: playwright-report-vercel
-          retention-days: 30
-
-      - name: Comment PR with Vercel test results
-        if: always()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const previewUrl = '${{ steps.vercel-preview.outputs.url }}';
-            const body = `## 🚀 Vercel Preview Tests
-            
-            **Preview URL:** ${previewUrl}
-            **Status:** Tests completed
-            
-            The tests have been run against your Vercel preview deployment.
-            `;
-            
-            if (context.payload.pull_request && context.payload.pull_request.head.repo.fork) {
-              core.info('PR is from a fork; skipping comment due to limited permissions.');
-              return;
-            }
-            
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-            
-            const existing = comments.find(c => 
-              c.user.type === 'Bot' && 
-              c.body && 
-              c.body.includes('🚀 Vercel Preview Tests')
-            );
-            
-            if (existing) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existing.id,
-                body
-              });
-            } else {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body
-              });
-            }

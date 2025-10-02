@@ -17,8 +17,6 @@
     "test:e2e": "playwright test",
     "test:e2e:report": "playwright show-report",
     "test:full": "playwright test",
-    "test:vercel": "playwright test --config=playwright.vercel.config.ts",
-    "test:vercel:report": "playwright show-report playwright-report-vercel",
     "pw:install": "playwright install --with-deps"
   },
   "repository": {
