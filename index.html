@@ -114,6 +114,7 @@
               <!-- Email/Company moved to end to meet desired order -->
               <li>
                 <a
+                  id="test-report-link"
                   href="https://k1rta.github.io/nekmit/reports/main/"
                   class="icon solid fa-clipboard-check tw-opacity-80 hover:tw-opacity-100 tw-transition tw-duration-200"
                   title="See the latest automated test report"
@@ -176,6 +177,25 @@
     <script>
       window.onload = function () {
         document.body.classList.remove('is-preload');
+
+        // Dynamically set test report link based on Vercel branch
+        const testReportLink = document.getElementById('test-report-link');
+        if (!testReportLink) return;
+
+        const hostname = window.location.hostname;
+
+        // Check if we're on a Vercel preview deployment
+        if (hostname.includes('vercel.app') && !hostname.startsWith('nekmit.vercel.app')) {
+          // Vercel preview URLs are like: nekmit-git-{branch-name}-{project}.vercel.app
+          const match = hostname.match(/nekmit-git-(.+?)-[^-]+-projects\.vercel\.app/);
+          if (match && match[1]) {
+            const branch = match[1];
+            // Update link to point to this branch's report
+            testReportLink.href = `https://k1rta.github.io/nekmit/reports/${branch}/`;
+            testReportLink.title = `See test report for ${branch} branch`;
+          }
+        }
+        // Otherwise, keep the default main branch link
       };
       // Removed touchmove blocker and forced scroll reset to allow natural scrolling on mobile
     </script>
