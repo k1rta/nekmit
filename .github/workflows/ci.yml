@@ -115,7 +115,10 @@ jobs:
             const branch = '${{ github.head_ref || github.ref_name }}';
             const runId = '${{ github.run_id }}';
             const sha = '${{ github.sha }}'.substring(0, 7);
-            const timestamp = new Date().toISOString();
+            // Convert to Estonian time (UTC+3)
+            const now = new Date();
+            const estonianTime = new Date(now.getTime() + (3 * 60 * 60 * 1000));
+            const timestamp = estonianTime.toISOString().replace('T', ' ').substring(0, 19) + ' EET';
             
             let message = '## 🧪 Test Results\n\n';
             
