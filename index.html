@@ -178,25 +178,9 @@
       window.onload = function () {
         document.body.classList.remove('is-preload');
 
-        // Dynamically set test report link based on Vercel branch
+        // Add cache-busting to test report link
         const testReportLink = document.getElementById('test-report-link');
-        if (!testReportLink) return;
-
-        const hostname = window.location.hostname;
-
-        // Check if we're on a Vercel preview deployment
-        if (hostname.includes('vercel.app') && !hostname.startsWith('nekmit.vercel.app')) {
-          // Vercel preview URLs are like: nekmit-git-{branch-name}-{project}.vercel.app
-          const match = hostname.match(/nekmit-git-(.+?)-[^-]+-projects\.vercel\.app/);
-          if (match && match[1]) {
-            const branch = match[1];
-            // Add cache-busting timestamp to always fetch fresh report
-            const timestamp = Date.now();
-            testReportLink.href = `https://k1rta.github.io/nekmit/reports/${branch}/?t=${timestamp}`;
-            testReportLink.title = `See test report for ${branch} branch`;
-          }
-        } else {
-          // For production, also add cache-busting
+        if (testReportLink) {
           const timestamp = Date.now();
           testReportLink.href = `https://k1rta.github.io/nekmit/reports/main/?t=${timestamp}`;
         }
