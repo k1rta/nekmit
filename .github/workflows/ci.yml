@@ -78,7 +78,7 @@ jobs:
           force_orphan: true
 
       - name: Publish HTML report to gh-pages (per-branch path)
-        if: github.ref_name != 'gh-pages'
+        if: false # Temporarily disabled to fix deployment issues
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
