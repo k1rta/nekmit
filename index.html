@@ -114,7 +114,8 @@
               <!-- Email/Company moved to end to meet desired order -->
               <li>
                 <a
-                  href="https://k1rta.github.io/nekmit/reports/main/latest/"
+                  id="test-report-link"
+                  href="https://k1rta.github.io/nekmit/reports/main/"
                   class="icon solid fa-clipboard-check tw-opacity-80 hover:tw-opacity-100 tw-transition tw-duration-200"
                   title="See the latest automated test report"
                   aria-label="Test Report"
@@ -176,6 +177,13 @@
     <script>
       window.onload = function () {
         document.body.classList.remove('is-preload');
+
+        // Add cache-busting to test report link
+        const testReportLink = document.getElementById('test-report-link');
+        if (testReportLink) {
+          const timestamp = Date.now();
+          testReportLink.href = `https://k1rta.github.io/nekmit/reports/main/?t=${timestamp}`;
+        }
       };
       // Removed touchmove blocker and forced scroll reset to allow natural scrolling on mobile
     </script>
