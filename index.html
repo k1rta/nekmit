@@ -190,12 +190,16 @@
           const match = hostname.match(/nekmit-git-(.+?)-[^-]+-projects\.vercel\.app/);
           if (match && match[1]) {
             const branch = match[1];
-            // Update link to point to this branch's report
-            testReportLink.href = `https://k1rta.github.io/nekmit/reports/${branch}/`;
+            // Add cache-busting timestamp to always fetch fresh report
+            const timestamp = Date.now();
+            testReportLink.href = `https://k1rta.github.io/nekmit/reports/${branch}/?t=${timestamp}`;
             testReportLink.title = `See test report for ${branch} branch`;
           }
+        } else {
+          // For production, also add cache-busting
+          const timestamp = Date.now();
+          testReportLink.href = `https://k1rta.github.io/nekmit/reports/main/?t=${timestamp}`;
         }
-        // Otherwise, keep the default main branch link
       };
       // Removed touchmove blocker and forced scroll reset to allow natural scrolling on mobile
     </script>
