@@ -88,6 +88,9 @@ jobs:
             const fs = require('fs');
             const testStatus = '${{ steps.test-status.outputs.status }}';
             const branch = '${{ github.head_ref || github.ref_name }}';
+            const runId = '${{ github.run_id }}';
+            const sha = '${{ github.sha }}'.substring(0, 7);
+            const timestamp = new Date().toISOString();
             
             let message = '## 🧪 Test Results\n\n';
             
@@ -98,9 +101,10 @@ jobs:
             }
             
             message += `📊 **View Reports:**\n`;
-            message += `- [Test Report on GitHub Pages](https://k1rta.github.io/nekmit/reports/${branch}/)\n`;
-            message += `- [Download Artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})\n\n`;
-            message += `_Updated on every push to this PR_`;
+            message += `- [Test Report on GitHub Pages](https://k1rta.github.io/nekmit/reports/${branch}/?run=${runId})\n`;
+            message += `- [Download Artifacts](https://github.com/${{ github.repository }}/actions/runs/${runId})\n`;
+            message += `- [Workflow Run](https://github.com/${{ github.repository }}/actions/runs/${runId})\n\n`;
+            message += `**Commit:** \`${sha}\` | **Updated:** ${timestamp}`;
             
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
