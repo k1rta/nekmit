@@ -68,6 +68,13 @@ jobs:
           
           # Add .nojekyll for GitHub Pages
           touch gh-pages-deploy/.nojekyll
+          
+          # Add vercel.json to tell Vercel to skip this directory
+          cat > gh-pages-deploy/vercel.json << 'EOF'
+          {
+            "builds": []
+          }
+          EOF
 
       - name: Publish to GitHub Pages
         if: always()
