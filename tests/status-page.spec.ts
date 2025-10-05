@@ -6,7 +6,6 @@ test.describe('Status Page', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to status page before each test
     await page.goto('/status');
-    await page.waitForLoadState('networkidle');
   });
 
   test('should load status page with correct title', async ({ page }) => {
@@ -20,17 +19,17 @@ test.describe('Status Page', () => {
 
     // Check status indicator exists
     const statusIndicator = page.locator(s.statusIndicator);
-    await expect(statusIndicator).toBeVisible({ timeout: 10000 });
+    await expect(statusIndicator).toBeVisible();
 
     // Check JSON content loads
     const jsonContent = page.locator(s.jsonContent);
-    await expect(jsonContent).toBeVisible({ timeout: 10000 });
+    await expect(jsonContent).toBeVisible();
   });
 
   test('should have working back button', async ({ page }) => {
     // Find back button
     const backButton = page.locator(s.backButton);
-    await expect(backButton).toBeVisible({ timeout: 10000 });
+    await expect(backButton).toBeVisible();
 
     // Check it has proper attributes
     await expect(backButton).toHaveAttribute('href', '/');
@@ -49,7 +48,7 @@ test.describe('Status Page', () => {
 
     // Back button should be accessible
     const backButton = page.locator(s.backButton);
-    await expect(backButton).toBeVisible({ timeout: 10000 });
+    await expect(backButton).toBeVisible();
   });
 
   test('should have accessibility features', async ({ page }) => {

@@ -1,0 +1,14 @@
+# Ignore test-related files and directories
+tests/
+playwright-report/
+playwright.config.ts
+*.spec.ts
+*.spec.js
+
+# Ignore CI/CD files
+.github/
+.husky/
+
+# Ignore documentation
+docs/
+README.txt

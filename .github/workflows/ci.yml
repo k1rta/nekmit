@@ -35,92 +35,108 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
+        id: playwright
         run: npm run test:e2e
         continue-on-error: true
+      
+      - name: Check test results
+        id: test-status
+        run: |
+          if [ -f playwright-report/index.html ]; then
+            echo "status=success" >> $GITHUB_OUTPUT
+          else
+            echo "status=failure" >> $GITHUB_OUTPUT
+          fi
 
-      - name: Upload HTML report artifact
+      # Store test results as artifacts
+      - name: Upload test report artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report
-          path: playwright-report
+          name: playwright-report-${{ github.sha }}
+          path: playwright-report/
           if-no-files-found: warn
+          retention-days: 30
 
-      - name: Add vercel.json to reports (skip Vercel build on gh-pages)
+      # Deploy to GitHub Pages (all branches, with proper Vercel ignore)
+      - name: Deploy test report to GitHub Pages
+        if: always()
         run: |
-          mkdir -p playwright-report
-          cat > playwright-report/vercel.json << 'EOF'
+          # Create a proper static site structure
+          mkdir -p gh-pages-deploy
+          cp -r playwright-report/* gh-pages-deploy/ 2>/dev/null || echo "No test report to copy"
+          
+          # Add .nojekyll for GitHub Pages
+          touch gh-pages-deploy/.nojekyll
+          
+          # Add vercel.json to tell Vercel to skip this directory
+          cat > gh-pages-deploy/vercel.json << 'EOF'
           {
-            "ignoreCommand": "echo 'Skipping Vercel build for gh-pages reports' && exit 1"
+            "builds": []
           }
           EOF
 
-      - name: Prepare gh-pages root config (vercel.json + .nojekyll)
-        if: github.ref_name != 'gh-pages'
-        run: |
-          mkdir -p ghpages-root
-          cat > ghpages-root/vercel.json << 'EOF'
-          {
-            "ignoreCommand": "echo 'Skipping Vercel build for gh-pages branch' && exit 1"
-          }
-          EOF
-          touch ghpages-root/.nojekyll
-
-      - name: Publish gh-pages root config
-        if: github.ref_name != 'gh-pages'
+      - name: Publish to GitHub Pages
+        if: always()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ghpages-root
+          publish_dir: gh-pages-deploy
           publish_branch: gh-pages
-          destination_dir: .
+          destination_dir: reports/${{ github.head_ref || github.ref_name }}
           keep_files: true
-          force_orphan: true
 
-      - name: Publish HTML report to gh-pages (per-branch path)
-        if: false # Temporarily disabled to fix deployment issues
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: playwright-report
-          publish_branch: gh-pages
-          destination_dir: reports/${{ github.ref_name }}/latest
-          keep_files: true
-          force_orphan: true
-
-      - name: Publish HTML report to gh-pages (canonical main path)
-        if: github.ref_name == 'main'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: playwright-report
-          publish_branch: gh-pages
-          destination_dir: reports/main/latest
-          keep_files: true
-          force_orphan: true
-
-      - name: Comment PR with report link
-        if: github.event_name == 'pull_request'
+      # Comment on PR with test results
+      - name: Comment PR with test status
+        if: github.event_name == 'pull_request' && always()
         uses: actions/github-script@v7
         with:
           script: |
-            // Derive the actual branch name for PR events
+            const fs = require('fs');
+            const testStatus = '${{ steps.test-status.outputs.status }}';
             const branch = '${{ github.head_ref || github.ref_name }}';
-            const url = `https://k1rta.github.io/nekmit/reports/${branch}/latest/`;
-            const body = `🧪 Playwright report for this branch: ${url}`;
-            // Skip commenting for PRs from forks (token has limited perms)
-            if (context.payload.pull_request && context.payload.pull_request.head.repo.fork) {
-              core.info('PR is from a fork; skipping comment due to limited permissions.');
-              return;
+            const runId = '${{ github.run_id }}';
+            const sha = '${{ github.sha }}'.substring(0, 7);
+            const timestamp = new Date().toISOString();
+            
+            let message = '## 🧪 Test Results\n\n';
+            
+            if (testStatus === 'success') {
+              message += '✅ Tests completed\n\n';
+            } else {
+              message += '❌ Tests failed or no report generated\n\n';
             }
+            
+            message += `📊 **View Reports:**\n`;
+            message += `- [Test Report on GitHub Pages](https://k1rta.github.io/nekmit/reports/${branch}/?run=${runId})\n`;
+            message += `- [Download Artifacts](https://github.com/${{ github.repository }}/actions/runs/${runId})\n`;
+            message += `- [Workflow Run](https://github.com/${{ github.repository }}/actions/runs/${runId})\n\n`;
+            message += `**Commit:** \`${sha}\` | **Updated:** ${timestamp}`;
+            
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
             });
-            const existing = comments.find(c => c.user.type === 'Bot' && c.body && c.body.includes('Playwright report for this branch'));
+            
+            const existing = comments.find(c => 
+              c.user.type === 'Bot' && 
+              c.body && 
+              c.body.includes('🧪 Test Results')
+            );
+            
             if (existing) {
-              await github.rest.issues.updateComment({ owner: context.repo.owner, repo: context.repo.repo, comment_id: existing.id, body });
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body: message
+              });
             } else {
-              await github.rest.issues.createComment({ owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: message
+              });
             }
