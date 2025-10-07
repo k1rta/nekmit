@@ -16,18 +16,215 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/tailwind.css" />
     <style>
-      /* Status page specific layout */
-      .center {
-        position: absolute;
+      /* Status page specific layout - match homepage structure */
+      .status-page #main {
+        height: 100%;
+        left: 0;
+        position: fixed;
+        text-align: center;
         top: 0;
+        width: 100%;
+      }
+
+      .status-page #main:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        margin-right: 0;
+        vertical-align: middle;
+        width: 1px;
+      }
+
+      /* No header spacer - card gets full vertical space */
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.8;
+          transform: scale(1.1);
+        }
+      }
+
+      .status-page .status-content {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        width: 90%;
+        max-width: 800px;
+      }
+
+      /* Ensure footer stays at bottom */
+      .status-page #footer {
+        position: absolute;
+        bottom: 0;
         left: 0;
         right: 0;
-        bottom: 0;
+      }
+
+      /* Landscape: larger, more readable sizes */
+      @media screen and (orientation: landscape) and (max-height: 560px) {
+        .status-page #main {
+          position: fixed !important;
+          height: 100% !important;
+          overflow: hidden !important;
+        }
+
+        .status-page #main:before {
+          display: inline-block !important;
+        }
+
+        .status-page .status-content {
+          display: inline-block !important;
+          vertical-align: middle !important;
+          max-width: 95% !important;
+        }
+
+        .status-card {
+          max-width: 90% !important;
+          padding: 3rem 2.5rem !important;
+        }
+
+        /* Keep text sizes same as desktop */
+        #statusIndicator {
+          font-size: 3rem !important;
+        }
+
+        #httpStatus {
+          font-size: 3rem !important;
+        }
+
+        .back-icon {
+          width: 2.5em !important;
+          height: 2.5em !important;
+          line-height: 2.5em !important;
+          font-size: 1.75em !important;
+          margin-top: 1.5rem !important;
+        }
+
+        .status-page #footer {
+          position: absolute !important;
+          bottom: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+        }
+      }
+
+      /* Status card responsive styles */
+      .status-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .status-display {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0;
-        margin: 0;
+        gap: 1.5rem;
+        flex-direction: row;
+      }
+
+      .status-indicator {
+        font-size: 3rem;
+        color: #10b981;
+        line-height: 1;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      .status-text {
+        font-size: 3rem;
+        font-weight: 600;
+        color: #22d3ee;
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      /* Mobile portrait adjustments */
+      @media (max-width: 480px) and (orientation: portrait) {
+        .status-indicator {
+          font-size: 1.75rem;
+        }
+
+        .status-text {
+          font-size: 1.25rem;
+          white-space: nowrap;
+        }
+
+        .status-display {
+          gap: 0.75rem;
+        }
+      }
+
+      /* Extra small screens (iPhone SE and smaller) */
+      @media (max-width: 375px) and (orientation: portrait) {
+        .status-indicator {
+          font-size: 1.5rem;
+        }
+
+        .status-text {
+          font-size: 1rem;
+          white-space: nowrap;
+        }
+
+        .status-display {
+          gap: 0.5rem;
+        }
+
+        .status-layout {
+          gap: 0.75rem;
+        }
+      }
+
+      /* iPhone 12 Pro and similar large phones in portrait */
+      @media (min-width: 390px) and (max-width: 430px) and (orientation: portrait) {
+        .status-indicator {
+          font-size: 2.5rem;
+        }
+
+        .status-text {
+          font-size: 2rem;
+          white-space: nowrap;
+        }
+      }
+
+      /* General adjustments for screens larger than iPhone SE */
+      @media (min-width: 376px) {
+        .status-card {
+          transform: scale(0.9);
+        }
+
+        .status-layout {
+          gap: 1.2rem !important;
+        }
+      }
+
+      /* Landscape mode for larger phones */
+      @media (min-width: 700px) and (orientation: landscape) {
+        .status-card {
+          transform: scale(1.1);
+          max-width: 400px;
+          width: auto;
+          margin: 0 auto;
+        }
+
+        .back-icon {
+          transform: scale(1.2);
+        }
+
+        .status-layout {
+          gap: 1rem !important;
+        }
+
+        .status-display {
+          justify-content: center;
+          width: 100%;
+        }
       }
     </style>
   </head>
@@ -39,23 +236,18 @@
       <div id="bg" data-testid="bg"></div>
       <div id="overlay"></div>
       <div id="main" role="main" tabindex="-1" data-testid="main">
-        <div class="center">
-          <div style="display: flex; flex-direction: column; align-items: center">
+        <div class="status-content">
+          <div
+            class="status-layout"
+            style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem"
+          >
             <section class="status-card" data-testid="status-card">
-              <div class="tw-mb-6" style="margin-top: -0.25rem">
-                <span
-                  id="statusCode"
-                  class="mono tw-flex tw-items-center tw-gap-2"
-                  style="color: #e5e7eb"
-                  data-testid="status-code"
+              <div class="status-display">
+                <span id="statusIndicator" class="status-indicator" data-testid="status-indicator"
+                  >●</span
                 >
-                  <span id="statusIndicator" style="color: #10b981" data-testid="status-indicator"
-                    >●</span
-                  >
-                  <span id="httpStatus" data-testid="http-status">Loading...</span>
-                </span>
+                <span id="httpStatus" class="status-text" data-testid="http-status">200 OK</span>
               </div>
-              <pre><code id="json" class="mono" data-testid="json-content"></code></pre>
             </section>
             <a
               href="/"
@@ -69,48 +261,18 @@
         </div>
         <footer id="footer" data-testid="footer">
           <div class="footerfade-red">
-            <span class="row" data-testid="copyright">
-              &copy; Nekmit LLC • Design: <a href="http://html5up.net">HTML5 UP</a>
-            </span>
+            <span class="row" data-testid="copyright"
+              >&copy; Nekmit LLC • Design: <a href="http://html5up.net">HTML5 UP</a></span
+            >
           </div>
         </footer>
       </div>
     </div>
     <script>
-      async function load() {
+      function load() {
         // Match index.html behavior so content isn't hidden by preload styles
         document.body.classList.remove('is-preload');
-        const statusIndicator = document.getElementById('statusIndicator');
-        const httpStatus = document.getElementById('httpStatus');
-        const code = document.getElementById('json');
-        try {
-          const res = await fetch('/api/health', { cache: 'no-store' });
-          const data = await res.json();
-          if (data.status === 'ok') {
-            statusIndicator.style.color = '#10b981'; // green
-            httpStatus.textContent = '200 OK';
-          } else {
-            statusIndicator.style.color = '#f87171'; // red
-            httpStatus.textContent = `${res.status} ERROR`;
-          }
-          code.innerHTML = highlightJson(data);
-        } catch (e) {
-          statusIndicator.style.color = '#f87171'; // red
-          httpStatus.textContent = 'NETWORK ERROR';
-          code.innerHTML = highlightJson({ status: 'error', message: e?.message || String(e) });
-        }
-      }
-      function highlightJson(obj) {
-        const json = JSON.stringify(obj, null, 2)
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;');
-        return json
-          .replace(/("[^"]+":)/g, '<span class="json-key">$1</span>')
-          .replace(/: (".*?")/g, ': <span class="json-str">$1</span>')
-          .replace(/: (\b\d+(?:\.\d+)?\b)/g, ': <span class="json-num">$1</span>')
-          .replace(/: (true|false)/g, ': <span class="json-bool">$1</span>')
-          .replace(/: (null)/g, ': <span class="json-null">$1</span>');
+        // Status is now static - always shows green ball and "200 OK"
       }
       load();
     </script>
