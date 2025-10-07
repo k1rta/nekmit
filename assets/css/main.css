@@ -187,6 +187,7 @@ video {
   #header {
     margin-top: 0.5rem !important;
     padding-top: calc(0.5rem + env(safe-area-inset-top));
+    min-height: 120px; /* reserve consistent space for header */
   }
   #header h1 {
     font-size: clamp(1rem, 4vw, 1.6rem) !important;
@@ -200,6 +201,8 @@ video {
     bottom: auto !important;
     margin-bottom: 0 !important; /* eliminate extra gap under footer */
     background: var(--bg-color) !important; /* solid background to avoid banding */
+    min-height: 48px; /* reserve consistent space for footer */
+    padding: 0.75rem 1rem !important; /* consistent padding */
   }
   /* Extend the teal band beneath the footer to avoid any dark gap */
   #main::after {
@@ -1849,29 +1852,74 @@ body.theme-light #header nav a:hover:before {
   }
 }
 
-/* Status Page Styles */
-.status-page #main {
-  position: relative;
-  z-index: 10;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 0;
+/* Status Page Styles - layout handled in status.html inline styles */
+
+/* Responsive adjustments for status card - keep desktop sizes on all mobile devices */
+@media screen and (max-width: 768px) {
+  .status-card {
+    max-width: 90%;
+    padding: 3rem 2rem;
+  }
+
+  /* Keep text sizes same as desktop */
+  #statusIndicator {
+    font-size: 3rem !important;
+  }
+
+  #httpStatus {
+    font-size: 3rem !important;
+  }
+
+  /* Keep back icon same size as desktop */
+  .back-icon {
+    width: 2.5em !important;
+    height: 2.5em !important;
+    line-height: 2.5em !important;
+    font-size: 1.75em !important;
+  }
 }
 
 /* Status page should inherit the same background and overlay as homepage */
 
 .status-card {
-  max-width: 800px;
+  max-width: 600px;
+  width: 100%;
   margin: 0; /* centered by wrapper */
-  padding: 1.25rem;
-  border-radius: 12px;
-  background: rgba(31, 41, 55, 0.9); /* dark gray background */
-  border: 1px solid rgba(75, 85, 99, 0.3); /* subtle gray border */
-  color: #e5e7eb; /* ensure readable text over dark bg */
+  padding: 3.5rem 3rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+  border: 2px solid rgba(34, 211, 238, 0.4); /* cyan border */
+  color: #e5e7eb;
   position: relative;
-  z-index: 2; /* above overlay */
-  text-align: left; /* force left alignment for contents */
+  z-index: 2;
+  text-align: center;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 0 40px rgba(34, 211, 238, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.status-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.3), rgba(96, 165, 250, 0.3));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .status-ok {
@@ -1885,46 +1933,6 @@ body.theme-light #header nav a:hover:before {
 /* Status icon inherits homepage icon behavior */
 .status-icon {
   color: var(--accent-color);
-}
-
-/* Make heading use homepage accent color and font */
-.status-card h1 {
-  color: #60a5fa;
-  font-weight: 900;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.status-card pre {
-  background: transparent;
-  border: none;
-  padding: 0;
-  overflow-x: auto;
-  font-size: 0.875rem;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.status-card code {
-  color: #e5e7eb;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-/* JSON syntax highlighting */
-.json-key {
-  color: #60a5fa;
-}
-.json-str {
-  color: #34d399;
-}
-.json-num {
-  color: #fbbf24;
-}
-.json-bool {
-  color: #f87171;
-}
-.json-null {
-  color: #9ca3af;
 }
 
 /* Back button styling - exactly like homepage icons */
@@ -1944,7 +1952,9 @@ body.theme-light #header nav a:hover:before {
   font-size: 1.75em;
   transition: all 0.2s ease-in-out;
   /* Entrance animation - same as homepage icons */
-  animation: nav-icons 0.5s ease-in-out forwards, icon-pulse 3.6s ease-out infinite;
+  animation:
+    nav-icons 0.5s ease-in-out forwards,
+    icon-pulse 3.6s ease-out infinite;
   animation-delay: 2.5s, 2.5s; /* Start entrance and pulse at same time as first homepage icon */
   /* Initial state - hidden until animation starts */
   opacity: 0;
@@ -1987,4 +1997,36 @@ body.theme-light #header nav a:hover:before {
     0 0 0 10px rgba(var(--accent-rgb), 0.08),
     0 0 22px rgba(var(--accent-rgb), 0.12),
     0 0 0 3px var(--accent-color);
+}
+
+/* Homepage landscape fixes - remove black bars and keep consistent sizing */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  #wrapper {
+    position: absolute !important;
+    height: auto !important;
+    min-height: 100% !important;
+  }
+
+  #bg {
+    position: absolute !important;
+    height: auto !important;
+    min-height: 100% !important;
+  }
+
+  #main {
+    padding: 1.5rem 0 !important;
+  }
+
+  /* Keep header size consistent with portrait */
+  header h1 {
+    font-size: 2.5rem !important;
+  }
+
+  header p {
+    font-size: 1rem !important;
+  }
+
+  footer {
+    padding: 1rem 0 !important;
+  }
 }

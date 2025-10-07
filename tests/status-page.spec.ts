@@ -12,7 +12,7 @@ test.describe('Status Page', () => {
     await expect(page).toHaveTitle('Status');
   });
 
-  test('should display status card and API data', async ({ page }) => {
+  test('should display status card with indicator', async ({ page }) => {
     // Check main status card exists
     const statusCard = page.locator(s.statusCard);
     await expect(statusCard).toBeVisible();
@@ -21,9 +21,10 @@ test.describe('Status Page', () => {
     const statusIndicator = page.locator(s.statusIndicator);
     await expect(statusIndicator).toBeVisible();
 
-    // Check JSON content loads
-    const jsonContent = page.locator(s.jsonContent);
-    await expect(jsonContent).toBeVisible();
+    // Check HTTP status text
+    const httpStatus = page.locator(s.httpStatus);
+    await expect(httpStatus).toBeVisible();
+    await expect(httpStatus).toHaveText('200 OK');
   });
 
   test('should have working back button', async ({ page }) => {
