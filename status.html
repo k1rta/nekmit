@@ -13,29 +13,126 @@
     <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Sora:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preload" href="assets/css/main.css" as="style" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
     <style>
-      /* Status page specific layout - match homepage structure */
-      .status-page #main {
-        height: 100%;
-        left: 0;
-        position: fixed;
+      #main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
         text-align: center;
-        top: 0;
+        padding: 2rem 0;
+      }
+
+      .status-page-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .metrics-card {
+        max-width: 600px;
         width: 100%;
+        background: rgba(34, 211, 238, 0.05);
+        border: 1px solid rgba(34, 211, 238, 0.2);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
       }
 
-      .status-page #main:before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        margin-right: 0;
-        vertical-align: middle;
-        width: 1px;
+      .metrics-loading,
+      .metrics-error {
+        color: #94a3b8;
+        font-size: 1.125rem;
+        padding: 1.5rem;
+        font-family: 'JetBrains Mono', monospace;
       }
 
-      /* No header spacer - card gets full vertical space */
+      .metrics-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+
+      .metrics-loading i {
+        font-size: 1.25rem;
+        color: #22d3ee;
+      }
+
+      .metrics-error {
+        color: #ef4444;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .metric-item {
+        background: rgba(15, 15, 35, 0.3);
+        border-radius: 8px;
+        padding: 1rem;
+        border: 1px solid rgba(34, 211, 238, 0.1);
+      }
+
+      .metric-label {
+        display: block;
+        color: #94a3b8;
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .metric-value {
+        display: block;
+        color: #22d3ee;
+        font-size: 1.25rem;
+        font-weight: 600;
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      .status-display {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .status-indicator {
+        font-size: 2rem;
+        line-height: 1;
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      .status-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #22d3ee;
+        font-family: 'JetBrains Mono', monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        line-height: 1;
+      }
 
       @keyframes pulse {
         0%,
@@ -44,223 +141,167 @@
           transform: scale(1);
         }
         50% {
-          opacity: 0.8;
+          opacity: 0.7;
           transform: scale(1.1);
         }
       }
 
-      .status-page .status-content {
+      /* Icon pulse animation - matches homepage exactly */
+      @keyframes icon-pulse {
+        0% {
+          box-shadow:
+            inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
+            0 0 0 6px rgba(var(--accent-rgb), 0.08),
+            0 0 0 0 rgba(var(--pulse-rgb), 0.35);
+        }
+        70% {
+          box-shadow:
+            inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
+            0 0 0 6px rgba(var(--accent-rgb), 0.08),
+            0 0 0 18px rgba(var(--pulse-rgb), 0);
+        }
+        100% {
+          box-shadow:
+            inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
+            0 0 0 6px rgba(var(--accent-rgb), 0.08),
+            0 0 0 0 rgba(var(--pulse-rgb), 0);
+        }
+      }
+
+      /* Ensure icon styling matches homepage exactly */
+      .icon {
         display: inline-block;
-        vertical-align: middle;
-        position: relative;
-        width: 90%;
-        max-width: 800px;
+        text-decoration: none;
+        border-radius: 50%;
+        border: solid 2px rgba(var(--accent-rgb), 0.6);
+        text-align: center;
+        line-height: 2.5em;
+        width: 2.5em;
+        height: 2.5em;
+        font-size: 1.75em;
+        color: var(--accent-color);
+        transition: all 0.2s ease-in-out;
+        /* Pulse effect - same as homepage */
+        animation: icon-pulse 3.6s ease-out infinite;
+        box-shadow:
+          inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.28),
+          0 0 0 10px rgba(var(--accent-rgb), 0.08),
+          0 0 0 0 rgba(var(--pulse-rgb), 0.35);
       }
 
-      /* Ensure footer stays at bottom */
-      .status-page #footer {
+      .icon:hover {
+        transform: scale(1.1);
+        color: var(--accent-color);
+        border-color: rgba(var(--accent-rgb), 0.85);
+        background-color: rgba(var(--accent-rgb), 0.12);
+        box-shadow:
+          inset 0 0 0 1.5px rgba(var(--accent-rgb), 0.85),
+          0 0 0 10px rgba(var(--accent-rgb), 0.12),
+          0 0 0 0 rgba(var(--pulse-rgb), 0.35);
+      }
+
+      .icon:active {
+        transform: scale(0.95);
+        color: var(--accent-color);
+        background-color: rgba(var(--accent-rgb), 0.35);
+        box-shadow:
+          inset 0 0 0 1.5px rgba(var(--accent-rgb), 1),
+          0 0 0 10px rgba(var(--accent-rgb), 0.35),
+          0 0 0 0 rgba(var(--pulse-rgb), 0.35);
+      }
+
+      .icon .label {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
       }
 
-      /* Landscape: larger, more readable sizes */
-      @media screen and (orientation: landscape) and (max-height: 560px) {
-        .status-page #main {
-          position: fixed !important;
-          height: 100% !important;
-          overflow: hidden !important;
-        }
-
-        .status-page #main:before {
-          display: inline-block !important;
-        }
-
-        .status-page .status-content {
-          display: inline-block !important;
-          vertical-align: middle !important;
-          max-width: 95% !important;
-        }
-
-        .status-card {
-          max-width: 90% !important;
-          padding: 3rem 2.5rem !important;
-        }
-
-        /* Keep text sizes same as desktop */
-        #statusIndicator {
-          font-size: 3rem !important;
-        }
-
-        #httpStatus {
-          font-size: 3rem !important;
-        }
-
-        .back-icon {
-          width: 2.5em !important;
-          height: 2.5em !important;
-          line-height: 2.5em !important;
-          font-size: 1.75em !important;
-          margin-top: 1.5rem !important;
-        }
-
-        .status-page #footer {
-          position: absolute !important;
-          bottom: 0 !important;
-          left: 0 !important;
-          right: 0 !important;
-        }
+      /* Add spacing between card and back button */
+      nav[data-testid='nav'] {
+        margin-top: 1.5rem;
       }
 
-      /* Status card responsive styles */
-      .status-layout {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-      }
-
-      .status-display {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        flex-direction: row;
-      }
-
-      .status-indicator {
-        font-size: 3rem;
-        color: #10b981;
-        line-height: 1;
-        animation: pulse 2s ease-in-out infinite;
-      }
-
-      .status-text {
-        font-size: 3rem;
-        font-weight: 600;
-        color: #22d3ee;
-        font-family: 'JetBrains Mono', monospace;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
-
-      /* Mobile portrait adjustments */
-      @media (max-width: 480px) and (orientation: portrait) {
-        .status-indicator {
-          font-size: 1.75rem;
+      @media (max-width: 640px) {
+        .metrics-card {
+          padding: 1rem;
         }
 
-        .status-text {
-          font-size: 1.25rem;
-          white-space: nowrap;
-        }
-
-        .status-display {
+        .metrics-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
           gap: 0.75rem;
         }
-      }
 
-      /* Extra small screens (iPhone SE and smaller) */
-      @media (max-width: 375px) and (orientation: portrait) {
-        .status-indicator {
-          font-size: 1.5rem;
+        #main {
+          padding: 1rem 0;
         }
 
-        .status-text {
-          font-size: 1rem;
-          white-space: nowrap;
-        }
-
-        .status-display {
-          gap: 0.5rem;
-        }
-
-        .status-layout {
+        .status-page-container {
           gap: 0.75rem;
-        }
-      }
-
-      /* iPhone 12 Pro and similar large phones in portrait */
-      @media (min-width: 390px) and (max-width: 430px) and (orientation: portrait) {
-        .status-indicator {
-          font-size: 2.5rem;
+          padding: 1rem;
         }
 
-        .status-text {
-          font-size: 2rem;
-          white-space: nowrap;
-        }
-      }
-
-      /* General adjustments for screens larger than iPhone SE */
-      @media (min-width: 376px) {
-        .status-card {
-          transform: scale(0.9);
-        }
-
-        .status-layout {
-          gap: 1.2rem !important;
-        }
-      }
-
-      /* Landscape mode for larger phones */
-      @media (min-width: 700px) and (orientation: landscape) {
-        .status-card {
-          transform: scale(1.1);
-          max-width: 400px;
-          width: auto;
-          margin: 0 auto;
-        }
-
-        .back-icon {
-          transform: scale(1.2);
-        }
-
-        .status-layout {
-          gap: 1rem !important;
-        }
-
-        .status-display {
-          justify-content: center;
-          width: 100%;
+        nav[data-testid='nav'] {
+          margin-top: 0.75rem;
         }
       }
     </style>
   </head>
   <body
-    class="is-preload theme-slate accent-blue pulse-cyan footerfade-cyan tw-antialiased status-page"
+    class="is-preload theme-slate accent-blue pulse-cyan footerfade-cyan tw-antialiased"
+    data-testid="status-page"
   >
     <a class="skip-link" href="#main">Skip to content</a>
-    <div id="wrapper">
-      <div id="bg" data-testid="bg"></div>
+
+    <div id="wrapper" data-testid="status-wrapper">
+      <div id="bg" data-testid="status-bg"></div>
       <div id="overlay"></div>
-      <div id="main" role="main" tabindex="-1" data-testid="main">
-        <div class="status-content">
-          <div
-            class="status-layout"
-            style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem"
-          >
-            <section class="status-card" data-testid="status-card">
-              <div class="status-display">
-                <span id="statusIndicator" class="status-indicator" data-testid="status-indicator"
-                  >●</span
-                >
-                <span id="httpStatus" class="status-text" data-testid="http-status">200 OK</span>
-              </div>
-            </section>
-            <a
-              href="/"
-              class="back-icon icon solid fa-arrow-left tw-opacity-80 hover:tw-opacity-100 tw-transition tw-duration-200"
-              title="Back to homepage"
-              aria-label="Back to homepage"
-              data-testid="back-button"
-              ><span class="label">Back to homepage</span></a
-            >
+      <div id="main" role="main" data-testid="status-main" tabindex="-1">
+        <!-- Centered Content Container -->
+        <div class="status-page-container">
+          <!-- Header -->
+          <header id="header" class="tw-space-y-2" data-testid="status-header">
+            <h1 class="tw-tracking-tight" data-testid="title">Status</h1>
+          </header>
+
+          <!-- System Metrics Card -->
+          <div class="metrics-card" data-testid="metrics-card">
+            <div id="metrics-loading" class="metrics-loading">
+              <i class="fas fa-spinner fa-spin"></i> Loading metrics...
+            </div>
+            <div id="metrics-content" style="display: none">
+              <!-- Metrics will be populated by JavaScript -->
+            </div>
+            <div id="metrics-error" class="metrics-error" style="display: none">
+              Failed to load metrics
+            </div>
           </div>
+
+          <!-- Back Button -->
+          <nav data-testid="nav">
+            <ul data-testid="icon-list">
+              <li>
+                <a
+                  href="/"
+                  class="icon solid fa-arrow-left tw-opacity-80 hover:tw-opacity-100 tw-transition tw-duration-200"
+                  title="Back to homepage"
+                  aria-label="Back to Homepage"
+                  rel="noopener noreferrer"
+                  data-testid="icon-back"
+                  ><span class="label">Back to Homepage</span></a
+                >
+              </li>
+            </ul>
+          </nav>
         </div>
-        <footer id="footer" data-testid="footer">
-          <div class="footerfade-red">
+
+        <!-- Status Content Removed for Header Positioning -->
+
+        <!-- Footer -->
+        <footer id="footer" data-testid="status-footer">
+          <div class="footerfade-cyan">
             <span class="row" data-testid="copyright"
               >&copy; Nekmit LLC • Design: <a href="http://html5up.net">HTML5 UP</a></span
             >
@@ -268,13 +309,140 @@
         </footer>
       </div>
     </div>
+
     <script>
-      function load() {
-        // Match index.html behavior so content isn't hidden by preload styles
+      window.onload = function () {
         document.body.classList.remove('is-preload');
-        // Status is now static - always shows green ball and "200 OK"
+        loadSystemMetrics();
+      };
+
+      async function loadSystemMetrics() {
+        try {
+          const response = await fetch('/api/status');
+          const data = await response.json();
+
+          document.getElementById('metrics-loading').style.display = 'none';
+          document.getElementById('metrics-content').style.display = 'block';
+
+          renderMetrics(data, response.status);
+        } catch (error) {
+          console.error('Failed to load metrics:', error);
+          document.getElementById('metrics-loading').style.display = 'none';
+          document.getElementById('metrics-error').style.display = 'block';
+        }
       }
-      load();
+
+      function renderMetrics(data, httpStatus) {
+        const statusColor = getStatusColor(data.status, httpStatus);
+        const statusDisplay = getStatusDisplay(data.status, httpStatus, data);
+
+        // Update page title and favicon based on status
+        updatePageTitle(statusDisplay);
+        updateFavicon(data.status, httpStatus);
+
+        const html = `
+          <div style="margin-bottom: 1.5rem;">
+            <div class="status-display">
+              <div class="status-indicator" style="color: ${statusColor}">●</div>
+              <div class="status-text">${statusDisplay}</div>
+            </div>
+          </div>
+          
+          <div class="metrics-grid">
+            <div class="metric-item">
+              <span class="metric-label">Response Time</span>
+              <span class="metric-value">${data.responseTimeMs || 0}ms</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Memory Usage</span>
+              <span class="metric-value">${data.metrics?.memory?.used || 0}MB</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Uptime</span>
+              <span class="metric-value">${data.uptime?.processUptimeSeconds || 0}s</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Environment</span>
+              <span class="metric-value">${data.environment?.env || 'unknown'}</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Region</span>
+              <span class="metric-value">${data.environment?.region || 'unknown'}</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Commit</span>
+              <span class="metric-value">${data.environment?.commitSha || 'unknown'}</span>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('metrics-content').innerHTML = html;
+      }
+
+      function getStatusColor(status, httpStatus) {
+        if (httpStatus >= 500 || status === 'error' || status === 'unhealthy') return '#ef4444';
+        if (status === 'degraded' || status === 'unknown') return '#f59e0b';
+        if (status === 'healthy') return '#10b981';
+        return '#6b7280';
+      }
+
+      function getStatusDisplay(status, httpStatus, data) {
+        if (status === 'healthy' && httpStatus === 200) return '200 OK';
+
+        if (httpStatus >= 500 || status === 'error' || status === 'unhealthy') {
+          // Show the actual API response status code, not individual service errors
+          return httpStatus ? getHttpStatusText(httpStatus) : 'SERVICE ERROR';
+        }
+
+        if (status === 'degraded') return 'DEGRADED';
+        if (status === 'unknown') return 'UNKNOWN';
+        return status?.toUpperCase() || 'UNKNOWN';
+      }
+
+      function getHttpStatusText(statusCode) {
+        const statusTexts = {
+          200: '200 OK',
+          400: '400 Bad Request',
+          401: '401 Unauthorized',
+          403: '403 Forbidden',
+          404: '404 Not Found',
+          429: '429 Too Many Requests',
+          500: '500 Internal Server Error',
+          502: '502 Bad Gateway',
+          503: '503 Service Unavailable',
+          504: '504 Gateway Timeout',
+        };
+
+        return statusTexts[statusCode] || `${statusCode} Error`;
+      }
+
+      function updatePageTitle(statusDisplay) {
+        document.title = `${statusDisplay} - Status`;
+      }
+
+      function updateFavicon(status, httpStatus) {
+        // Create a canvas to draw the status indicator
+        const canvas = document.createElement('canvas');
+        canvas.width = 32;
+        canvas.height = 32;
+        const ctx = canvas.getContext('2d');
+
+        // Get status color
+        const statusColor = getStatusColor(status, httpStatus);
+
+        // Draw circle
+        ctx.fillStyle = statusColor;
+        ctx.beginPath();
+        ctx.arc(16, 16, 12, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Update favicon
+        const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        link.type = 'image/x-icon';
+        link.rel = 'shortcut icon';
+        link.href = canvas.toDataURL();
+        document.getElementsByTagName('head')[0].appendChild(link);
+      }
     </script>
   </body>
 </html>
