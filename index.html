@@ -67,15 +67,18 @@
       }
     </script>
   </head>
-  <body class="is-preload theme-slate accent-blue pulse-cyan footerfade-cyan tw-antialiased">
+  <body
+    class="is-preload theme-slate accent-blue pulse-cyan footerfade-cyan tw-antialiased"
+    data-testid="homepage"
+  >
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <div id="wrapper" data-testid="wrapper">
-      <div id="bg" data-testid="bg"></div>
+    <div id="wrapper" data-testid="homepage-wrapper">
+      <div id="bg" data-testid="homepage-bg"></div>
       <div id="overlay"></div>
-      <div id="main" role="main" data-testid="main" tabindex="-1">
+      <div id="main" role="main" data-testid="homepage-main" tabindex="-1">
         <!-- Header -->
-        <header id="header" class="tw-mt-8 md:tw-mt-12 tw-space-y-2" data-testid="header">
+        <header id="header" class="tw-mt-8 md:tw-mt-12 tw-space-y-2" data-testid="homepage-header">
           <h1 class="tw-tracking-tight" data-testid="title">Kirta‑Linda Karits</h1>
           <p class="tw-opacity-90 tw-text-base tagline bullet" data-testid="tagline-1">
             From pipelines to pixels
@@ -164,8 +167,8 @@
         </header>
 
         <!-- Footer -->
-        <footer id="footer" data-testid="footer">
-          <div class="footerfade-red">
+        <footer id="footer" data-testid="homepage-footer">
+          <div class="footerfade-cyan">
             <span class="row" data-testid="copyright"
               >&copy; Nekmit LLC • Design: <a href="http://html5up.net">HTML5 UP</a></span
             >
@@ -173,7 +176,6 @@
         </footer>
       </div>
     </div>
-    <!-- Removed missing JS: assets/js/main.js (no script needed) -->
     <script>
       window.onload = function () {
         document.body.classList.remove('is-preload');
@@ -184,7 +186,12 @@
           const timestamp = Date.now();
           testReportLink.href = `https://k1rta.github.io/nekmit/reports/main/?t=${timestamp}`;
         }
+
+        // Status check now navigates to /status page
       };
+
+      // Heart icon now navigates to /status page directly
+
       // Removed touchmove blocker and forced scroll reset to allow natural scrolling on mobile
     </script>
   </body>
