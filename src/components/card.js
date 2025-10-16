@@ -184,6 +184,9 @@ class InfoCard extends HTMLElement {
   }
 }
 
-customElements.define('info-card', InfoCard);
+// Only define if not already defined
+if (!customElements.get('info-card')) {
+  customElements.define('info-card', InfoCard);
+}
 
 export default InfoCard;

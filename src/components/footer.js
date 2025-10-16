@@ -54,9 +54,14 @@ class FooterComponent extends HTMLElement {
   }
 }
 
-customElements.define('footer-component', FooterComponent);
+// Only define if not already defined
+if (!customElements.get('footer-component')) {
+  customElements.define('footer-component', FooterComponent);
+}
 
 // Keep backward compatibility
-customElements.define('portfolio-footer', FooterComponent);
+if (!customElements.get('portfolio-footer')) {
+  customElements.define('portfolio-footer', FooterComponent);
+}
 
 export default FooterComponent;
