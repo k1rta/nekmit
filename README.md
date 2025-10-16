@@ -72,7 +72,7 @@ npm run test:e2e:report
 
 ## 📦 Available Commands
 
-### Development
+### Development Commands
 
 | Command | Description |
 |---------|-------------|
@@ -183,7 +183,7 @@ npx playwright test --project=chromium
 
 1. Generate report: `npm run test:e2e:report`
 2. Reports saved to: `public/test-reports/`
-3. View in browser: http://localhost:3000/test-reports/index.html
+3. View in browser: <http://localhost:3000/test-reports/index.html>
 4. Includes: Screenshots, traces, detailed results
 
 ### Centralized Test Selectors
@@ -206,6 +206,7 @@ export const links = {
 ```
 
 **Benefits:**
+
 - ✅ Single source of truth
 - ✅ Update once, applies everywhere
 - ✅ No hardcoded strings in tests
@@ -248,7 +249,7 @@ git push -u origin feature/your-feature-name
 
 We use [Conventional Commits](https://www.conventionalcommits.org/):
 
-```
+```text
 <type>(<scope>): <subject>
 
 Types:
@@ -271,11 +272,13 @@ test(e2e): add accessibility tests
 ### Git Hooks
 
 **Pre-commit** (runs automatically before each commit):
+
 - ✅ Runs ESLint and auto-fixes issues
 - ✅ Formats code with Prettier
 - ✅ Stages fixed files
 
 **Commit-msg** (validates commit message):
+
 - ✅ Ensures conventional commit format
 - ✅ Rejects invalid messages
 
@@ -373,6 +376,7 @@ npx gh-pages -d dist
 ```
 
 **Links:**
+
 ```javascript
 // tests/selectors.js
 export const links = {
@@ -459,14 +463,10 @@ This project is licensed under the MIT License - see [LICENSE.txt](LICENSE.txt) 
 
 ---
 
-<div align="center">
-
-**Built with ❤️ using modern web technologies**
+## 🛠️ Built With
 
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white)](https://playwright.dev/)
 [![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat&logo=eslint&logoColor=white)](https://eslint.org/)
 [![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat&logo=prettier&logoColor=black)](https://prettier.io/)
-
-</div>
