@@ -35,6 +35,7 @@
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 16+ and npm
 - Git
 
@@ -72,6 +73,7 @@ npm run test:e2e:report
 ## 📦 Available Commands
 
 ### Development
+
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Start development server on port 3000 |
@@ -79,6 +81,7 @@ npm run test:e2e:report
 | `npm run preview` | Preview production build |
 
 ### Testing
+
 | Command | Description |
 |---------|-------------|
 | `npm test` | Run all E2E tests |
@@ -86,6 +89,7 @@ npm run test:e2e:report
 | `npm run test:e2e:report` | Run E2E tests + generate HTML report |
 
 ### Code Quality
+
 | Command | Description |
 |---------|-------------|
 | `npm run lint` | Check for linting errors |
@@ -94,15 +98,16 @@ npm run test:e2e:report
 | `npm run format:check` | Check code formatting |
 
 ### Other
+
 | Command | Description |
 |---------|-------------|
-| `npm run health-check` | Start health monitoring API on port 3001 |
+| `npm run health-check` | Start health monitoring API on port 3001 (local only) |
 
 ---
 
 ## 📁 Project Structure
 
-```
+```text
 nekmit/
 ├── .github/
 │   └── workflows/
@@ -283,12 +288,25 @@ The `main` branch is protected with these rules:
 | Rule | Status |
 |------|--------|
 | Require pull request | ✅ Enabled |
-| Require 1 approval | ✅ Enabled |
 | Require status checks | ✅ Enabled |
 | - Lint & Format Check | ✅ Required |
 | - Run Tests | ✅ Required |
 | Require up-to-date branch | ✅ Enabled |
+| Do not allow bypassing | ✅ Enabled |
 | No direct pushes | ✅ Enforced |
+
+### How to Set Up Branch Protection
+
+1. Go to: **Settings → Branches → Add rule**
+2. Branch name pattern: `main`
+3. Enable:
+   - ✅ **Require a pull request before merging**
+   - ✅ **Require status checks to pass before merging**
+     - Select: `Lint & Format Check`
+     - Select: `Run Tests`
+   - ✅ **Require branches to be up to date before merging**
+   - ✅ **Do not allow bypassing the above settings**
+4. Click **Save changes**
 
 **Result:** No broken code reaches production! 🎯
 
@@ -296,17 +314,35 @@ The `main` branch is protected with these rules:
 
 ## 🌐 Deployment
 
-### Automatic Deployment
+### Vercel (Recommended)
 
-The CI/CD pipeline automatically deploys when:
+**Live Site**: [https://nekmit.vercel.app](https://nekmit.vercel.app)
+
+#### Automatic Deployment
+
+Vercel automatically deploys when:
+
 - ✅ Pull request is merged to `main`
-- ✅ All tests pass
+- ✅ All tests pass in CI/CD
 - ✅ Linting passes
 - ✅ Build succeeds
 
-### Manual Deployment
+#### Setup Vercel Deployment
 
-#### GitHub Pages
+1. Go to [vercel.com](https://vercel.com) and sign in with GitHub
+2. Click "Add New Project"
+3. Import your GitHub repository
+4. Configure:
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+5. Click "Deploy"
+
+**Note**: The Health API (`/api/health`) is for local development only and won't work on Vercel's static hosting.
+
+### Alternative: GitHub Pages
+
 ```bash
 # Build the project
 npm run build
@@ -315,7 +351,8 @@ npm run build
 npx gh-pages -d dist
 ```
 
-#### Cloudflare Pages
+### Alternative: Cloudflare Pages
+
 1. Connect GitHub repository
 2. Build command: `npm run build`
 3. Output directory: `dist`
@@ -328,6 +365,7 @@ npx gh-pages -d dist
 ### Update Personal Info
 
 **Name and title:**
+
 ```html
 <!-- src/index.html -->
 <h1 data-testid="main-heading">Your Name</h1>
@@ -379,6 +417,7 @@ The portfolio includes 6 interactive icons:
 ## 🤝 Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for:
+
 - Development workflow
 - Code quality standards
 - Pull request process
@@ -415,7 +454,7 @@ This project is licensed under the MIT License - see [LICENSE.txt](LICENSE.txt) 
 ## 📞 Contact
 
 - **GitHub**: [@k1rta](https://github.com/k1rta)
-- **Email**: kirtalindakarits@icloud.com
+- **Email**: <kirtalindakarits@icloud.com>
 - **Company**: [Nekmit OÜ](https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C)
 
 ---

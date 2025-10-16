@@ -3,6 +3,7 @@
 ## Development Workflow
 
 ### 1. Branch Strategy
+
 - `main` - Protected branch, requires PR and passing tests
 - `develop` - Development branch for ongoing work
 - Feature branches: `feature/your-feature-name`
@@ -13,7 +14,8 @@
 We use [Conventional Commits](https://www.conventionalcommits.org/) for clear and structured commit messages.
 
 #### Format
-```
+
+```text
 <type>(<scope>): <subject>
 
 <body>
@@ -22,6 +24,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/) for clear an
 ```
 
 #### Types
+
 - **feat**: New feature
 - **fix**: Bug fix
 - **docs**: Documentation changes
@@ -34,6 +37,7 @@ We use [Conventional Commits](https://www.conventionalcommits.org/) for clear an
 - **chore**: Other changes that don't modify src or test files
 
 #### Examples
+
 ```bash
 feat(auth): add user login functionality
 
@@ -47,6 +51,7 @@ test(e2e): add accessibility tests for homepage
 ### 3. Before Committing
 
 The pre-commit hook will automatically:
+
 - Run ESLint and fix issues
 - Format code with Prettier
 - Validate commit message format
@@ -65,27 +70,30 @@ The pre-commit hook will automatically:
 ### 5. Code Quality Standards
 
 #### Linting
+
 ```bash
 npm run lint        # Check for issues
 npm run lint:fix    # Auto-fix issues
 ```
 
 #### Formatting
+
 ```bash
 npm run format        # Format all files
 npm run format:check  # Check formatting
 ```
 
 #### Testing
+
 ```bash
-npm test              # Run all tests
-npm run test:unit     # Run unit tests only
-npm run test:e2e      # Run E2E tests only
+npm test              # Run all E2E tests
+npm run test:e2e      # Run E2E tests
 ```
 
 ### 6. Branch Protection Rules
 
 The `main` branch is protected with the following rules:
+
 - Require pull request reviews before merging
 - Require status checks to pass before merging
   - Lint & Format Check
@@ -96,6 +104,7 @@ The `main` branch is protected with the following rules:
 ### 7. Getting Help
 
 If you have questions or need help:
+
 - Check existing issues and PRs
 - Review the README.md
 - Ask in team chat or create a discussion
@@ -103,12 +112,14 @@ If you have questions or need help:
 ## Quick Reference
 
 ### Setup
+
 ```bash
 npm install
 npx playwright install
 ```
 
 ### Development
+
 ```bash
 npm run dev          # Start dev server
 npm run lint:fix     # Fix linting issues
@@ -117,6 +128,7 @@ npm test             # Run all tests
 ```
 
 ### Commit
+
 ```bash
 git add .
 git commit -m "feat: add new feature"  # Commit message will be validated
