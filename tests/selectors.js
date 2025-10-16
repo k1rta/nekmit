@@ -31,7 +31,8 @@ export const links = {
   resume: '/resume.pdf',
   github: 'https://github.com/k1rta/nekmit',
   testReports: '/test-reports/index.html',
-  health: '/api/health',
+  health: '/api-docs.html',
+  healthApi: '/api/health',
   email: 'mailto:kirtalindakarits@icloud.com',
   company: 'https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C',
   html5up: 'https://html5up.net/',
@@ -57,7 +58,7 @@ export const ariaLabels = {
   resume: 'Resume',
   github: 'GitHub',
   testReports: 'Test Reports',
-  health: 'System Health',
+  health: 'API Documentation',
   email: 'Email',
   company: 'Company',
 };
@@ -69,7 +70,7 @@ export const tooltips = {
   resume: 'Download my resume & CV',
   github: 'View my open source projects',
   testReports: 'Live Playwright test results',
-  health: 'Check system health & uptime',
+  health: 'View Health API documentation',
   email: 'Get in touch via email',
   company: 'View company details & registration',
 };

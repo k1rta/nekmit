@@ -50,7 +50,14 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Run E2E tests and generate reports
+      - name: Run Homepage E2E tests
+        run: npx playwright test --grep-invert "API -"
+
+      - name: Run API tests
+        run: npx playwright test --grep "API -"
+
+      - name: Generate test reports
+        if: always()
         run: npm run test:e2e:report
 
       - name: Upload test reports

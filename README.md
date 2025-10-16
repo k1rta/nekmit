@@ -9,7 +9,7 @@
 
 ## ✨ Features
 
-- 🧪 **Live Test Reports** - Interactive Playwright test results with 66 tests
+- 🧪 **Live Test Reports** - Interactive Playwright test results with 81+ tests
 - 💚 **Health Monitoring** - Real-time system health API endpoint
 - 🔄 **CI/CD Pipeline** - Automated testing and deployment
 - ⚡ **Modern Stack** - Vite + Tailwind CSS + Web Components
@@ -26,6 +26,7 @@
 - [Available Commands](#-available-commands)
 - [Project Structure](#-project-structure)
 - [Testing](#-testing)
+- [Health API](#-health-api)
 - [Development Workflow](#-development-workflow)
 - [Deployment](#-deployment)
 - [Contributing](#-contributing)
@@ -214,6 +215,125 @@ export const links = {
 
 ---
 
+## 💚 Health API
+
+The Health API is a Vercel serverless function that provides real-time system health information.
+
+### API Endpoint
+
+**URL:** `/api/health`  
+**Method:** `GET`  
+**Content-Type:** `application/json`
+
+### Live Documentation
+
+Visit the interactive API documentation page: [https://nekmit.vercel.app/api-docs.html](https://nekmit.vercel.app/api-docs.html)
+
+The API docs page includes:
+
+- 📊 Live API status with real-time data
+- 📝 Complete parameter documentation
+- 🧪 Interactive "Try It Out" feature
+- 💻 Code examples (JavaScript, cURL)
+- 🎨 Beautiful UI with reusable card components
+
+### Response Structure
+
+```json
+{
+  "status": "healthy",
+  "timestamp": "2025-10-16T13:00:00.000Z",
+  "uptime": 123.45,
+  "memory": {
+    "used": 45,
+    "total": 128,
+    "unit": "MB"
+  },
+  "environment": {
+    "nodeVersion": "v20.0.0",
+    "platform": "linux",
+    "arch": "x64"
+  },
+  "api": {
+    "version": "1.0.0",
+    "endpoints": [
+      {
+        "path": "/api/health",
+        "method": "GET",
+        "description": "Get system health status"
+      }
+    ]
+  }
+}
+```
+
+### Response Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `status` | string | Current health status ("healthy") |
+| `timestamp` | string | ISO 8601 timestamp |
+| `uptime` | number | Server uptime in seconds |
+| `memory.used` | number | Memory used in MB |
+| `memory.total` | number | Total memory in MB |
+| `memory.unit` | string | Memory unit ("MB") |
+| `environment.nodeVersion` | string | Node.js version |
+| `environment.platform` | string | Operating system platform |
+| `environment.arch` | string | CPU architecture |
+| `api.version` | string | API version |
+| `api.endpoints` | array | Available API endpoints |
+
+### Usage Examples
+
+**JavaScript (Fetch API):**
+
+```javascript
+fetch('/api/health')
+  .then((res) => res.json())
+  .then((data) => {
+    console.log('Status:', data.status);
+    console.log('Uptime:', data.uptime);
+    console.log('Memory:', data.memory);
+  })
+  .catch((err) => console.error(err));
+```
+
+**cURL:**
+
+```bash
+curl -X GET https://nekmit.vercel.app/api/health \
+  -H "Accept: application/json"
+```
+
+### API Tests
+
+The API has comprehensive test coverage with **15 tests**:
+
+- ✅ Status code validation
+- ✅ Content-type verification
+- ✅ Response structure validation
+- ✅ Data type checking
+- ✅ CORS support
+- ✅ HTTP method restrictions
+- ✅ Error handling
+
+Run API tests separately:
+
+```bash
+npx playwright test --grep "API -"
+```
+
+### Features
+
+- 🚀 **Serverless** - Runs on Vercel's edge network
+- 🌍 **CORS Enabled** - Accessible from any origin
+- 🔒 **Method Restricted** - Only GET requests allowed
+- ⚡ **Fast** - Sub-100ms response time
+- 📊 **Real-time** - Live system metrics
+- 🧪 **Tested** - 100% test coverage
+
+---
+
 ## 🔄 Development Workflow
 
 ### Branch Strategy
@@ -342,7 +462,7 @@ Vercel automatically deploys when:
    - **Install Command**: `npm install`
 5. Click "Deploy"
 
-**Note**: The Health API (`/api/health`) is for local development only and won't work on Vercel's static hosting.
+**Note**: The Health API is now a Vercel serverless function and works in production! Visit `/api-docs.html` for interactive documentation.
 
 ### Alternative: GitHub Pages
 
@@ -412,7 +532,7 @@ The portfolio includes 6 interactive icons:
 | 📄 Resume | Blue | `/resume.pdf` | Download resume |
 | 🐙 GitHub | Gray | GitHub profile | View source code |
 | 🧪 Test Reports | Blue | `/test-reports/` | Live test results |
-| 💚 Health API | Green | `/api/health` | System health status |
+| 💚 API Docs | Green | `/api-docs.html` | Health API documentation |
 | 📧 Email | Red | `mailto:` | Contact email |
 | 🏢 Company | Purple | Registry | Company info |
 

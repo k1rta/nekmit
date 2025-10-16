@@ -17,6 +17,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve('src/index.html'),
+        apiDocs: resolve('src/api-docs.html'),
       },
     },
   },
