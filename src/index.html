@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kirta-Linda Karits - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Rajdhani:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      h1 {
+        font-family: 'Rajdhani', sans-serif;
+        font-weight: 700;
+        letter-spacing: 3px;
+      }
+
+      @keyframes pulseGlow {
+        0%,
+        100% {
+          opacity: 1;
+          box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+          border-color: rgb(59, 130, 246);
+        }
+        50% {
+          opacity: 0.85;
+          box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.6);
+          border-color: rgb(96, 165, 250);
+        }
+      }
+
+      nav .icon-pulse {
+        animation: pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      /* Pause all animations when hovering over any icon */
+      nav:hover .icon-pulse {
+        animation-play-state: paused;
+      }
+
+      .icon-pulse:hover {
+        box-shadow: 0 0 30px 8px rgba(59, 130, 246, 0.8);
+      }
+
+      .footer-fade {
+        background: linear-gradient(
+          to top,
+          rgba(0, 80, 120, 0.6) 0%,
+          rgba(0, 60, 100, 0.4) 40%,
+          transparent 100%
+        );
+        padding-top: 120px;
+        padding-bottom: 20px;
+      }
+
+      /* Modern tooltip styling */
+      .tooltip {
+        position: relative;
+      }
+
+      .tooltip::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 50%;
+        transform: translateX(-50%) translateY(8px);
+        padding: 8px 12px;
+        background: rgba(59, 130, 246, 0.95);
+        color: white;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border-radius: 6px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+      }
+
+      .tooltip::after {
+        content: '';
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 50%;
+        transform: translateX(-50%) translateY(2px);
+        border: 6px solid transparent;
+        border-bottom-color: rgba(59, 130, 246, 0.95);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+        z-index: 1000;
+      }
+
+      .tooltip:hover::before,
+      .tooltip:hover::after {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    </style>
+  </head>
+  <body class="flex items-center justify-center min-h-screen relative overflow-hidden">
+    <main class="text-center px-6">
+      <!-- Name and Tagline -->
+      <h1 class="text-6xl md:text-7xl font-bold mb-6 text-blue-400" data-testid="main-heading">
+        Kirta-Linda Karits
+      </h1>
+      <div
+        class="text-sm md:text-base text-blue-300/90 mb-10 max-w-6xl mx-auto font-normal px-4"
+        data-testid="tagline-container"
+      >
+        <p class="hidden md:block" data-testid="tagline-desktop">
+          From pipelines to pixels • Building resilient, automated systems and thoughtful UIs •
+          Strong QA mindset
+        </p>
+        <div class="md:hidden space-y-2" data-testid="tagline-mobile">
+          <p>From pipelines to pixels •</p>
+          <p>Building resilient, automated systems and thoughtful UIs •</p>
+          <p>Strong QA mindset</p>
+        </div>
+      </div>
+
+      <!-- Functional Icons -->
+      <nav class="flex flex-wrap justify-center gap-6 mb-20" data-testid="icon-navigation">
+        <!-- Resume -->
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          aria-label="Resume"
+          data-tooltip="Download my resume & CV"
+          data-testid="icon-resume"
+        >
+          <i class="fa-solid fa-file-lines text-3xl text-blue-500"></i>
+        </a>
+
+        <!-- GitHub Projects -->
+        <a
+          href="https://github.com/k1rta/nekmit"
+          target="_blank"
+          rel="noopener"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          aria-label="GitHub"
+          data-tooltip="View my open source projects"
+          data-testid="icon-github"
+        >
+          <i class="fa-brands fa-github text-3xl text-blue-500"></i>
+        </a>
+
+        <!-- Test Reports -->
+        <a
+          href="/test-reports/index.html"
+          target="_blank"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          aria-label="Test Reports"
+          data-tooltip="Live Playwright test results"
+          data-testid="icon-test-reports"
+        >
+          <i class="fa-solid fa-square-check text-3xl text-blue-500"></i>
+        </a>
+
+        <!-- System Health -->
+        <a
+          href="/api/health"
+          target="_blank"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          aria-label="System Health"
+          data-tooltip="Check system health & uptime"
+          data-testid="icon-health"
+        >
+          <i class="fa-solid fa-heart-pulse text-3xl text-blue-500"></i>
+        </a>
+
+        <!-- Email Contact -->
+        <a
+          href="mailto:kirtalindakarits@icloud.com"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          aria-label="Email"
+          data-tooltip="Get in touch via email"
+          data-testid="icon-email"
+        >
+          <i class="fa-solid fa-paper-plane text-3xl text-blue-500"></i>
+        </a>
+
+        <!-- Company Info -->
+        <a
+          href="https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C"
+          target="_blank"
+          rel="noopener"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          aria-label="Company"
+          data-tooltip="View company details & registration"
+          data-testid="icon-company"
+        >
+          <i class="fa-solid fa-building text-3xl text-blue-500"></i>
+        </a>
+      </nav>
+    </main>
+
+    <!-- Footer with fade effect -->
+    <footer
+      class="footer-fade fixed bottom-0 left-0 right-0 text-center text-xs text-blue-300/50"
+      data-testid="footer"
+    >
+      <p data-testid="footer-text">
+        © Nekmit LLC • Design:
+        <a
+          href="https://html5up.net/"
+          target="_blank"
+          rel="noopener"
+          class="hover:text-blue-200 transition-colors"
+          >HTML5 UP</a
+        >
+      </p>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
