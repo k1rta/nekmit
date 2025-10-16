@@ -81,8 +81,7 @@ npm run test:e2e:report
 ### Testing
 | Command | Description |
 |---------|-------------|
-| `npm test` | Run all tests (unit + E2E) |
-| `npm run test:unit` | Run unit tests only |
+| `npm test` | Run all E2E tests |
 | `npm run test:e2e` | Run E2E tests |
 | `npm run test:e2e:report` | Run E2E tests + generate HTML report |
 

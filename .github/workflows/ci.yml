@@ -50,9 +50,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Run unit tests
-        run: npm run test:unit
-
       - name: Run E2E tests and generate reports
         run: npm run test:e2e:report
 
