@@ -1,11 +1,15 @@
 # Modern Portfolio with Live Test Reports & Health Monitoring
 
+[![CI/CD Pipeline](https://github.com/YOUR_USERNAME/YOUR_REPO/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/YOUR_USERNAME/YOUR_REPO/actions)
+
 ## 🎯 Features
 
 - **Live Test Reports**: Click the icon to view Playwright test results
 - **Health Monitoring API**: Real-time system health endpoint
-- **CI/CD Pipeline**: Automated testing on every PR
+- **CI/CD Pipeline**: Automated testing on every PR with branch protection
 - **Modern Stack**: Vite + Tailwind + Web Components
+- **Code Quality**: ESLint + Prettier + Husky pre-commit hooks
+- **Conventional Commits**: Enforced commit message standards
 
 ## 🚀 Quick Start
 
@@ -35,13 +39,31 @@ API available at: http://localhost:3001/api/health
 
 ## 📋 Available Commands
 
+### Development
 ```bash
 npm run dev              # Start dev server
 npm run build            # Build for production
 npm run preview          # Preview production build
-npm test                 # Run all tests
+```
+
+### Testing
+```bash
+npm test                 # Run all tests (unit + E2E)
+npm run test:unit        # Run unit tests
 npm run test:e2e         # Run E2E tests
 npm run test:e2e:report  # Run tests + generate HTML report
+```
+
+### Code Quality
+```bash
+npm run lint             # Check for linting errors
+npm run lint:fix         # Fix linting errors
+npm run format           # Format code with Prettier
+npm run format:check     # Check code formatting
+```
+
+### Other
+```bash
 npm run health-check     # Start health monitoring API
 ```
 
@@ -127,10 +149,25 @@ public/
 
 ## 📊 Next Steps
 
+### For Development
 1. ✅ Run `npm install`
 2. ✅ Run `npm run dev`
-3. ✅ Run `npm run test:e2e:report`
-4. ✅ Click icons to see live data
-5. ✅ Push to GitHub
-6. ✅ Enable GitHub Pages
-7. ✅ Share your portfolio!
+3. ✅ Run `npm test` to verify everything works
+4. ✅ Read [SETUP.md](./SETUP.md) for GitHub setup
+5. ✅ Read [CONTRIBUTING.md](./CONTRIBUTING.md) for workflow
+
+### For Deployment
+1. ✅ Push to GitHub
+2. ✅ Set up branch protection (see [SETUP.md](./SETUP.md))
+3. ✅ Enable GitHub Pages
+4. ✅ CI/CD will auto-deploy on merge to main
+
+## 🔒 Branch Protection
+
+This project uses branch protection on `main`:
+- All changes must go through pull requests
+- All tests must pass before merging
+- Code must pass linting and formatting checks
+- At least 1 approval required
+
+See [SETUP.md](./SETUP.md) for detailed setup instructions.
