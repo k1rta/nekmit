@@ -17,9 +17,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve('src/index.html'),
-        testing: resolve('src/testing.html'),
-        frontend: resolve('src/frontend.html'),
-        devops: resolve('src/devops.html'),
       },
     },
   },

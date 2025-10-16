@@ -1,173 +1,434 @@
-# Modern Portfolio with Live Test Reports & Health Monitoring
+# 🚀 Nekmit Portfolio
 
-[![CI/CD Pipeline](https://github.com/YOUR_USERNAME/YOUR_REPO/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/YOUR_USERNAME/YOUR_REPO/actions)
+[![CI/CD Pipeline](https://github.com/k1rta/nekmit/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/k1rta/nekmit/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
+[![Playwright Tests](https://img.shields.io/badge/tests-66%20passing-success)](https://github.com/k1rta/nekmit/actions)
+[![Code Style](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
 
-## 🎯 Features
+> Modern portfolio with automated testing, health monitoring, and CI/CD pipeline
 
-- **Live Test Reports**: Click the icon to view Playwright test results
-- **Health Monitoring API**: Real-time system health endpoint
-- **CI/CD Pipeline**: Automated testing on every PR with branch protection
-- **Modern Stack**: Vite + Tailwind + Web Components
-- **Code Quality**: ESLint + Prettier + Husky pre-commit hooks
-- **Conventional Commits**: Enforced commit message standards
+## ✨ Features
+
+- 🧪 **Live Test Reports** - Interactive Playwright test results with 66 tests
+- 💚 **Health Monitoring** - Real-time system health API endpoint
+- 🔄 **CI/CD Pipeline** - Automated testing and deployment
+- ⚡ **Modern Stack** - Vite + Tailwind CSS + Web Components
+- 🎨 **Code Quality** - ESLint + Prettier + Husky hooks
+- 📝 **Conventional Commits** - Enforced commit standards
+- 🔒 **Branch Protection** - Protected main branch with required checks
+- ♿ **Accessibility** - WCAG compliant with ARIA labels
+
+---
+
+## 📋 Table of Contents
+
+- [Quick Start](#-quick-start)
+- [Available Commands](#-available-commands)
+- [Project Structure](#-project-structure)
+- [Testing](#-testing)
+- [Development Workflow](#-development-workflow)
+- [Deployment](#-deployment)
+- [Contributing](#-contributing)
+
+---
 
 ## 🚀 Quick Start
 
-### Step 1: Install Dependencies
+### Prerequisites
+- Node.js 16+ and npm
+- Git
+
+### Installation
+
 ```bash
+# Clone the repository
+git clone https://github.com/k1rta/nekmit.git
+cd nekmit
+
+# Install dependencies
 npm install
+
+# Install Playwright browsers
 npx playwright install
 ```
 
-### Step 2: Start Development Server
+### Development
+
 ```bash
+# Start development server
 npm run dev
-```
-Visit: http://localhost:3000
+# Visit http://localhost:3000
 
-### Step 3: Run Tests (generates reports)
-```bash
+# Run tests
+npm test
+
+# Generate test reports
 npm run test:e2e:report
+# View at http://localhost:3000/test-reports/index.html
 ```
-Test reports will be available at: http://localhost:3000/test-reports/index.html
 
-### Step 4: Start Health API (optional)
-```bash
-npm run health-check
-```
-API available at: http://localhost:3001/api/health
+---
 
-## 📋 Available Commands
+## 📦 Available Commands
 
 ### Development
-```bash
-npm run dev              # Start dev server
-npm run build            # Build for production
-npm run preview          # Preview production build
-```
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server on port 3000 |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
 
 ### Testing
-```bash
-npm test                 # Run all tests (unit + E2E)
-npm run test:unit        # Run unit tests
-npm run test:e2e         # Run E2E tests
-npm run test:e2e:report  # Run tests + generate HTML report
-```
+| Command | Description |
+|---------|-------------|
+| `npm test` | Run all tests (unit + E2E) |
+| `npm run test:unit` | Run unit tests only |
+| `npm run test:e2e` | Run E2E tests |
+| `npm run test:e2e:report` | Run E2E tests + generate HTML report |
 
 ### Code Quality
-```bash
-npm run lint             # Check for linting errors
-npm run lint:fix         # Fix linting errors
-npm run format           # Format code with Prettier
-npm run format:check     # Check code formatting
-```
+| Command | Description |
+|---------|-------------|
+| `npm run lint` | Check for linting errors |
+| `npm run lint:fix` | Auto-fix linting errors |
+| `npm run format` | Format all files with Prettier |
+| `npm run format:check` | Check code formatting |
 
 ### Other
-```bash
-npm run health-check     # Start health monitoring API
-```
+| Command | Description |
+|---------|-------------|
+| `npm run health-check` | Start health monitoring API on port 3001 |
 
-## 🔗 Functional Icons
-
-### 1. Test Reports Icon (Blue)
-- **Links to**: `/test-reports/index.html`
-- **Shows**: Live Playwright test results
-- **Updates**: Every time you run `npm run test:e2e:report`
-
-### 2. Health Monitor Icon (Green)
-- **Links to**: `/api/health`
-- **Shows**: System uptime, memory usage, last test run
-- **Updates**: Real-time
-
-### 3. CI/CD Pipeline Icon (Purple)
-- **Links to**: GitHub Actions page
-- **Shows**: Build status, deployment history
-- **Updates**: On every push/PR
+---
 
 ## 📁 Project Structure
 
 ```
-src/
-├── index.html           # Main page with functional icons
-├── testing.html         # Testing skills page
-├── frontend.html        # Frontend skills page
-├── devops.html          # DevOps skills page
-├── components/          # Web Components
-│   ├── header.js
-│   └── footer.js
-├── api/
-│   └── health.js        # Health monitoring API
-└── style.css            # Tailwind styles
-
-tests/
-└── homepage.spec.js     # Playwright tests
-
-public/
-└── test-reports/        # Generated test reports (after running tests)
+nekmit/
+├── .github/
+│   └── workflows/
+│       └── ci.yml              # CI/CD pipeline configuration
+├── .husky/                     # Git hooks
+│   ├── pre-commit              # Runs lint & format before commit
+│   └── commit-msg              # Validates commit message format
+├── public/
+│   ├── resume.pdf              # Resume file
+│   └── test-reports/           # Generated test reports (after running tests)
+├── src/
+│   ├── index.html              # Main portfolio page
+│   ├── main.js                 # Entry point
+│   ├── style.css               # Tailwind styles
+│   ├── api/
+│   │   └── health.js           # Health monitoring API
+│   ├── components/
+│   │   ├── header.js           # Header web component
+│   │   └── footer.js           # Footer web component
+│   └── utils/                  # Utility functions
+├── tests/
+│   ├── homepage-core.spec.js           # Core page elements (4 tests)
+│   ├── homepage-navigation.spec.js     # Navigation icons (8 tests)
+│   ├── homepage-interactions.spec.js   # User interactions (3 tests)
+│   ├── homepage-responsive.spec.js     # Responsive design (4 tests)
+│   ├── homepage-accessibility.spec.js  # Accessibility (4 tests)
+│   └── selectors.js                    # Centralized test selectors
+├── CONTRIBUTING.md             # Contribution guidelines
+├── LICENSE.txt                 # MIT License
+└── package.json                # Dependencies and scripts
 ```
 
-## 🧪 How It Works
+---
+
+## 🧪 Testing
+
+### Test Suite Overview
+
+**Total: 66 tests** across 5 categories, running on 3 browsers (Chromium, Firefox, WebKit)
+
+#### Test Categories
+
+| Category | Tests | Description |
+|----------|-------|-------------|
+| **Core Elements** | 4 | Page title, heading, tagline, footer |
+| **Navigation** | 8 | All 6 icons, links, functionality |
+| **Interactions** | 3 | Animations, hover states, clicks |
+| **Responsive** | 4 | Mobile, tablet, desktop layouts |
+| **Accessibility** | 4 | ARIA labels, semantic HTML, WCAG |
+
+### Running Tests
+
+```bash
+# Run all tests
+npm run test:e2e
+
+# Run specific category
+npx playwright test homepage-core
+npx playwright test homepage-navigation
+npx playwright test homepage-accessibility
+
+# Run with UI mode (interactive)
+npx playwright test --ui
+
+# Debug mode
+npx playwright test --debug
+
+# Run on specific browser
+npx playwright test --project=chromium
+```
 
 ### Test Reports
-1. Run `npm run test:e2e:report`
-2. Playwright generates HTML report in `public/test-reports/`
-3. Click "Test Reports" icon on homepage to view
-4. Shows: Pass/fail status, screenshots, traces
 
-### Health API
-1. Start with `npm run health-check`
-2. Returns JSON with:
-   - System status
-   - Memory usage
-   - Uptime
-   - Last test run info
+1. Generate report: `npm run test:e2e:report`
+2. Reports saved to: `public/test-reports/`
+3. View in browser: http://localhost:3000/test-reports/index.html
+4. Includes: Screenshots, traces, detailed results
 
-### CI/CD
-1. Push code to GitHub
-2. GitHub Actions runs automatically
-3. Runs tests
-4. Generates reports
-5. Deploys if tests pass
+### Centralized Test Selectors
 
-## 🌐 Deployment
+All test data is centralized in `tests/selectors.js` for easy maintenance:
 
-### GitHub Pages
-1. Enable GitHub Pages in repo settings
-2. Source: `gh-pages` branch
-3. CI/CD auto-deploys on push to main
+```javascript
+// tests/selectors.js
+export const testIds = {
+  mainHeading: 'main-heading',
+  iconGithub: 'icon-github',
+  // ... more selectors
+};
 
-### Cloudflare Pages
-1. Connect GitHub repo
-2. Build command: `npm run build`
-3. Output directory: `dist`
+export const links = {
+  github: 'https://github.com/k1rta/nekmit',
+  resume: '/resume.pdf',
+  // ... more links
+};
+```
 
-## 🎨 Customization
+**Benefits:**
+- ✅ Single source of truth
+- ✅ Update once, applies everywhere
+- ✅ No hardcoded strings in tests
+- ✅ Easy refactoring
 
-1. **Update your name**: Edit `src/index.html` line 17
-2. **Add GitHub link**: Edit `src/components/header.js` line 18
-3. **Customize colors**: Edit `tailwind.config.js`
+---
 
-## 📊 Next Steps
+## 🔄 Development Workflow
 
-### For Development
-1. ✅ Run `npm install`
-2. ✅ Run `npm run dev`
-3. ✅ Run `npm test` to verify everything works
-4. ✅ Read [SETUP.md](./SETUP.md) for GitHub setup
-5. ✅ Read [CONTRIBUTING.md](./CONTRIBUTING.md) for workflow
+### Branch Strategy
 
-### For Deployment
-1. ✅ Push to GitHub
-2. ✅ Set up branch protection (see [SETUP.md](./SETUP.md))
-3. ✅ Enable GitHub Pages
-4. ✅ CI/CD will auto-deploy on merge to main
+- **`main`** - Protected production branch
+- **`develop`** - Development branch
+- **`feature/*`** - Feature branches
+- **`fix/*`** - Bug fix branches
+- **`chore/*`** - Maintenance branches
+
+### Making Changes
+
+```bash
+# 1. Create feature branch
+git checkout -b feature/your-feature-name
+
+# 2. Make changes
+# ... edit files ...
+
+# 3. Commit (hooks will auto-lint and validate message)
+git add .
+git commit -m "feat: add new feature"
+
+# 4. Push branch
+git push -u origin feature/your-feature-name
+
+# 5. Create Pull Request on GitHub
+# 6. Wait for CI checks to pass
+# 7. Get approval and merge
+```
+
+### Commit Message Format
+
+We use [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+<type>(<scope>): <subject>
+
+Types:
+- feat:     New feature
+- fix:      Bug fix
+- docs:     Documentation changes
+- style:    Code style changes (formatting)
+- refactor: Code refactoring
+- test:     Adding or updating tests
+- chore:    Maintenance tasks
+- ci:       CI/CD changes
+
+Examples:
+feat(auth): add user login functionality
+fix(api): resolve null pointer in health endpoint
+docs(readme): update installation instructions
+test(e2e): add accessibility tests
+```
+
+### Git Hooks
+
+**Pre-commit** (runs automatically before each commit):
+- ✅ Runs ESLint and auto-fixes issues
+- ✅ Formats code with Prettier
+- ✅ Stages fixed files
+
+**Commit-msg** (validates commit message):
+- ✅ Ensures conventional commit format
+- ✅ Rejects invalid messages
+
+---
 
 ## 🔒 Branch Protection
 
-This project uses branch protection on `main`:
-- All changes must go through pull requests
-- All tests must pass before merging
-- Code must pass linting and formatting checks
-- At least 1 approval required
+The `main` branch is protected with these rules:
 
-See [SETUP.md](./SETUP.md) for detailed setup instructions.
+| Rule | Status |
+|------|--------|
+| Require pull request | ✅ Enabled |
+| Require 1 approval | ✅ Enabled |
+| Require status checks | ✅ Enabled |
+| - Lint & Format Check | ✅ Required |
+| - Run Tests | ✅ Required |
+| Require up-to-date branch | ✅ Enabled |
+| No direct pushes | ✅ Enforced |
+
+**Result:** No broken code reaches production! 🎯
+
+---
+
+## 🌐 Deployment
+
+### Automatic Deployment
+
+The CI/CD pipeline automatically deploys when:
+- ✅ Pull request is merged to `main`
+- ✅ All tests pass
+- ✅ Linting passes
+- ✅ Build succeeds
+
+### Manual Deployment
+
+#### GitHub Pages
+```bash
+# Build the project
+npm run build
+
+# Deploy to gh-pages branch
+npx gh-pages -d dist
+```
+
+#### Cloudflare Pages
+1. Connect GitHub repository
+2. Build command: `npm run build`
+3. Output directory: `dist`
+4. Auto-deploys on push to main
+
+---
+
+## 🎨 Customization
+
+### Update Personal Info
+
+**Name and title:**
+```html
+<!-- src/index.html -->
+<h1 data-testid="main-heading">Your Name</h1>
+<p data-testid="tagline">Your Title</p>
+```
+
+**Links:**
+```javascript
+// tests/selectors.js
+export const links = {
+  github: 'https://github.com/YOUR_USERNAME/YOUR_REPO',
+  email: 'mailto:your.email@example.com',
+  // ... update other links
+};
+```
+
+### Customize Colors
+
+```javascript
+// tailwind.config.js
+export default {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0ea5e9', // Change primary color
+      },
+    },
+  },
+};
+```
+
+---
+
+## 🔗 Functional Icons
+
+The portfolio includes 6 interactive icons:
+
+| Icon | Color | Links To | Description |
+|------|-------|----------|-------------|
+| 📄 Resume | Blue | `/resume.pdf` | Download resume |
+| 🐙 GitHub | Gray | GitHub profile | View source code |
+| 🧪 Test Reports | Blue | `/test-reports/` | Live test results |
+| 💚 Health API | Green | `/api/health` | System health status |
+| 📧 Email | Red | `mailto:` | Contact email |
+| 🏢 Company | Purple | Registry | Company info |
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for:
+- Development workflow
+- Code quality standards
+- Pull request process
+- Commit message guidelines
+
+### Quick Contribution Steps
+
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/amazing-feature`
+3. Make changes and commit: `git commit -m "feat: add amazing feature"`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open Pull Request
+6. Wait for CI checks to pass
+7. Get review and merge
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see [LICENSE.txt](LICENSE.txt) for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **Vite** - Lightning fast build tool
+- **Tailwind CSS** - Utility-first CSS framework
+- **Playwright** - Reliable end-to-end testing
+- **ESLint & Prettier** - Code quality tools
+- **Husky** - Git hooks made easy
+
+---
+
+## 📞 Contact
+
+- **GitHub**: [@k1rta](https://github.com/k1rta)
+- **Email**: kirtalindakarits@icloud.com
+- **Company**: [Nekmit OÜ](https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C)
+
+---
+
+<div align="center">
+
+**Built with ❤️ using modern web technologies**
+
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white)](https://playwright.dev/)
+[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat&logo=eslint&logoColor=white)](https://eslint.org/)
+[![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat&logo=prettier&logoColor=black)](https://prettier.io/)
+
+</div>
