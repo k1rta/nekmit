@@ -61,55 +61,6 @@
         padding-top: 120px;
         padding-bottom: 20px;
       }
-
-      /* Modern tooltip styling */
-      .tooltip {
-        position: relative;
-      }
-
-      .tooltip::before {
-        content: attr(data-tooltip);
-        position: absolute;
-        top: calc(100% + 12px);
-        left: 50%;
-        transform: translateX(-50%) translateY(8px);
-        padding: 8px 12px;
-        background: rgba(59, 130, 246, 0.95);
-        color: white;
-        font-size: 0.875rem;
-        font-weight: 500;
-        border-radius: 6px;
-        white-space: nowrap;
-        opacity: 0;
-        pointer-events: none;
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-      }
-
-      .tooltip::after {
-        content: '';
-        position: absolute;
-        top: calc(100% + 6px);
-        left: 50%;
-        transform: translateX(-50%) translateY(2px);
-        border: 6px solid transparent;
-        border-bottom-color: rgba(59, 130, 246, 0.95);
-        opacity: 0;
-        pointer-events: none;
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease;
-        z-index: 1000;
-      }
-
-      .tooltip:hover::before,
-      .tooltip:hover::after {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-      }
     </style>
   </head>
   <body class="flex items-center justify-center min-h-screen relative overflow-hidden">
@@ -139,7 +90,7 @@
         <a
           href="/resume.pdf"
           target="_blank"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
           aria-label="Resume"
           data-tooltip="Download my resume & CV"
           data-testid="icon-resume"
@@ -152,7 +103,7 @@
           href="https://github.com/k1rta/nekmit"
           target="_blank"
           rel="noopener"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
           aria-label="GitHub"
           data-tooltip="View my open source projects"
           data-testid="icon-github"
@@ -164,7 +115,7 @@
         <a
           href="/test-reports/index.html"
           target="_blank"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
           aria-label="Test Reports"
           data-tooltip="Live Playwright test results"
           data-testid="icon-test-reports"
@@ -176,7 +127,7 @@
         <a
           href="/api/health"
           target="_blank"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
           aria-label="System Health"
           data-tooltip="Check system health & uptime"
           data-testid="icon-health"
@@ -187,7 +138,7 @@
         <!-- Email Contact -->
         <a
           href="mailto:kirtalindakarits@icloud.com"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
           aria-label="Email"
           data-tooltip="Get in touch via email"
           data-testid="icon-email"
@@ -200,7 +151,7 @@
           href="https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C"
           target="_blank"
           rel="noopener"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all tooltip"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
           aria-label="Company"
           data-tooltip="View company details & registration"
           data-testid="icon-company"
