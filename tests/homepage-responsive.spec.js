@@ -2,20 +2,28 @@ import { test, expect } from '@playwright/test';
 import { dataTestIds, viewports } from './selectors.js';
 
 test.describe('homepage - responsive design', () => {
-  test('should display mobile tagline on small screens', async ({ page }) => {
+  test('should display tagline on small screens', async ({ page }) => {
     await page.setViewportSize(viewports.mobile);
     await page.goto('/');
 
-    await expect(page.locator(dataTestIds.taglineMobile)).toBeVisible();
-    await expect(page.locator(dataTestIds.taglineDesktop)).toBeHidden();
+    const tagline = page.locator(dataTestIds.tagline);
+    await expect(tagline).toBeVisible();
+
+    // Should have smaller font size on mobile
+    const fontSize = await tagline.evaluate(el => window.getComputedStyle(el).fontSize);
+    expect(parseFloat(fontSize)).toBeLessThanOrEqual(16);
   });
 
-  test('should display desktop tagline on large screens', async ({ page }) => {
+  test('should display tagline on large screens', async ({ page }) => {
     await page.setViewportSize(viewports.desktop);
     await page.goto('/');
 
-    await expect(page.locator(dataTestIds.taglineDesktop)).toBeVisible();
-    await expect(page.locator(dataTestIds.taglineMobile)).toBeHidden();
+    const tagline = page.locator(dataTestIds.tagline);
+    await expect(tagline).toBeVisible();
+
+    // Should have larger font size on desktop
+    const fontSize = await tagline.evaluate(el => window.getComputedStyle(el).fontSize);
+    expect(parseFloat(fontSize)).toBeGreaterThanOrEqual(16);
   });
 
   test('should display all icons on mobile', async ({ page }) => {

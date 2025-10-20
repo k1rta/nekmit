@@ -7,8 +7,9 @@ export const dataTestIds = {
   // Main content
   mainHeading: '[data-testid="main-heading"]',
   taglineContainer: '[data-testid="tagline-container"]',
-  taglineDesktop: '[data-testid="tagline-desktop"]',
-  taglineMobile: '[data-testid="tagline-mobile"]',
+  tagline: '[data-testid="tagline"]',
+  valueProposition: '[data-testid="value-proposition"]',
+  landscapeOverlay: '[data-testid="landscape-overlay"]',
 
   // Navigation
   iconNavigation: '[data-testid="icon-navigation"]',
@@ -46,10 +47,10 @@ export const links = {
  */
 export const text = {
   heading: 'Kirta-Linda Karits',
-  tagline: {
-    part1: 'From pipelines to pixels',
-    part2: 'Building resilient, automated systems',
-    part3: 'Strong QA mindset',
+  tagline: 'From pipelines to pixels • Resilient systems • Strong QA',
+  landscapeWarning: {
+    heading: 'Please Rotate Your Device',
+    message: 'This site is optimized for portrait mode',
   },
 };
 

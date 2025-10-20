@@ -15,12 +15,10 @@ test.describe('homepage - core elements', () => {
     await expect(page.locator(dataTestIds.mainHeading)).toHaveText(text.heading);
   });
 
-  test('should display tagline on desktop', async ({ page }) => {
-    const tagline = page.locator(dataTestIds.taglineDesktop);
+  test('should display tagline with dots', async ({ page }) => {
+    const tagline = page.locator(dataTestIds.tagline);
     await expect(tagline).toBeVisible();
-    await expect(tagline).toContainText('From pipelines to pixels');
-    await expect(tagline).toContainText('Resilient systems');
-    await expect(tagline).toContainText('Strong QA');
+    await expect(tagline).toHaveText(text.tagline);
   });
 
   test('should display footer with badges', async ({ page }) => {
