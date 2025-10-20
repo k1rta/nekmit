@@ -28,6 +28,24 @@
   margin-top: 8px;
 }
 
+/* Landscape Mode Warning - Mobile Only */
+.landscape-warning {
+  display: none;
+}
+
+/* Show overlay only on mobile devices in landscape mode */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .landscape-warning {
+    display: flex !important;
+  }
+
+  /* Hide main content when in landscape */
+  main,
+  footer {
+    display: none !important;
+  }
+}
+
 /* Responsive utilities */
 @layer utilities {
   /* Ensure minimum touch target size on mobile */
