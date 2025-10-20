@@ -48,7 +48,26 @@
       }
 
       .icon-pulse:hover {
-        box-shadow: 0 0 30px 8px rgba(59, 130, 246, 0.8);
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.6);
+        transform: translateY(-8px) scale(1.1);
+        border-color: rgb(96, 165, 250);
+        background: rgba(59, 130, 246, 0.15);
+      }
+
+      /* Badge hover effects */
+      .badge-hover:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Enhanced transitions */
+      .icon-pulse {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .badge-hover {
+        transition: all 0.2s ease-in-out;
+        cursor: default;
       }
 
       .footer-fade {
@@ -58,124 +77,191 @@
           rgba(0, 60, 100, 0.4) 40%,
           transparent 100%
         );
-        padding-top: 120px;
+        padding-top: 80px;
         padding-bottom: 20px;
       }
     </style>
   </head>
   <body class="flex items-center justify-center min-h-screen relative overflow-hidden">
-    <main class="text-center px-6">
+    <main class="text-center px-6 -mt-12">
       <!-- Name and Tagline -->
-      <h1 class="text-6xl md:text-7xl font-bold mb-6 text-blue-400" data-testid="main-heading">
+      <h1
+        class="text-7xl md:text-8xl font-extrabold mb-4 text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-blue-500 bg-clip-text tracking-wide"
+        data-testid="main-heading"
+        style="font-family: 'Rajdhani', sans-serif"
+      >
         Kirta-Linda Karits
       </h1>
-      <div
-        class="text-sm md:text-base text-blue-300/90 mb-10 max-w-6xl mx-auto font-normal px-4"
-        data-testid="tagline-container"
-      >
-        <p class="hidden md:block" data-testid="tagline-desktop">
-          From pipelines to pixels • Building resilient, automated systems and thoughtful UIs •
-          Strong QA mindset
+
+      <!-- Tagline -->
+      <div class="mb-3 max-w-4xl mx-auto px-4" data-testid="tagline-container">
+        <p
+          class="hidden md:block text-base md:text-lg text-blue-300/90 font-normal leading-relaxed text-center"
+          data-testid="tagline-desktop"
+        >
+          From pipelines to pixels • Resilient systems • Strong QA
         </p>
-        <div class="md:hidden space-y-2" data-testid="tagline-mobile">
-          <p>From pipelines to pixels •</p>
-          <p>Building resilient, automated systems and thoughtful UIs •</p>
+        <div
+          class="md:hidden space-y-2 text-center text-base text-blue-300/90"
+          data-testid="tagline-mobile"
+        >
+          <p>From pipelines to pixels</p>
+          <p>Building resilient, automated systems and thoughtful UIs</p>
           <p>Strong QA mindset</p>
         </div>
       </div>
 
+      <!-- Client Value Proposition -->
+      <div class="mb-8 max-w-4xl mx-auto px-4" data-testid="value-proposition">
+        <p class="text-base md:text-lg text-blue-300/90 font-normal leading-relaxed text-center">
+          I build <span class="text-blue-400 font-semibold">fast, maintainable websites</span> with
+          <span class="text-blue-400 font-semibold">automated testing</span> and
+          <span class="text-blue-400 font-semibold">CI/CD pipelines</span> — so your project ships
+          faster, stays stable, and scales with confidence.
+        </p>
+      </div>
+
       <!-- Functional Icons -->
-      <nav class="flex flex-wrap justify-center gap-6 mb-20" data-testid="icon-navigation">
-        <!-- Resume -->
+      <nav class="flex flex-wrap justify-center gap-6 md:gap-8 mb-24" data-testid="icon-navigation">
+        <!-- Resume & Skills -->
         <a
-          href="/resume.pdf"
+          href="/resume"
           target="_blank"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
-          aria-label="Resume"
-          data-tooltip="Download my resume & CV"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+          aria-label="Resume & Skills"
+          data-tooltip="View resume & skills"
           data-testid="icon-resume"
         >
-          <i class="fa-solid fa-file-lines text-3xl text-blue-500"></i>
+          <i
+            class="fa-solid fa-file-text text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          ></i>
         </a>
 
-        <!-- GitHub Projects -->
+        <!-- Portfolio Projects -->
         <a
-          href="https://github.com/k1rta/nekmit"
+          href="https://github.com/k1rta?tab=repositories"
           target="_blank"
           rel="noopener"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
-          aria-label="GitHub"
-          data-tooltip="View my open source projects"
-          data-testid="icon-github"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+          aria-label="Portfolio Projects"
+          data-tooltip="View GitHub projects"
+          data-testid="icon-projects"
         >
-          <i class="fa-brands fa-github text-3xl text-blue-500"></i>
+          <i
+            class="fa-solid fa-code text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          ></i>
         </a>
 
-        <!-- Test Reports -->
+        <!-- Quality Dashboard -->
         <a
           href="/test-reports/index.html"
           target="_blank"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
-          aria-label="Test Reports"
-          data-tooltip="Live Playwright test results"
-          data-testid="icon-test-reports"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+          aria-label="Quality Dashboard"
+          data-tooltip="View test reports"
+          data-testid="icon-quality"
         >
-          <i class="fa-solid fa-square-check text-3xl text-blue-500"></i>
+          <i
+            class="fa-solid fa-chart-line text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          ></i>
         </a>
 
-        <!-- System Health -->
+        <!-- System Uptime -->
         <a
           href="/api/health"
           target="_blank"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
-          aria-label="System Health"
-          data-tooltip="Check system health & uptime"
-          data-testid="icon-health"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+          aria-label="System Uptime"
+          data-tooltip="Check system health"
+          data-testid="icon-uptime"
         >
-          <i class="fa-solid fa-heart-pulse text-3xl text-blue-500"></i>
+          <i
+            class="fa-solid fa-server text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          ></i>
         </a>
 
-        <!-- Email Contact -->
-        <a
-          href="mailto:kirtalindakarits@icloud.com"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
-          aria-label="Email"
-          data-tooltip="Get in touch via email"
-          data-testid="icon-email"
-        >
-          <i class="fa-solid fa-paper-plane text-3xl text-blue-500"></i>
-        </a>
-
-        <!-- Company Info -->
+        <!-- About My Business -->
         <a
           href="https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C"
           target="_blank"
           rel="noopener"
-          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-blue-500 hover:bg-blue-500/20 transition-all"
-          aria-label="Company"
-          data-tooltip="View company details & registration"
-          data-testid="icon-company"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+          aria-label="About My Business"
+          data-tooltip="View company details"
+          data-testid="icon-business"
         >
-          <i class="fa-solid fa-building text-3xl text-blue-500"></i>
+          <i
+            class="fa-solid fa-briefcase text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          ></i>
+        </a>
+
+        <!-- Contact & Availability -->
+        <a
+          href="mailto:kirtalindakarits@icloud.com"
+          class="icon-pulse group flex items-center justify-center w-20 h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+          aria-label="Contact & Availability"
+          data-tooltip="Send email"
+          data-testid="icon-contact"
+        >
+          <i
+            class="fa-solid fa-building text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          ></i>
         </a>
       </nav>
     </main>
 
-    <!-- Footer with fade effect -->
+    <!-- Footer with badges replacing text -->
     <footer
-      class="footer-fade fixed bottom-0 left-0 right-0 text-center text-xs text-blue-300/50"
+      class="footer-fade fixed bottom-0 left-0 right-0 text-center pb-4 sm:pb-6"
       data-testid="footer"
     >
-      <p data-testid="footer-text">
-        © Nekmit LLC • Design:
-        <a
-          href="https://html5up.net/"
-          target="_blank"
-          rel="noopener"
-          class="hover:text-blue-200 transition-colors"
-          >HTML5 UP</a
+      <div
+        class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 px-2 sm:px-4"
+        data-testid="badge-bar"
+      >
+        <span
+          class="badge-hover inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-emerald-500/20 to-green-500/20 text-emerald-300 border border-emerald-500/40 shadow-lg"
+          data-testid="badge-deployment"
         >
-      </p>
+          <i class="fa-solid fa-rocket mr-1 sm:mr-1.5 text-emerald-400 text-[10px] sm:text-xs"></i>
+          <span class="hidden sm:inline">Automated Deployment</span>
+          <span class="sm:hidden">Auto Deploy</span>
+        </span>
+        <span
+          class="badge-hover inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 border border-blue-500/40 shadow-lg"
+          data-testid="badge-quality"
+        >
+          <i
+            class="fa-solid fa-vial-circle-check mr-1 sm:mr-1.5 text-blue-400 text-[10px] sm:text-xs"
+          ></i>
+          <span class="hidden sm:inline">Quality Assured</span>
+          <span class="sm:hidden">QA</span>
+        </span>
+        <span
+          class="badge-hover inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 border border-purple-500/40 shadow-lg"
+          data-testid="badge-ux"
+        >
+          <i class="fa-solid fa-heart mr-1 sm:mr-1.5 text-purple-400 text-[10px] sm:text-xs"></i>
+          <span class="hidden sm:inline">User-Centered Design</span>
+          <span class="sm:hidden">UX Design</span>
+        </span>
+        <span
+          class="badge-hover inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 border border-orange-500/40 shadow-lg"
+          data-testid="badge-performance"
+        >
+          <i class="fa-solid fa-zap mr-1 sm:mr-1.5 text-orange-400 text-[10px] sm:text-xs"></i>
+          <span class="hidden sm:inline">Lightning Fast</span>
+          <span class="sm:hidden">Fast</span>
+        </span>
+        <span
+          class="badge-hover inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-teal-500/20 to-cyan-500/20 text-teal-300 border border-teal-500/40 shadow-lg"
+          data-testid="badge-accessibility"
+        >
+          <i class="fa-solid fa-globe mr-1 sm:mr-1.5 text-teal-400 text-[10px] sm:text-xs"></i>
+          <span class="hidden sm:inline">Globally Accessible</span>
+          <span class="sm:hidden">Global</span>
+        </span>
+      </div>
     </footer>
 
     <script type="module" src="/main.js"></script>

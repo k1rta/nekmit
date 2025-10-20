@@ -23,11 +23,11 @@ test.describe('homepage - responsive design', () => {
     await page.goto('/');
 
     await expect(page.locator(dataTestIds.iconResume)).toBeVisible();
-    await expect(page.locator(dataTestIds.iconGithub)).toBeVisible();
-    await expect(page.locator(dataTestIds.iconTestReports)).toBeVisible();
-    await expect(page.locator(dataTestIds.iconHealth)).toBeVisible();
-    await expect(page.locator(dataTestIds.iconEmail)).toBeVisible();
-    await expect(page.locator(dataTestIds.iconCompany)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconProjects)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconQuality)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconUptime)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconBusiness)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconContact)).toBeVisible();
   });
 
   test('heading should be visible on tablet', async ({ page }) => {

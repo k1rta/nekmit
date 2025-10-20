@@ -16,7 +16,8 @@ test.describe('homepage - interactions', () => {
     await expect(page.locator(dataTestIds.iconNavigation)).toBeVisible();
   });
 
-  test('footer link should be clickable', async ({ page }) => {
-    await expect(page.getByRole('link', { name: 'HTML5 UP' })).toBeEnabled();
+  test('badges should be visible in footer', async ({ page }) => {
+    await expect(page.locator(dataTestIds.badgeBar)).toBeVisible();
+    await expect(page.locator(dataTestIds.badgeDeployment)).toBeVisible();
   });
 });

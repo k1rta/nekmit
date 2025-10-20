@@ -120,12 +120,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 702,
+                      "duration": 638,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:11.880Z",
+                      "startTime": "2025-10-20T15:36:18.938Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -154,12 +154,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 739,
+                      "duration": 463,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:11.877Z",
+                      "startTime": "2025-10-20T15:36:18.939Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -188,12 +188,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 668,
+                      "duration": 677,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:11.880Z",
+                      "startTime": "2025-10-20T15:36:18.940Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -222,12 +222,12 @@
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 684,
+                      "duration": 666,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:11.882Z",
+                      "startTime": "2025-10-20T15:36:18.934Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -254,14 +254,14 @@
                   "results": [
                     {
                       "workerIndex": 6,
-                      "parallelIndex": 4,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 292,
+                      "duration": 279,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:14.176Z",
+                      "startTime": "2025-10-20T15:36:23.074Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -288,14 +288,14 @@
                   "results": [
                     {
                       "workerIndex": 7,
-                      "parallelIndex": 2,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 321,
+                      "duration": 315,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:14.298Z",
+                      "startTime": "2025-10-20T15:36:23.282Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -322,14 +322,14 @@
                   "results": [
                     {
                       "workerIndex": 8,
-                      "parallelIndex": 5,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 312,
+                      "duration": 372,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:14.336Z",
+                      "startTime": "2025-10-20T15:36:23.392Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -358,12 +358,12 @@
                       "workerIndex": 9,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 405,
+                      "duration": 299,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:14.485Z",
+                      "startTime": "2025-10-20T15:36:23.477Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -390,14 +390,14 @@
                   "results": [
                     {
                       "workerIndex": 12,
-                      "parallelIndex": 2,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 331,
+                      "duration": 303,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:16.424Z",
+                      "startTime": "2025-10-20T15:36:28.737Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -424,14 +424,14 @@
                   "results": [
                     {
                       "workerIndex": 13,
-                      "parallelIndex": 3,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 441,
+                      "duration": 346,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:16.459Z",
+                      "startTime": "2025-10-20T15:36:29.225Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -458,14 +458,14 @@
                   "results": [
                     {
                       "workerIndex": 14,
-                      "parallelIndex": 4,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 360,
+                      "duration": 364,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:16.495Z",
+                      "startTime": "2025-10-20T15:36:29.227Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -491,15 +491,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 15,
-                      "parallelIndex": 5,
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 409,
+                      "duration": 280,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:16.560Z",
+                      "startTime": "2025-10-20T15:36:29.138Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -510,6 +510,839 @@
               "id": "280a042dda65be1e6a1f-de6933023d157e0486f5",
               "file": "homepage-accessibility.spec.js",
               "line": 68,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "homepage-badges.spec.js",
+      "file": "homepage-badges.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "homepage - badges",
+          "file": "homepage-badges.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display all 5 badges",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 518,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:18.937Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-8f758d64c2039d8c7cb1",
+              "file": "homepage-badges.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "deployment badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 447,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:18.940Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-5efa00492176f7bc59d4",
+              "file": "homepage-badges.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "quality badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 241,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:19.558Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-77a6938fc106c1f80dba",
+              "file": "homepage-badges.spec.js",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "ux badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 255,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:19.578Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-989fc97222657ccd1582",
+              "file": "homepage-badges.spec.js",
+              "line": 30,
+              "column": 3
+            },
+            {
+              "title": "performance badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 241,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:19.641Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-dbd3ce2790dccb9bde44",
+              "file": "homepage-badges.spec.js",
+              "line": 36,
+              "column": 3
+            },
+            {
+              "title": "accessibility badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 379,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:19.769Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-239189c082eea65e1768",
+              "file": "homepage-badges.spec.js",
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "badges should have hover effect class",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 308,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:19.790Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-a0946f1ddfa4bdd2b9f2",
+              "file": "homepage-badges.spec.js",
+              "line": 48,
+              "column": 3
+            },
+            {
+              "title": "badges should be in footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 537,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:19.791Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-26fb40c0ab5d0e14ebf7",
+              "file": "homepage-badges.spec.js",
+              "line": 56,
+              "column": 3
+            },
+            {
+              "title": "should display all 5 badges",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 305,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:23.459Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-9d0e89df3bac63879e5f",
+              "file": "homepage-badges.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "deployment badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 349,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.090Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-54af35a0c642b7e3daac",
+              "file": "homepage-badges.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "quality badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 261,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:23.702Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-9df0039903a7328c4b30",
+              "file": "homepage-badges.spec.js",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "ux badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 267,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:23.771Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-469634e2bcc7ac028a82",
+              "file": "homepage-badges.spec.js",
+              "line": 30,
+              "column": 3
+            },
+            {
+              "title": "performance badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 263,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:23.884Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-57b7a9aee44f9c91445c",
+              "file": "homepage-badges.spec.js",
+              "line": 36,
+              "column": 3
+            },
+            {
+              "title": "accessibility badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 312,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:23.971Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-c8aeefb8e23115c8338c",
+              "file": "homepage-badges.spec.js",
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "badges should have hover effect class",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 310,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:23.973Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-3f788116b2895534bc3b",
+              "file": "homepage-badges.spec.js",
+              "line": 48,
+              "column": 3
+            },
+            {
+              "title": "badges should be in footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 265,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.060Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-c30078d0a01da0801a90",
+              "file": "homepage-badges.spec.js",
+              "line": 56,
+              "column": 3
+            },
+            {
+              "title": "should display all 5 badges",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 398,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:29.621Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-499ed18ae9e8872a5311",
+              "file": "homepage-badges.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "deployment badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 262,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:29.439Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-30d1bb9e740a9687124d",
+              "file": "homepage-badges.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "quality badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 266,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:29.679Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-05eb0eff44bef1a31e5d",
+              "file": "homepage-badges.spec.js",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "ux badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 263,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:29.699Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-7b15f503da80a893cd2a",
+              "file": "homepage-badges.spec.js",
+              "line": 30,
+              "column": 3
+            },
+            {
+              "title": "performance badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 322,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:29.708Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-02b9a4abf426c80b7fda",
+              "file": "homepage-badges.spec.js",
+              "line": 36,
+              "column": 3
+            },
+            {
+              "title": "accessibility badge should have correct icon and text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 544,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:30.451Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-e9cf11804cbeb5a8f183",
+              "file": "homepage-badges.spec.js",
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "badges should have hover effect class",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 293,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:29.955Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-494f415e474ca8d4600d",
+              "file": "homepage-badges.spec.js",
+              "line": 48,
+              "column": 3
+            },
+            {
+              "title": "badges should be in footer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 262,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:29.972Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de3880f0f56d23aecac3-81f8bce725500092527a",
+              "file": "homepage-badges.spec.js",
+              "line": 56,
               "column": 3
             }
           ]
@@ -542,15 +1375,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 4,
-                      "parallelIndex": 4,
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 769,
+                      "duration": 481,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:11.877Z",
+                      "startTime": "2025-10-20T15:36:19.810Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -576,15 +1409,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 5,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 652,
+                      "duration": 464,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:11.881Z",
+                      "startTime": "2025-10-20T15:36:19.849Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -610,15 +1443,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 5,
-                      "parallelIndex": 5,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 279,
+                      "duration": 539,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:12.691Z",
+                      "startTime": "2025-10-20T15:36:19.892Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -632,7 +1465,7 @@
               "column": 3
             },
             {
-              "title": "should display footer with correct links",
+              "title": "should display footer with badges",
               "ok": true,
               "tags": [],
               "tests": [
@@ -647,12 +1480,12 @@
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 383,
+                      "duration": 278,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:12.709Z",
+                      "startTime": "2025-10-20T15:36:20.108Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -660,9 +1493,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "7386e2c9b2f7032b0980-8b5710a5a2b99814d8c3",
+              "id": "7386e2c9b2f7032b0980-08ed64b7552ab175eb0c",
               "file": "homepage-core.spec.js",
-              "line": 24,
+              "line": 26,
               "column": 3
             },
             {
@@ -678,15 +1511,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 10,
+                      "workerIndex": 8,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 370,
+                      "duration": 286,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:14.519Z",
+                      "startTime": "2025-10-20T15:36:24.158Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -712,15 +1545,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 11,
-                      "parallelIndex": 3,
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 366,
+                      "duration": 255,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:14.991Z",
+                      "startTime": "2025-10-20T15:36:24.293Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -746,15 +1579,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 6,
-                      "parallelIndex": 4,
+                      "workerIndex": 7,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 269,
+                      "duration": 495,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:14.575Z",
+                      "startTime": "2025-10-20T15:36:24.293Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -768,7 +1601,7 @@
               "column": 3
             },
             {
-              "title": "should display footer with correct links",
+              "title": "should display footer with badges",
               "ok": true,
               "tags": [],
               "tests": [
@@ -780,15 +1613,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 7,
-                      "parallelIndex": 2,
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 601,
+                      "duration": 265,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:14.724Z",
+                      "startTime": "2025-10-20T15:36:24.351Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -796,9 +1629,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "7386e2c9b2f7032b0980-c8a9165a99c5ba7be371",
+              "id": "7386e2c9b2f7032b0980-67dee333aad653a499c2",
               "file": "homepage-core.spec.js",
-              "line": 24,
+              "line": 26,
               "column": 3
             },
             {
@@ -814,15 +1647,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 16,
-                      "parallelIndex": 0,
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 321,
+                      "duration": 237,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:16.869Z",
+                      "startTime": "2025-10-20T15:36:30.043Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -848,15 +1681,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 17,
-                      "parallelIndex": 1,
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 483,
+                      "duration": 294,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:16.932Z",
+                      "startTime": "2025-10-20T15:36:30.172Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -882,15 +1715,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 12,
-                      "parallelIndex": 2,
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 328,
+                      "duration": 301,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:16.872Z",
+                      "startTime": "2025-10-20T15:36:30.250Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -904,7 +1737,772 @@
               "column": 3
             },
             {
-              "title": "should display footer with correct links",
+              "title": "should display footer with badges",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 276,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:30.257Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "7386e2c9b2f7032b0980-693a9c1c8ad5026af790",
+              "file": "homepage-core.spec.js",
+              "line": 26,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "homepage-icons.spec.js",
+      "file": "homepage-icons.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "homepage - icon functionality",
+          "file": "homepage-icons.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "all icons should have visible icon graphics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 304,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:20.161Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-845f3793a35ac56395cc",
+              "file": "homepage-icons.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "all icons should be visually styled",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 502,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:20.326Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-8b1fa9ce6757dabc0ed8",
+              "file": "homepage-icons.spec.js",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "external links should open in new tab",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 298,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:20.333Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-4bdd99a144d5b627976e",
+              "file": "homepage-icons.spec.js",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "contact icon should be mailto link without target",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 518,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:20.347Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-95b7254935e452cdbb0f",
+              "file": "homepage-icons.spec.js",
+              "line": 55,
+              "column": 3
+            },
+            {
+              "title": "icons should have correct href attributes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 379,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:20.400Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-aa2b593a6a4cfdaa5a42",
+              "file": "homepage-icons.spec.js",
+              "line": 60,
+              "column": 3
+            },
+            {
+              "title": "icons should be keyboard accessible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 541,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:20.441Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-1372e3c4e7da6622bd98",
+              "file": "homepage-icons.spec.js",
+              "line": 69,
+              "column": 3
+            },
+            {
+              "title": "all icons should be clickable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 323,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:20.474Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-ec8d24c22a34ab7ce742",
+              "file": "homepage-icons.spec.js",
+              "line": 80,
+              "column": 3
+            },
+            {
+              "title": "icon navigation should contain exactly 6 icons",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 265,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:20.639Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-f66298db5a59675e2f9c",
+              "file": "homepage-icons.spec.js",
+              "line": 95,
+              "column": 3
+            },
+            {
+              "title": "icons should respond to hover interactions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 746,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:20.789Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-50404787334c60e214c6",
+              "file": "homepage-icons.spec.js",
+              "line": 101,
+              "column": 3
+            },
+            {
+              "title": "all icons should have visible icon graphics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 317,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.476Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-5d7cd6f0c5e5782e4bef",
+              "file": "homepage-icons.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "all icons should be visually styled",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 346,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.553Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-23f142724c8419888620",
+              "file": "homepage-icons.spec.js",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "external links should open in new tab",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 321,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.561Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-564a3eb183e1e4d1503b",
+              "file": "homepage-icons.spec.js",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "contact icon should be mailto link without target",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 267,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.632Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-c2e7641e16ed4ee45948",
+              "file": "homepage-icons.spec.js",
+              "line": 55,
+              "column": 3
+            },
+            {
+              "title": "icons should have correct href attributes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 268,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.817Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-6b6397fb417e157318a3",
+              "file": "homepage-icons.spec.js",
+              "line": 60,
+              "column": 3
+            },
+            {
+              "title": "icons should be keyboard accessible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 317,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.814Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-e44cf87810fd4d714f98",
+              "file": "homepage-icons.spec.js",
+              "line": 69,
+              "column": 3
+            },
+            {
+              "title": "all icons should be clickable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 302,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.894Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-89fe2b175082c5f768f6",
+              "file": "homepage-icons.spec.js",
+              "line": 80,
+              "column": 3
+            },
+            {
+              "title": "icon navigation should contain exactly 6 icons",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 452,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.906Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-0583d2c38c47447d798b",
+              "file": "homepage-icons.spec.js",
+              "line": 95,
+              "column": 3
+            },
+            {
+              "title": "icons should respond to hover interactions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 845,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:24.907Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-917c8985c97377022b8b",
+              "file": "homepage-icons.spec.js",
+              "line": 101,
+              "column": 3
+            },
+            {
+              "title": "all icons should have visible icon graphics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 396,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:30.291Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-f7543fe310df02d1fc0c",
+              "file": "homepage-icons.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "all icons should be visually styled",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 333,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:30.477Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-ef11a3c4863f4c943438",
+              "file": "homepage-icons.spec.js",
+              "line": 32,
+              "column": 3
+            },
+            {
+              "title": "external links should open in new tab",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 289,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:30.542Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-0c8549ec3905b6383ea0",
+              "file": "homepage-icons.spec.js",
+              "line": 47,
+              "column": 3
+            },
+            {
+              "title": "contact icon should be mailto link without target",
               "ok": true,
               "tags": [],
               "tests": [
@@ -917,14 +2515,14 @@
                   "results": [
                     {
                       "workerIndex": 14,
-                      "parallelIndex": 4,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 513,
+                      "duration": 534,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.010Z",
+                      "startTime": "2025-10-20T15:36:30.563Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -932,9 +2530,179 @@
                   "status": "expected"
                 }
               ],
-              "id": "7386e2c9b2f7032b0980-93676b8a9dcbec857be4",
-              "file": "homepage-core.spec.js",
-              "line": 24,
+              "id": "041c4019df3aca12f33d-a4436a46fdd3eff1c80a",
+              "file": "homepage-icons.spec.js",
+              "line": 55,
+              "column": 3
+            },
+            {
+              "title": "icons should have correct href attributes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 534,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:30.715Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-dc234e39cc0e7d527ba6",
+              "file": "homepage-icons.spec.js",
+              "line": 60,
+              "column": 3
+            },
+            {
+              "title": "icons should be keyboard accessible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 294,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:30.821Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-fed4b3432aefcfb40b97",
+              "file": "homepage-icons.spec.js",
+              "line": 69,
+              "column": 3
+            },
+            {
+              "title": "all icons should be clickable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 279,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:30.837Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-7d7504f5dbd7ad24c65a",
+              "file": "homepage-icons.spec.js",
+              "line": 80,
+              "column": 3
+            },
+            {
+              "title": "icon navigation should contain exactly 6 icons",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 292,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.106Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-8a049fda051eb5fccb73",
+              "file": "homepage-icons.spec.js",
+              "line": 95,
+              "column": 3
+            },
+            {
+              "title": "icons should respond to hover interactions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 845,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.115Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "041c4019df3aca12f33d-881cd4fe2d3d898842ce",
+              "file": "homepage-icons.spec.js",
+              "line": 101,
               "column": 3
             }
           ]
@@ -967,15 +2735,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 593,
+                      "duration": 275,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:12.744Z",
+                      "startTime": "2025-10-20T15:36:20.807Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1001,15 +2769,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 744,
+                      "duration": 353,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:12.749Z",
+                      "startTime": "2025-10-20T15:36:20.843Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1023,7 +2791,7 @@
               "column": 3
             },
             {
-              "title": "footer link should be clickable",
+              "title": "badges should be visible in footer",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1035,15 +2803,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 569,
+                      "duration": 321,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:12.789Z",
+                      "startTime": "2025-10-20T15:36:20.877Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1051,7 +2819,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "76e726d4af50469cc6dd-b0dde7586078ede43461",
+              "id": "76e726d4af50469cc6dd-f757f26934da752d24ea",
               "file": "homepage-interactions.spec.js",
               "line": 19,
               "column": 3
@@ -1069,15 +2837,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 8,
+                      "workerIndex": 7,
                       "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 1046,
+                      "duration": 261,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:14.778Z",
+                      "startTime": "2025-10-20T15:36:25.099Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1103,15 +2871,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 6,
-                      "parallelIndex": 4,
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 319,
+                      "duration": 305,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:14.856Z",
+                      "startTime": "2025-10-20T15:36:25.142Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1125,7 +2893,7 @@
               "column": 3
             },
             {
-              "title": "footer link should be clickable",
+              "title": "badges should be visible in footer",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1137,15 +2905,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 10,
-                      "parallelIndex": 0,
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 517,
+                      "duration": 256,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.009Z",
+                      "startTime": "2025-10-20T15:36:25.207Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1153,7 +2921,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "76e726d4af50469cc6dd-7c75e63147b28d67e452",
+              "id": "76e726d4af50469cc6dd-d40c1637fe2fe4615865",
               "file": "homepage-interactions.spec.js",
               "line": 19,
               "column": 3
@@ -1172,14 +2940,14 @@
                   "results": [
                     {
                       "workerIndex": 13,
-                      "parallelIndex": 3,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 552,
+                      "duration": 372,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.071Z",
+                      "startTime": "2025-10-20T15:36:31.125Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1206,14 +2974,14 @@
                   "results": [
                     {
                       "workerIndex": 15,
-                      "parallelIndex": 5,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 508,
+                      "duration": 404,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.152Z",
+                      "startTime": "2025-10-20T15:36:31.126Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1227,7 +2995,7 @@
               "column": 3
             },
             {
-              "title": "footer link should be clickable",
+              "title": "badges should be visible in footer",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1240,14 +3008,14 @@
                   "results": [
                     {
                       "workerIndex": 12,
-                      "parallelIndex": 2,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 857,
+                      "duration": 304,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.208Z",
+                      "startTime": "2025-10-20T15:36:31.260Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1255,9 +3023,1046 @@
                   "status": "expected"
                 }
               ],
-              "id": "76e726d4af50469cc6dd-bddc02c57b06a0bdbf20",
+              "id": "76e726d4af50469cc6dd-ee68ae7ea1a2ae9ba8e6",
               "file": "homepage-interactions.spec.js",
               "line": 19,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "homepage-layout.spec.js",
+      "file": "homepage-layout.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "homepage - layout and visual",
+          "file": "homepage-layout.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "main content should be centered",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 399,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:20.916Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-92c78e872259203b7afb",
+              "file": "homepage-layout.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "heading should be prominently styled and visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 548,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.001Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-9c388b573b6810e06805",
+              "file": "homepage-layout.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "icons should be interactive and visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 240,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.091Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-948d2b3ba1118e1db215",
+              "file": "homepage-layout.spec.js",
+              "line": 28,
+              "column": 3
+            },
+            {
+              "title": "icons should have consistent dimensions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 275,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.208Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-12fe965e784e556b059c",
+              "file": "homepage-layout.spec.js",
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "footer should be visible at bottom of viewport",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 273,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.209Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-06d867a2b1a10457d46b",
+              "file": "homepage-layout.spec.js",
+              "line": 52,
+              "column": 3
+            },
+            {
+              "title": "badges should be visible and readable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 309,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.325Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-88ffe248767a366cd63d",
+              "file": "homepage-layout.spec.js",
+              "line": 65,
+              "column": 3
+            },
+            {
+              "title": "value proposition should be visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 297,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.338Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-09f17afe4db43fddcdfe",
+              "file": "homepage-layout.spec.js",
+              "line": 81,
+              "column": 3
+            },
+            {
+              "title": "icon navigation should be in a nav element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 280,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.490Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-8164fc3f1ef8e478b25d",
+              "file": "homepage-layout.spec.js",
+              "line": 89,
+              "column": 3
+            },
+            {
+              "title": "all icons should have consistent sizing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 316,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.490Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-5cf7888df951f9719d66",
+              "file": "homepage-layout.spec.js",
+              "line": 96,
+              "column": 3
+            },
+            {
+              "title": "badges should be accessible on smaller screens",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 472,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.547Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-5f54bf77ba10fda99894",
+              "file": "homepage-layout.spec.js",
+              "line": 119,
+              "column": 3
+            },
+            {
+              "title": "main content should be centered",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 262,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:25.371Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-57d4bb8d751301ea34f1",
+              "file": "homepage-layout.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "heading should be prominently styled and visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 262,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:25.370Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-cb149fd621e98078e9cc",
+              "file": "homepage-layout.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "icons should be interactive and visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 258,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:25.457Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-eac613b677f8bf662239",
+              "file": "homepage-layout.spec.js",
+              "line": 28,
+              "column": 3
+            },
+            {
+              "title": "icons should have consistent dimensions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 257,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:25.474Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-f25db103660abb3765c3",
+              "file": "homepage-layout.spec.js",
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "footer should be visible at bottom of viewport",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 254,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:25.642Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-984431b4ef401513645b",
+              "file": "homepage-layout.spec.js",
+              "line": 52,
+              "column": 3
+            },
+            {
+              "title": "badges should be visible and readable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 284,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:25.643Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-37639888560cf9c2cf3e",
+              "file": "homepage-layout.spec.js",
+              "line": 65,
+              "column": 3
+            },
+            {
+              "title": "value proposition should be visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 979,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:25.721Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-d44231b442eb4e1d2882",
+              "file": "homepage-layout.spec.js",
+              "line": 81,
+              "column": 3
+            },
+            {
+              "title": "icon navigation should be in a nav element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1195,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:25.737Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-3c29a16dd01595e7667a",
+              "file": "homepage-layout.spec.js",
+              "line": 89,
+              "column": 3
+            },
+            {
+              "title": "all icons should have consistent sizing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 4116,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:25.769Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-9863b6d399754c3c2a0c",
+              "file": "homepage-layout.spec.js",
+              "line": 96,
+              "column": 3
+            },
+            {
+              "title": "badges should be accessible on smaller screens",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 553,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:25.904Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-4758f625829c0674694d",
+              "file": "homepage-layout.spec.js",
+              "line": 119,
+              "column": 3
+            },
+            {
+              "title": "main content should be centered",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 291,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.407Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-8333473b7e5d4e4b9023",
+              "file": "homepage-layout.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "heading should be prominently styled and visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 283,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.507Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-8fdab7608d7c43d2580c",
+              "file": "homepage-layout.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "icons should be interactive and visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 298,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.540Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-58f15755b6ddea9069b0",
+              "file": "homepage-layout.spec.js",
+              "line": 28,
+              "column": 3
+            },
+            {
+              "title": "icons should have consistent dimensions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 313,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.577Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-9e3753e9a6e00df74b4f",
+              "file": "homepage-layout.spec.js",
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "footer should be visible at bottom of viewport",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 264,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.704Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-19a97997b4a5a7f03b1b",
+              "file": "homepage-layout.spec.js",
+              "line": 52,
+              "column": 3
+            },
+            {
+              "title": "badges should be visible and readable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 317,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.826Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-9e175bef9313e217a50d",
+              "file": "homepage-layout.spec.js",
+              "line": 65,
+              "column": 3
+            },
+            {
+              "title": "value proposition should be visible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 304,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.843Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-cbe8f9b8dea504c96c81",
+              "file": "homepage-layout.spec.js",
+              "line": 81,
+              "column": 3
+            },
+            {
+              "title": "icon navigation should be in a nav element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 279,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.907Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-08450a164062f9132142",
+              "file": "homepage-layout.spec.js",
+              "line": 89,
+              "column": 3
+            },
+            {
+              "title": "all icons should have consistent sizing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 335,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.977Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-c3944bfa5682d033a061",
+              "file": "homepage-layout.spec.js",
+              "line": 96,
+              "column": 3
+            },
+            {
+              "title": "badges should be accessible on smaller screens",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 294,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:31.980Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "eb5e67e4d313b7d4521a-4ff414f575559df11365",
+              "file": "homepage-layout.spec.js",
+              "line": 119,
               "column": 3
             }
           ]
@@ -1293,12 +4098,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 635,
+                      "duration": 357,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:12.822Z",
+                      "startTime": "2025-10-20T15:36:21.562Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1312,109 +4117,7 @@
               "column": 3
             },
             {
-              "title": "resume icon should link to pdf",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 5,
-                      "parallelIndex": 5,
-                      "status": "passed",
-                      "duration": 441,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-20T11:00:12.983Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "105caab212a56a0e90b7-8c24f73ab1092851284b",
-              "file": "homepage-navigation.spec.js",
-              "line": 19,
-              "column": 3
-            },
-            {
-              "title": "github icon should link to correct repository",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 490,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-20T11:00:13.102Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "105caab212a56a0e90b7-5706200eacd766420465",
-              "file": "homepage-navigation.spec.js",
-              "line": 24,
-              "column": 3
-            },
-            {
-              "title": "test reports icon should link to reports page",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 359,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-20T11:00:13.354Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "105caab212a56a0e90b7-edaf5ed9e470b13245af",
-              "file": "homepage-navigation.spec.js",
-              "line": 29,
-              "column": 3
-            },
-            {
-              "title": "health icon should link to health api",
+              "title": "resume icon should link to resume page",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1429,12 +4132,12 @@
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 324,
+                      "duration": 289,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:13.368Z",
+                      "startTime": "2025-10-20T15:36:21.644Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1442,13 +4145,47 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-6372953c2f188cb499ff",
+              "id": "105caab212a56a0e90b7-f96cf2f426bf39c431d5",
               "file": "homepage-navigation.spec.js",
-              "line": 37,
+              "line": 19,
               "column": 3
             },
             {
-              "title": "email icon should have correct mailto link",
+              "title": "projects icon should link to projects page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 635,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.645Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "105caab212a56a0e90b7-ef787af38049708475ee",
+              "file": "homepage-navigation.spec.js",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "quality icon should link to test reports page",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1463,12 +4200,12 @@
                       "workerIndex": 5,
                       "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 541,
+                      "duration": 242,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:13.435Z",
+                      "startTime": "2025-10-20T15:36:21.809Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1476,13 +4213,47 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-2ecf65a443323020f7d0",
+              "id": "105caab212a56a0e90b7-ce095c87bf98a28d4ef1",
               "file": "homepage-navigation.spec.js",
-              "line": 42,
+              "line": 29,
               "column": 3
             },
             {
-              "title": "company icon should link to estonian business registry",
+              "title": "uptime icon should link to health api",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 245,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.819Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "105caab212a56a0e90b7-f6deb7dde8dbb73bac47",
+              "file": "homepage-navigation.spec.js",
+              "line": 37,
+              "column": 3
+            },
+            {
+              "title": "business icon should link to business page",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1497,12 +4268,12 @@
                       "workerIndex": 4,
                       "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 358,
+                      "duration": 332,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:13.466Z",
+                      "startTime": "2025-10-20T15:36:21.932Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1510,9 +4281,43 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-80f553cf11ebd3f906f8",
+              "id": "105caab212a56a0e90b7-5e2b60bb0a12aec15b60",
               "file": "homepage-navigation.spec.js",
-              "line": 46,
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "contact icon should link to email",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 306,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:21.941Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "105caab212a56a0e90b7-2f412548c90d5d064155",
+              "file": "homepage-navigation.spec.js",
+              "line": 47,
               "column": 3
             },
             {
@@ -1528,15 +4333,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 9,
-                      "parallelIndex": 1,
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 332,
+                      "duration": 733,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.009Z",
+                      "startTime": "2025-10-20T15:36:25.940Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1550,7 +4355,7 @@
               "column": 3
             },
             {
-              "title": "resume icon should link to pdf",
+              "title": "resume icon should link to resume page",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1562,15 +4367,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 11,
                       "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 526,
+                      "duration": 541,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.185Z",
+                      "startTime": "2025-10-20T15:36:26.588Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1578,13 +4383,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-58fc61d76c3e91b5d914",
+              "id": "105caab212a56a0e90b7-8503c391df1dbeae3d9d",
               "file": "homepage-navigation.spec.js",
               "line": 19,
               "column": 3
             },
             {
-              "title": "github icon should link to correct repository",
+              "title": "projects icon should link to projects page",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1597,14 +4402,14 @@
                   "results": [
                     {
                       "workerIndex": 7,
-                      "parallelIndex": 2,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 375,
+                      "duration": 1199,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.336Z",
+                      "startTime": "2025-10-20T15:36:26.466Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1612,13 +4417,81 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-26dd9531b82b8c256fc6",
+              "id": "105caab212a56a0e90b7-6b6bcc1b4ef0cdcb4c56",
               "file": "homepage-navigation.spec.js",
               "line": 24,
               "column": 3
             },
             {
-              "title": "test reports icon should link to reports page",
+              "title": "quality icon should link to test reports page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 516,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:26.681Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "105caab212a56a0e90b7-2d31cebe17a6cbc62023",
+              "file": "homepage-navigation.spec.js",
+              "line": 29,
+              "column": 3
+            },
+            {
+              "title": "uptime icon should link to health api",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 576,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:26.720Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "105caab212a56a0e90b7-cf8b6af8a1d59557abff",
+              "file": "homepage-navigation.spec.js",
+              "line": 37,
+              "column": 3
+            },
+            {
+              "title": "business icon should link to business page",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1633,12 +4506,12 @@
                       "workerIndex": 9,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 528,
+                      "duration": 923,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.348Z",
+                      "startTime": "2025-10-20T15:36:26.942Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1646,81 +4519,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-9a75d7c64005ba9d7bbf",
-              "file": "homepage-navigation.spec.js",
-              "line": 29,
-              "column": 3
-            },
-            {
-              "title": "health icon should link to health api",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 11,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 650,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.459Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "105caab212a56a0e90b7-561fa21e61ce6496dc6a",
-              "file": "homepage-navigation.spec.js",
-              "line": 37,
-              "column": 3
-            },
-            {
-              "title": "email icon should have correct mailto link",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "firefox",
-                  "projectName": "firefox",
-                  "results": [
-                    {
-                      "workerIndex": 10,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 314,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.536Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "105caab212a56a0e90b7-09221940c7b6e5b50e3d",
+              "id": "105caab212a56a0e90b7-1e6cb5ff7f5f8403cf44",
               "file": "homepage-navigation.spec.js",
               "line": 42,
               "column": 3
             },
             {
-              "title": "company icon should link to estonian business registry",
+              "title": "contact icon should link to email",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1732,15 +4537,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 7,
-                      "parallelIndex": 2,
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 357,
+                      "duration": 645,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.718Z",
+                      "startTime": "2025-10-20T15:36:27.203Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1748,9 +4553,9 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-0ed7184168e07fc5758d",
+              "id": "105caab212a56a0e90b7-8e6e607767a6919ae788",
               "file": "homepage-navigation.spec.js",
-              "line": 46,
+              "line": 47,
               "column": 3
             },
             {
@@ -1766,15 +4571,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 16,
-                      "parallelIndex": 0,
+                      "workerIndex": 17,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 749,
+                      "duration": 392,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.292Z",
+                      "startTime": "2025-10-20T15:36:32.574Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1788,75 +4593,7 @@
               "column": 3
             },
             {
-              "title": "resume icon should link to pdf",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 14,
-                      "parallelIndex": 4,
-                      "status": "passed",
-                      "duration": 321,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.536Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "105caab212a56a0e90b7-bc7adbdde517029148fc",
-              "file": "homepage-navigation.spec.js",
-              "line": 19,
-              "column": 3
-            },
-            {
-              "title": "github icon should link to correct repository",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "webkit",
-                  "projectName": "webkit",
-                  "results": [
-                    {
-                      "workerIndex": 17,
-                      "parallelIndex": 1,
-                      "status": "passed",
-                      "duration": 387,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.539Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "105caab212a56a0e90b7-db074a04c040ec28ed22",
-              "file": "homepage-navigation.spec.js",
-              "line": 24,
-              "column": 3
-            },
-            {
-              "title": "test reports icon should link to reports page",
+              "title": "resume icon should link to resume page",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1869,14 +4606,14 @@
                   "results": [
                     {
                       "workerIndex": 13,
-                      "parallelIndex": 3,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 350,
+                      "duration": 288,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.659Z",
+                      "startTime": "2025-10-20T15:36:32.160Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1884,13 +4621,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-3de2f6c9857cf5663a51",
+              "id": "105caab212a56a0e90b7-ccfe5f393b94f38dc1e4",
               "file": "homepage-navigation.spec.js",
-              "line": 29,
+              "line": 19,
               "column": 3
             },
             {
-              "title": "health icon should link to health api",
+              "title": "projects icon should link to projects page",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1903,14 +4640,14 @@
                   "results": [
                     {
                       "workerIndex": 15,
-                      "parallelIndex": 5,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 688,
+                      "duration": 300,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.671Z",
+                      "startTime": "2025-10-20T15:36:32.160Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1918,13 +4655,47 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-47fcdefb04eff7c0f333",
+              "id": "105caab212a56a0e90b7-87f5c6cffeec5dc6dcca",
               "file": "homepage-navigation.spec.js",
-              "line": 37,
+              "line": 24,
               "column": 3
             },
             {
-              "title": "email icon should have correct mailto link",
+              "title": "quality icon should link to test reports page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 322,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:32.196Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "105caab212a56a0e90b7-b186688fb4798c0030a1",
+              "file": "homepage-navigation.spec.js",
+              "line": 29,
+              "column": 3
+            },
+            {
+              "title": "uptime icon should link to health api",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1937,14 +4708,14 @@
                   "results": [
                     {
                       "workerIndex": 14,
-                      "parallelIndex": 4,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 261,
+                      "duration": 308,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.864Z",
+                      "startTime": "2025-10-20T15:36:32.292Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1952,13 +4723,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-fec49fa49da67417972e",
+              "id": "105caab212a56a0e90b7-145e915d96a9338e0065",
               "file": "homepage-navigation.spec.js",
-              "line": 42,
+              "line": 37,
               "column": 3
             },
             {
-              "title": "company icon should link to estonian business registry",
+              "title": "business icon should link to business page",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1970,15 +4741,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 17,
-                      "parallelIndex": 1,
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 328,
+                      "duration": 277,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:17.931Z",
+                      "startTime": "2025-10-20T15:36:32.326Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1986,9 +4757,43 @@
                   "status": "expected"
                 }
               ],
-              "id": "105caab212a56a0e90b7-20767e316b1c79b5d5de",
+              "id": "105caab212a56a0e90b7-7d63ed3666f78d7142da",
               "file": "homepage-navigation.spec.js",
-              "line": 46,
+              "line": 42,
+              "column": 3
+            },
+            {
+              "title": "contact icon should link to email",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 304,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:32.466Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "105caab212a56a0e90b7-a613bcf675b86e69ce15",
+              "file": "homepage-navigation.spec.js",
+              "line": 47,
               "column": 3
             }
           ]
@@ -2021,15 +4826,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 600,
+                      "duration": 537,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:13.504Z",
+                      "startTime": "2025-10-20T15:36:22.035Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2055,15 +4860,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 336,
+                      "duration": 835,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:13.602Z",
+                      "startTime": "2025-10-20T15:36:22.073Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2089,15 +4894,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 1,
-                      "parallelIndex": 1,
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 383,
+                      "duration": 610,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:13.703Z",
+                      "startTime": "2025-10-20T15:36:22.075Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2123,15 +4928,15 @@
                   "projectName": "chromium",
                   "results": [
                     {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 789,
+                      "duration": 209,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:13.722Z",
+                      "startTime": "2025-10-20T15:36:22.256Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2157,15 +4962,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 6,
+                      "workerIndex": 11,
                       "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 416,
+                      "duration": 392,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.722Z",
+                      "startTime": "2025-10-20T15:36:27.231Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2192,14 +4997,14 @@
                   "results": [
                     {
                       "workerIndex": 8,
-                      "parallelIndex": 5,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 358,
+                      "duration": 921,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.838Z",
+                      "startTime": "2025-10-20T15:36:27.306Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2225,15 +5030,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 10,
-                      "parallelIndex": 0,
+                      "workerIndex": 11,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 545,
+                      "duration": 559,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.859Z",
+                      "startTime": "2025-10-20T15:36:27.628Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2259,15 +5064,15 @@
                   "projectName": "firefox",
                   "results": [
                     {
-                      "workerIndex": 9,
-                      "parallelIndex": 1,
+                      "workerIndex": 7,
+                      "parallelIndex": 5,
                       "status": "passed",
-                      "duration": 588,
+                      "duration": 625,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:15.886Z",
+                      "startTime": "2025-10-20T15:36:27.674Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2293,15 +5098,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 13,
-                      "parallelIndex": 3,
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 399,
+                      "duration": 307,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:18.020Z",
+                      "startTime": "2025-10-20T15:36:32.476Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2327,15 +5132,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 16,
-                      "parallelIndex": 0,
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 517,
+                      "duration": 278,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:18.053Z",
+                      "startTime": "2025-10-20T15:36:32.536Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2361,15 +5166,15 @@
                   "projectName": "webkit",
                   "results": [
                     {
-                      "workerIndex": 12,
+                      "workerIndex": 16,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 412,
+                      "duration": 277,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:18.084Z",
+                      "startTime": "2025-10-20T15:36:32.613Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2396,14 +5201,14 @@
                   "results": [
                     {
                       "workerIndex": 14,
-                      "parallelIndex": 4,
+                      "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 538,
+                      "duration": 317,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T11:00:18.136Z",
+                      "startTime": "2025-10-20T15:36:32.613Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2419,13 +5224,540 @@
           ]
         }
       ]
+    },
+    {
+      "title": "homepage-tooltips.spec.js",
+      "file": "homepage-tooltips.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "homepage - tooltips",
+          "file": "homepage-tooltips.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "all icons should have data-tooltip attributes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 308,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:22.273Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-77f3305572b3f47b51a7",
+              "file": "homepage-tooltips.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "tooltip should appear on hover",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 709,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:22.291Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-271fb45f7470c0bcdda7",
+              "file": "homepage-tooltips.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "tooltip should contain correct text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 592,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:22.474Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-08fcc2367d5d033e63fc",
+              "file": "homepage-tooltips.spec.js",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "tooltip should disappear when mouse leaves",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 931,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:22.583Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-0d4a396f9385235bc5fa",
+              "file": "homepage-tooltips.spec.js",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "tooltips should work for all icons",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 3628,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:22.589Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-f358ada4497753d3678e",
+              "file": "homepage-tooltips.spec.js",
+              "line": 60,
+              "column": 3
+            },
+            {
+              "title": "all icons should have data-tooltip attributes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 550,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:27.856Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-94cc89349205154a325c",
+              "file": "homepage-tooltips.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "tooltip should appear on hover",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 946,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:27.873Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-881dc76d92329e0168ae",
+              "file": "homepage-tooltips.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "tooltip should contain correct text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 603,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:28.196Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-bd2ac4aec27699ef1d9b",
+              "file": "homepage-tooltips.spec.js",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "tooltip should disappear when mouse leaves",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 929,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:28.237Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-71b80a8cea104ed2d806",
+              "file": "homepage-tooltips.spec.js",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "tooltips should work for all icons",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 3660,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:28.311Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-0c99ddd1242a60016861",
+              "file": "homepage-tooltips.spec.js",
+              "line": 60,
+              "column": 3
+            },
+            {
+              "title": "all icons should have data-tooltip attributes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 305,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:32.782Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-e66d603a9507d45cffe7",
+              "file": "homepage-tooltips.spec.js",
+              "line": 9,
+              "column": 3
+            },
+            {
+              "title": "tooltip should appear on hover",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 752,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:32.797Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-6bf3a6b001e9999438dc",
+              "file": "homepage-tooltips.spec.js",
+              "line": 18,
+              "column": 3
+            },
+            {
+              "title": "tooltip should contain correct text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 799,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:32.826Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-051393642281ab542074",
+              "file": "homepage-tooltips.spec.js",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "tooltip should disappear when mouse leaves",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 961,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:32.901Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-c3e348534bffd5a989ba",
+              "file": "homepage-tooltips.spec.js",
+              "line": 41,
+              "column": 3
+            },
+            {
+              "title": "tooltips should work for all icons",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "webkit",
+                  "projectName": "webkit",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3692,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-20T15:36:32.940Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "ab589e675bf0bd6307a4-9f800da0e052c77fd630",
+              "file": "homepage-tooltips.spec.js",
+              "line": 60,
+              "column": 3
+            }
+          ]
+        }
+      ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-20T11:00:11.477Z",
-    "duration": 7225.862,
-    "expected": 66,
+    "startTime": "2025-10-20T15:36:18.446Z",
+    "duration": 18218.203,
+    "expected": 162,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
