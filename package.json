@@ -46,6 +46,7 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "tippy.js": "^6.3.7"
   }
 }

@@ -7,3 +7,23 @@
     @apply bg-gray-950 text-gray-100 antialiased;
   }
 }
+
+/* Custom Tippy.js theme */
+.tippy-box[data-theme~='custom'] {
+  background-color: #1f2937;
+  color: #f9fafb;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  padding: 8px 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid #374151;
+}
+
+.tippy-box[data-theme~='custom'] .tippy-arrow {
+  color: #1f2937;
+}
+
+/* Better spacing for bottom placement */
+.tippy-box[data-theme~='custom'][data-placement^='bottom'] {
+  margin-top: 8px;
+}
