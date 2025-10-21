@@ -33,6 +33,7 @@ test.describe('homepage - responsive design', () => {
     await expect(page.locator(dataTestIds.iconResume)).toBeVisible();
     await expect(page.locator(dataTestIds.iconProjects)).toBeVisible();
     await expect(page.locator(dataTestIds.iconQuality)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconUptime)).toBeVisible();
     await expect(page.locator(dataTestIds.iconBusiness)).toBeVisible();
     await expect(page.locator(dataTestIds.iconContact)).toBeVisible();
   });

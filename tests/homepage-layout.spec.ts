@@ -94,6 +94,7 @@ test.describe('homepage - layout and visual', () => {
       dataTestIds.iconResume,
       dataTestIds.iconProjects,
       dataTestIds.iconQuality,
+      dataTestIds.iconUptime,
       dataTestIds.iconBusiness,
       dataTestIds.iconContact,
     ];

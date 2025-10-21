@@ -6,11 +6,12 @@ test.describe('homepage - navigation icons', () => {
     await page.goto('/');
   });
 
-  test('should display all 5 navigation icons', async ({ page }) => {
+  test('should display all 6 navigation icons', async ({ page }) => {
     await expect(page.locator(dataTestIds.iconNavigation)).toBeVisible();
     await expect(page.locator(dataTestIds.iconResume)).toBeVisible();
     await expect(page.locator(dataTestIds.iconProjects)).toBeVisible();
     await expect(page.locator(dataTestIds.iconQuality)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconUptime)).toBeVisible();
     await expect(page.locator(dataTestIds.iconBusiness)).toBeVisible();
     await expect(page.locator(dataTestIds.iconContact)).toBeVisible();
   });
@@ -28,6 +29,11 @@ test.describe('homepage - navigation icons', () => {
   test('quality icon should link to test reports page', async ({ page }) => {
     await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute('href', links.quality);
     await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute('target', '_blank');
+  });
+
+  test('uptime icon should link to health api', async ({ page }) => {
+    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute('href', links.uptime);
+    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute('target', '_blank');
   });
 
   test('business icon should link to business page', async ({ page }) => {

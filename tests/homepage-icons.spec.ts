@@ -11,6 +11,7 @@ test.describe('homepage - icon functionality', () => {
       dataTestIds.iconResume,
       dataTestIds.iconProjects,
       dataTestIds.iconQuality,
+      dataTestIds.iconUptime,
       dataTestIds.iconBusiness,
       dataTestIds.iconContact,
     ];
@@ -47,6 +48,7 @@ test.describe('homepage - icon functionality', () => {
     await expect(page.locator(dataTestIds.iconResume)).toHaveAttribute('target', '_blank');
     await expect(page.locator(dataTestIds.iconProjects)).toHaveAttribute('target', '_blank');
     await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute('target', '_blank');
+    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute('target', '_blank');
     await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute('target', '_blank');
   });
 
@@ -59,17 +61,12 @@ test.describe('homepage - icon functionality', () => {
     await expect(page.locator(dataTestIds.iconResume)).toHaveAttribute('href', links.resume);
     await expect(page.locator(dataTestIds.iconProjects)).toHaveAttribute('href', links.projects);
     await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute('href', links.quality);
+    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute('href', links.uptime);
     await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute('href', links.business);
     await expect(page.locator(dataTestIds.iconContact)).toHaveAttribute('href', links.contact);
   });
 
-  test('icons should be keyboard accessible', async ({ page }, testInfo) => {
-    // Skip test for WebKit (Safari) as it handles keyboard focus differently
-    test.skip(
-      testInfo.project.name === 'webkit',
-      'WebKit requires additional tab focus configuration'
-    );
-
+  test('icons should be keyboard accessible', async ({ page }) => {
     // Tab through icons
     await page.keyboard.press('Tab');
     const resumeIcon = page.locator(dataTestIds.iconResume);
@@ -85,6 +82,7 @@ test.describe('homepage - icon functionality', () => {
       dataTestIds.iconResume,
       dataTestIds.iconProjects,
       dataTestIds.iconQuality,
+      dataTestIds.iconUptime,
       dataTestIds.iconBusiness,
       dataTestIds.iconContact,
     ];
@@ -94,10 +92,10 @@ test.describe('homepage - icon functionality', () => {
     }
   });
 
-  test('icon navigation should contain exactly 5 icons', async ({ page }) => {
+  test('icon navigation should contain exactly 6 icons', async ({ page }) => {
     const nav = page.locator(dataTestIds.iconNavigation);
     const iconCount = await nav.locator('a').count();
-    expect(iconCount).toBe(5);
+    expect(iconCount).toBe(6);
   });
 
   test('icons should respond to hover interactions', async ({ page }) => {

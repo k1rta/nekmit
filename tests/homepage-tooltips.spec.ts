@@ -10,6 +10,7 @@ test.describe('homepage - tooltips', () => {
     await expect(page.locator(dataTestIds.iconResume)).toHaveAttribute('data-tooltip');
     await expect(page.locator(dataTestIds.iconProjects)).toHaveAttribute('data-tooltip');
     await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute('data-tooltip');
+    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute('data-tooltip');
     await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute('data-tooltip');
     await expect(page.locator(dataTestIds.iconContact)).toHaveAttribute('data-tooltip');
   });
@@ -61,6 +62,7 @@ test.describe('homepage - tooltips', () => {
       { selector: dataTestIds.iconResume, text: tooltips.resume },
       { selector: dataTestIds.iconProjects, text: tooltips.projects },
       { selector: dataTestIds.iconQuality, text: tooltips.quality },
+      { selector: dataTestIds.iconUptime, text: tooltips.uptime },
       { selector: dataTestIds.iconBusiness, text: tooltips.business },
       { selector: dataTestIds.iconContact, text: tooltips.contact },
     ];

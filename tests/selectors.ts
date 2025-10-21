@@ -19,6 +19,7 @@ export const dataTestIds = {
   iconResume: '[data-testid="icon-resume"]',
   iconProjects: '[data-testid="icon-projects"]',
   iconQuality: '[data-testid="icon-quality"]',
+  iconUptime: '[data-testid="icon-uptime"]',
   iconBusiness: '[data-testid="icon-business"]',
   iconContact: '[data-testid="icon-contact"]',
 
@@ -39,6 +40,7 @@ export const links = {
   resume: '/resume',
   projects: 'https://github.com/k1rta?tab=repositories',
   quality: '/test-reports/index.html',
+  uptime: '/api/health',
   business: 'https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C',
   contact: 'mailto:kirtalindakarits@icloud.com',
 } as const;
@@ -62,6 +64,7 @@ export const ariaLabels = {
   resume: 'Resume & Skills',
   projects: 'Portfolio Projects',
   quality: 'Quality Dashboard',
+  uptime: 'System Uptime',
   business: 'About My Business',
   contact: 'Contact & Availability',
 } as const;
@@ -73,6 +76,7 @@ export const tooltips = {
   resume: 'View resume & skills',
   projects: 'View GitHub projects',
   quality: 'View test reports',
+  uptime: 'Check system health',
   business: 'View company details',
   contact: 'Send email',
 } as const;
