@@ -13,28 +13,32 @@ export const dataTestIds = {
   // Navigation
   iconNavigation: '[data-testid="icon-navigation"]',
   iconResume: '[data-testid="icon-resume"]',
-  iconGithub: '[data-testid="icon-github"]',
-  iconTestReports: '[data-testid="icon-test-reports"]',
-  iconHealth: '[data-testid="icon-health"]',
-  iconEmail: '[data-testid="icon-email"]',
-  iconCompany: '[data-testid="icon-company"]',
+  iconProjects: '[data-testid="icon-projects"]',
+  iconQuality: '[data-testid="icon-quality"]',
+  iconUptime: '[data-testid="icon-uptime"]',
+  iconBusiness: '[data-testid="icon-business"]',
+  iconContact: '[data-testid="icon-contact"]',
 
   // Footer
   footer: '[data-testid="footer"]',
-  footerText: '[data-testid="footer-text"]',
+  badgeBar: '[data-testid="badge-bar"]',
+  badgeDeployment: '[data-testid="badge-deployment"]',
+  badgeQuality: '[data-testid="badge-quality"]',
+  badgeUx: '[data-testid="badge-ux"]',
+  badgePerformance: '[data-testid="badge-performance"]',
+  badgeAccessibility: '[data-testid="badge-accessibility"]',
 };
 
 /**
  * Expected URLs and links
  */
 export const links = {
-  resume: '/resume.pdf',
-  github: 'https://github.com/k1rta/nekmit',
-  testReports: '/test-reports/index.html',
-  health: '/api/health',
-  email: 'mailto:kirtalindakarits@icloud.com',
-  company: 'https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C',
-  html5up: 'https://html5up.net/',
+  resume: '/resume',
+  projects: 'https://github.com/k1rta?tab=repositories',
+  quality: '/test-reports/index.html',
+  uptime: '/api/health',
+  business: 'https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C',
+  contact: 'mailto:kirtalindakarits@icloud.com',
 };
 
 /**
@@ -47,31 +51,30 @@ export const text = {
     part2: 'Building resilient, automated systems',
     part3: 'Strong QA mindset',
   },
-  footer: '© Nekmit LLC',
 };
 
 /**
  * ARIA labels
  */
 export const ariaLabels = {
-  resume: 'Resume',
-  github: 'GitHub',
-  testReports: 'Test Reports',
-  health: 'System Health',
-  email: 'Email',
-  company: 'Company',
+  resume: 'Resume & Skills',
+  projects: 'Portfolio Projects',
+  quality: 'Quality Dashboard',
+  uptime: 'System Uptime',
+  business: 'About My Business',
+  contact: 'Contact & Availability',
 };
 
 /**
  * Tooltips (data-tooltip attributes)
  */
 export const tooltips = {
-  resume: 'Download my resume & CV',
-  github: 'View my open source projects',
-  testReports: 'Live Playwright test results',
-  health: 'Check system health & uptime',
-  email: 'Get in touch via email',
-  company: 'View company details & registration',
+  resume: 'View resume & skills',
+  projects: 'View GitHub projects',
+  quality: 'View test reports',
+  uptime: 'Check system health',
+  business: 'View company details',
+  contact: 'Send email',
 };
 
 /**

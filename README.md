@@ -2,21 +2,23 @@
 
 [![CI/CD Pipeline](https://github.com/k1rta/nekmit/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/k1rta/nekmit/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
-[![Playwright Tests](https://img.shields.io/badge/tests-66%20passing-success)](https://github.com/k1rta/nekmit/actions)
+[![Playwright Tests](https://img.shields.io/badge/tests-162%20passing-success)](https://github.com/k1rta/nekmit/actions)
 [![Code Style](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
 
 > Modern portfolio with automated testing, health monitoring, and CI/CD pipeline
 
 ## ✨ Features
 
-- 🧪 **Live Test Reports** - Interactive Playwright test results with 66 tests
+- 🧪 **Live Test Reports** - Interactive Playwright test results with 162 tests
 - 💚 **Health Monitoring** - Real-time system health API endpoint
 - 🔄 **CI/CD Pipeline** - Automated testing and deployment
 - ⚡ **Modern Stack** - Vite + Tailwind CSS + Web Components
 - 🎨 **Code Quality** - ESLint + Prettier + Husky hooks
 - 📝 **Conventional Commits** - Enforced commit standards
 - 🔒 **Branch Protection** - Protected main branch with required checks
-- ♿ **Accessibility** - WCAG compliant with ARIA labels
+- ♿ **Accessibility** - WCAG compliant with ARIA labels and tooltips
+- 🎯 **100% Test Coverage** - All interactive elements have data-testids
+- 🏅 **Quality Badges** - 5 visual badges showcasing key features
 
 ---
 
@@ -129,12 +131,18 @@ nekmit/
 │   │   └── footer.js           # Footer web component
 │   └── utils/                  # Utility functions
 ├── tests/
-│   ├── homepage-core.spec.js           # Core page elements (4 tests)
-│   ├── homepage-navigation.spec.js     # Navigation icons (8 tests)
-│   ├── homepage-interactions.spec.js   # User interactions (3 tests)
-│   ├── homepage-responsive.spec.js     # Responsive design (4 tests)
-│   ├── homepage-accessibility.spec.js  # Accessibility (4 tests)
-│   └── selectors.js                    # Centralized test selectors
+│   ├── homepage-core.spec.js           # Core page elements
+│   ├── homepage-navigation.spec.js     # Navigation icons & links
+│   ├── homepage-accessibility.spec.js  # Accessibility compliance
+│   ├── homepage-interactions.spec.js   # User interactions
+│   ├── homepage-responsive.spec.js     # Responsive design
+│   ├── homepage-badges.spec.js         # Badge functionality
+│   ├── homepage-tooltips.spec.js       # Tooltip behavior
+│   ├── homepage-layout.spec.js         # Visual & layout tests
+│   ├── homepage-icons.spec.js          # Icon functionality
+│   ├── selectors.js                    # Centralized test data
+│   ├── README.md                       # Test documentation
+│   └── IMPROVEMENTS.md                 # Test quality improvements
 ├── CONTRIBUTING.md             # Contribution guidelines
 ├── LICENSE.txt                 # MIT License
 └── package.json                # Dependencies and scripts
@@ -146,17 +154,21 @@ nekmit/
 
 ### Test Suite Overview
 
-**Total: 66 tests** across 5 categories, running on 3 browsers (Chromium, Firefox, WebKit)
+**Total: 162 tests** across 9 test files, running on 3 browsers (Chromium, Firefox, WebKit)
 
-#### Test Categories
+#### Test Files
 
-| Category | Tests | Description |
-|----------|-------|-------------|
-| **Core Elements** | 4 | Page title, heading, tagline, footer |
-| **Navigation** | 8 | All 6 icons, links, functionality |
-| **Interactions** | 3 | Animations, hover states, clicks |
-| **Responsive** | 4 | Mobile, tablet, desktop layouts |
-| **Accessibility** | 4 | ARIA labels, semantic HTML, WCAG |
+| Test File | Tests | Description |
+|-----------|-------|-------------|
+| **homepage-core** | ~12 | Page title, heading, tagline, badges |
+| **homepage-navigation** | ~18 | All 6 icons, correct links, external link security |
+| **homepage-accessibility** | ~12 | ARIA labels, tooltips, semantic HTML |
+| **homepage-interactions** | ~9 | Animations, hover effects, badge visibility |
+| **homepage-responsive** | ~12 | Mobile, tablet, desktop layouts |
+| **homepage-badges** | ~21 | All 5 badges, icons, text, hover effects |
+| **homepage-tooltips** | ~15 | Tooltip functionality, library-agnostic |
+| **homepage-layout** | ~30 | Visual behavior, computed styles, positioning |
+| **homepage-icons** | ~33 | Icon functionality, keyboard accessibility |
 
 ### Running Tests
 
@@ -192,16 +204,24 @@ All test data is centralized in `tests/selectors.js` for easy maintenance:
 
 ```javascript
 // tests/selectors.js
-export const testIds = {
-  mainHeading: 'main-heading',
-  iconGithub: 'icon-github',
-  // ... more selectors
+export const dataTestIds = {
+  mainHeading: '[data-testid="main-heading"]',
+  iconResume: '[data-testid="icon-resume"]',
+  badgeQuality: '[data-testid="badge-quality"]',
+  // ... 30+ more selectors
 };
 
 export const links = {
-  github: 'https://github.com/k1rta/nekmit',
-  resume: '/resume.pdf',
+  resume: '/resume',
+  projects: 'https://github.com/k1rta?tab=repositories',
+  quality: '/test-reports/index.html',
   // ... more links
+};
+
+export const tooltips = {
+  resume: 'View resume & skills',
+  projects: 'View GitHub projects',
+  // ... more tooltips
 };
 ```
 
@@ -405,16 +425,28 @@ export default {
 
 ## 🔗 Functional Icons
 
-The portfolio includes 6 interactive icons:
+The portfolio includes 6 interactive icons with tooltips:
 
-| Icon | Color | Links To | Description |
-|------|-------|----------|-------------|
-| 📄 Resume | Blue | `/resume.pdf` | Download resume |
-| 🐙 GitHub | Gray | GitHub profile | View source code |
-| 🧪 Test Reports | Blue | `/test-reports/` | Live test results |
-| 💚 Health API | Green | `/api/health` | System health status |
-| 📧 Email | Red | `mailto:` | Contact email |
-| 🏢 Company | Purple | Registry | Company info |
+| Icon | Links To | Tooltip | Description |
+|------|----------|---------|-------------|
+| 📄 Resume | `/resume` | View resume & skills | Resume and skills page |
+| 💻 Projects | GitHub repositories | View GitHub projects | Portfolio projects on GitHub |
+| 📊 Quality | `/test-reports/` | View test reports | Live Playwright test results |
+| 🖥️ Uptime | `/api/health` | Check system health | System health monitoring |
+| 💼 Business | Estonian Registry | View company details | Nekmit OÜ company info |
+| 📧 Contact | `mailto:` | Send email | Contact via email |
+
+## 🏅 Quality Badges
+
+Footer displays 5 badges showcasing key features:
+
+| Badge | Icon | Description |
+|-------|------|-------------|
+| 🚀 Automated Deployment | Rocket | CI/CD pipeline automation |
+| 🧪 Quality Assured | Vial | Comprehensive test coverage |
+| 💜 User-Centered Design | Heart | Focus on UX and accessibility |
+| ⚡ Lightning Fast | Zap | Optimized performance |
+| 🌍 Globally Accessible | Globe | WCAG compliant accessibility |
 
 ---
 

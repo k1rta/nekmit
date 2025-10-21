@@ -11,25 +11,25 @@ test.describe('homepage - accessibility', () => {
       'aria-label',
       ariaLabels.resume
     );
-    await expect(page.locator(dataTestIds.iconGithub)).toHaveAttribute(
+    await expect(page.locator(dataTestIds.iconProjects)).toHaveAttribute(
       'aria-label',
-      ariaLabels.github
+      ariaLabels.projects
     );
-    await expect(page.locator(dataTestIds.iconTestReports)).toHaveAttribute(
+    await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute(
       'aria-label',
-      ariaLabels.testReports
+      ariaLabels.quality
     );
-    await expect(page.locator(dataTestIds.iconHealth)).toHaveAttribute(
+    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute(
       'aria-label',
-      ariaLabels.health
+      ariaLabels.uptime
     );
-    await expect(page.locator(dataTestIds.iconEmail)).toHaveAttribute(
+    await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute(
       'aria-label',
-      ariaLabels.email
+      ariaLabels.business
     );
-    await expect(page.locator(dataTestIds.iconCompany)).toHaveAttribute(
+    await expect(page.locator(dataTestIds.iconContact)).toHaveAttribute(
       'aria-label',
-      ariaLabels.company
+      ariaLabels.contact
     );
   });
 
@@ -38,31 +38,31 @@ test.describe('homepage - accessibility', () => {
       'data-tooltip',
       tooltips.resume
     );
-    await expect(page.locator(dataTestIds.iconGithub)).toHaveAttribute(
+    await expect(page.locator(dataTestIds.iconProjects)).toHaveAttribute(
       'data-tooltip',
-      tooltips.github
+      tooltips.projects
     );
-    await expect(page.locator(dataTestIds.iconTestReports)).toHaveAttribute(
+    await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute(
       'data-tooltip',
-      tooltips.testReports
+      tooltips.quality
     );
-    await expect(page.locator(dataTestIds.iconHealth)).toHaveAttribute(
+    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute(
       'data-tooltip',
-      tooltips.health
+      tooltips.uptime
     );
-    await expect(page.locator(dataTestIds.iconEmail)).toHaveAttribute(
+    await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute(
       'data-tooltip',
-      tooltips.email
+      tooltips.business
     );
-    await expect(page.locator(dataTestIds.iconCompany)).toHaveAttribute(
+    await expect(page.locator(dataTestIds.iconContact)).toHaveAttribute(
       'data-tooltip',
-      tooltips.company
+      tooltips.contact
     );
   });
 
   test('all external links should have rel="noopener"', async ({ page }) => {
-    await expect(page.locator(dataTestIds.iconGithub)).toHaveAttribute('rel', 'noopener');
-    await expect(page.locator(dataTestIds.iconCompany)).toHaveAttribute('rel', 'noopener');
+    await expect(page.locator(dataTestIds.iconProjects)).toHaveAttribute('rel', 'noopener');
+    await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute('rel', 'noopener');
   });
 
   test('page should have proper heading hierarchy', async ({ page }) => {

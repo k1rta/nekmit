@@ -9,42 +9,39 @@ test.describe('homepage - navigation icons', () => {
   test('should display all 6 navigation icons', async ({ page }) => {
     await expect(page.locator(dataTestIds.iconNavigation)).toBeVisible();
     await expect(page.locator(dataTestIds.iconResume)).toBeVisible();
-    await expect(page.locator(dataTestIds.iconGithub)).toBeVisible();
-    await expect(page.locator(dataTestIds.iconTestReports)).toBeVisible();
-    await expect(page.locator(dataTestIds.iconHealth)).toBeVisible();
-    await expect(page.locator(dataTestIds.iconEmail)).toBeVisible();
-    await expect(page.locator(dataTestIds.iconCompany)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconProjects)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconQuality)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconUptime)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconBusiness)).toBeVisible();
+    await expect(page.locator(dataTestIds.iconContact)).toBeVisible();
   });
 
-  test('resume icon should link to pdf', async ({ page }) => {
+  test('resume icon should link to resume page', async ({ page }) => {
     await expect(page.locator(dataTestIds.iconResume)).toHaveAttribute('href', links.resume);
     await expect(page.locator(dataTestIds.iconResume)).toHaveAttribute('target', '_blank');
   });
 
-  test('github icon should link to correct repository', async ({ page }) => {
-    await expect(page.locator(dataTestIds.iconGithub)).toHaveAttribute('href', links.github);
-    await expect(page.locator(dataTestIds.iconGithub)).toHaveAttribute('target', '_blank');
+  test('projects icon should link to projects page', async ({ page }) => {
+    await expect(page.locator(dataTestIds.iconProjects)).toHaveAttribute('href', links.projects);
+    await expect(page.locator(dataTestIds.iconProjects)).toHaveAttribute('target', '_blank');
   });
 
-  test('test reports icon should link to reports page', async ({ page }) => {
-    await expect(page.locator(dataTestIds.iconTestReports)).toHaveAttribute(
-      'href',
-      links.testReports
-    );
-    await expect(page.locator(dataTestIds.iconTestReports)).toHaveAttribute('target', '_blank');
+  test('quality icon should link to test reports page', async ({ page }) => {
+    await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute('href', links.quality);
+    await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute('target', '_blank');
   });
 
-  test('health icon should link to health api', async ({ page }) => {
-    await expect(page.locator(dataTestIds.iconHealth)).toHaveAttribute('href', links.health);
-    await expect(page.locator(dataTestIds.iconHealth)).toHaveAttribute('target', '_blank');
+  test('uptime icon should link to health api', async ({ page }) => {
+    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute('href', links.uptime);
+    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute('target', '_blank');
   });
 
-  test('email icon should have correct mailto link', async ({ page }) => {
-    await expect(page.locator(dataTestIds.iconEmail)).toHaveAttribute('href', links.email);
+  test('business icon should link to business page', async ({ page }) => {
+    await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute('href', links.business);
+    await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute('target', '_blank');
   });
 
-  test('company icon should link to estonian business registry', async ({ page }) => {
-    await expect(page.locator(dataTestIds.iconCompany)).toHaveAttribute('href', links.company);
-    await expect(page.locator(dataTestIds.iconCompany)).toHaveAttribute('target', '_blank');
+  test('contact icon should link to email', async ({ page }) => {
+    await expect(page.locator(dataTestIds.iconContact)).toHaveAttribute('href', links.contact);
   });
 });

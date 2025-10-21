@@ -16,16 +16,24 @@ test.describe('homepage - core elements', () => {
   });
 
   test('should display tagline on desktop', async ({ page }) => {
-    await expect(page.locator(dataTestIds.taglineDesktop)).toContainText(text.tagline.part1);
-    await expect(page.locator(dataTestIds.taglineDesktop)).toContainText(text.tagline.part2);
-    await expect(page.locator(dataTestIds.taglineDesktop)).toContainText(text.tagline.part3);
+    const tagline = page.locator(dataTestIds.taglineDesktop);
+    await expect(tagline).toBeVisible();
+    await expect(tagline).toContainText('From pipelines to pixels');
+    await expect(tagline).toContainText('Resilient systems');
+    await expect(tagline).toContainText('Strong QA');
   });
 
-  test('should display footer with correct links', async ({ page }) => {
+  test('should display footer with badges', async ({ page }) => {
     await expect(page.locator(dataTestIds.footer)).toBeVisible();
-    await expect(page.locator(dataTestIds.footerText)).toContainText(text.footer);
 
-    const html5upLink = page.locator(dataTestIds.footer).getByRole('link', { name: 'HTML5 UP' });
-    await expect(html5upLink).toHaveAttribute('href', links.html5up);
+    // Check that badge bar is visible
+    await expect(page.locator(dataTestIds.badgeBar)).toBeVisible();
+
+    // Check that all badges are visible
+    await expect(page.locator(dataTestIds.badgeDeployment)).toBeVisible();
+    await expect(page.locator(dataTestIds.badgeQuality)).toBeVisible();
+    await expect(page.locator(dataTestIds.badgeUx)).toBeVisible();
+    await expect(page.locator(dataTestIds.badgePerformance)).toBeVisible();
+    await expect(page.locator(dataTestIds.badgeAccessibility)).toBeVisible();
   });
 });
