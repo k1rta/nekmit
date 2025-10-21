@@ -1,5 +1,8 @@
+/**
+ * Portfolio header component with navigation
+ */
 class PortfolioHeader extends HTMLElement {
-  connectedCallback() {
+  connectedCallback(): void {
     this.innerHTML = `
       <header class="fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
         <nav class="container mx-auto px-6 py-4">

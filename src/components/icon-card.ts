@@ -1,14 +1,19 @@
+/**
+ * Custom Web Component for displaying icon cards with labels
+ */
 export class IconCard extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: 'open' });
   }
 
-  connectedCallback() {
-    const label = this.getAttribute('label');
-    const href = this.getAttribute('href');
-    const icon = this.getAttribute('icon');
+  connectedCallback(): void {
+    const label = this.getAttribute('label') || '';
+    const href = this.getAttribute('href') || '#';
+    const icon = this.getAttribute('icon') || '';
     const color = this.getAttribute('color') || 'blue';
+
+    if (!this.shadowRoot) return;
 
     this.shadowRoot.innerHTML = `
       <style>

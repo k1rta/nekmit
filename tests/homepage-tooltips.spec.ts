@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { dataTestIds, tooltips } from './selectors.js';
+import { dataTestIds, tooltips } from './selectors';
 
 test.describe('homepage - tooltips', () => {
   test.beforeEach(async ({ page }) => {
@@ -10,7 +10,6 @@ test.describe('homepage - tooltips', () => {
     await expect(page.locator(dataTestIds.iconResume)).toHaveAttribute('data-tooltip');
     await expect(page.locator(dataTestIds.iconProjects)).toHaveAttribute('data-tooltip');
     await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute('data-tooltip');
-    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute('data-tooltip');
     await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute('data-tooltip');
     await expect(page.locator(dataTestIds.iconContact)).toHaveAttribute('data-tooltip');
   });
@@ -24,7 +23,7 @@ test.describe('homepage - tooltips', () => {
     await page.waitForTimeout(300);
 
     // Verify tooltip text is visible somewhere on page
-    const tooltipContent = page.getByText(tooltipText, { exact: true });
+    const tooltipContent = page.getByText(tooltipText ?? '', { exact: true });
     await expect(tooltipContent).toBeVisible();
   });
 
@@ -47,14 +46,14 @@ test.describe('homepage - tooltips', () => {
     await page.waitForTimeout(300);
 
     // Verify tooltip is visible
-    await expect(page.getByText(tooltipText, { exact: true })).toBeVisible();
+    await expect(page.getByText(tooltipText ?? '', { exact: true })).toBeVisible();
 
     // Move mouse away
     await page.mouse.move(0, 0);
     await page.waitForTimeout(300);
 
     // Tooltip text should no longer be visible
-    await expect(page.getByText(tooltipText, { exact: true })).toBeHidden();
+    await expect(page.getByText(tooltipText ?? '', { exact: true })).toBeHidden();
   });
 
   test('tooltips should work for all icons', async ({ page }) => {
@@ -62,7 +61,6 @@ test.describe('homepage - tooltips', () => {
       { selector: dataTestIds.iconResume, text: tooltips.resume },
       { selector: dataTestIds.iconProjects, text: tooltips.projects },
       { selector: dataTestIds.iconQuality, text: tooltips.quality },
-      { selector: dataTestIds.iconUptime, text: tooltips.uptime },
       { selector: dataTestIds.iconBusiness, text: tooltips.business },
       { selector: dataTestIds.iconContact, text: tooltips.contact },
     ];

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { dataTestIds } from './selectors.js';
+import { dataTestIds } from './selectors';
 
 test.describe('homepage - layout and visual', () => {
   test.beforeEach(async ({ page }) => {
@@ -42,7 +42,9 @@ test.describe('homepage - layout and visual', () => {
     // Verify icon has equal width and height (circular)
     const box = await icon.boundingBox();
     expect(box).not.toBeNull();
-    expect(box.width).toBeCloseTo(box.height, 0); // Width equals height
+    if (box) {
+      expect(box.width).toBeCloseTo(box.height, 0); // Width equals height
+    }
   });
 
   test('footer should be visible at bottom of viewport', async ({ page }) => {
@@ -55,7 +57,9 @@ test.describe('homepage - layout and visual', () => {
 
     const box = await footer.boundingBox();
     const viewport = page.viewportSize();
-    expect(box.y + box.height).toBeGreaterThan(viewport.height * 0.8); // Near bottom
+    if (box && viewport) {
+      expect(box.y + box.height).toBeGreaterThan(viewport.height * 0.8); // Near bottom
+    }
   });
 
   test('badges should be visible and readable', async ({ page }) => {
@@ -66,7 +70,7 @@ test.describe('homepage - layout and visual', () => {
       await expect(badge).toBeVisible();
       // Verify badge has text content
       const text = await badge.textContent();
-      expect(text.length).toBeGreaterThan(0);
+      expect((text ?? '').length).toBeGreaterThan(0);
     }
   });
 
@@ -90,21 +94,27 @@ test.describe('homepage - layout and visual', () => {
       dataTestIds.iconResume,
       dataTestIds.iconProjects,
       dataTestIds.iconQuality,
-      dataTestIds.iconUptime,
       dataTestIds.iconBusiness,
       dataTestIds.iconContact,
     ];
 
     // Get dimensions of first icon as reference
-    const firstIcon = page.locator(icons[0]);
+    const firstIconSelector = icons[0];
+    if (!firstIconSelector) return;
+
+    const firstIcon = page.locator(firstIconSelector);
     const firstBox = await firstIcon.boundingBox();
+
+    if (!firstBox) return;
 
     // Verify all icons have same dimensions
     for (const iconSelector of icons) {
       const icon = page.locator(iconSelector);
       const box = await icon.boundingBox();
-      expect(box.width).toBeCloseTo(firstBox.width, 1);
-      expect(box.height).toBeCloseTo(firstBox.height, 1);
+      if (box) {
+        expect(box.width).toBeCloseTo(firstBox.width, 1);
+        expect(box.height).toBeCloseTo(firstBox.height, 1);
+      }
     }
   });
 

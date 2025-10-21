@@ -2,18 +2,19 @@
 
 [![CI/CD Pipeline](https://github.com/k1rta/nekmit/workflows/CI%2FCD%20Pipeline/badge.svg)](https://github.com/k1rta/nekmit/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
-[![Playwright Tests](https://img.shields.io/badge/tests-162%20passing-success)](https://github.com/k1rta/nekmit/actions)
+[![Playwright Tests](https://img.shields.io/badge/tests-240%20passing-success)](https://github.com/k1rta/nekmit/actions)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Code Style](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
 
-> Modern portfolio with automated testing, health monitoring, and CI/CD pipeline
+> Modern TypeScript portfolio with automated testing and CI/CD pipeline
 
 ## ✨ Features
 
-- 🧪 **Live Test Reports** - Interactive Playwright test results with 162 tests
-- 💚 **Health Monitoring** - Real-time system health API endpoint
+- 🧪 **Live Test Reports** - Interactive Playwright test results with 240 tests
 - 🔄 **CI/CD Pipeline** - Automated testing and deployment
-- ⚡ **Modern Stack** - Vite + Tailwind CSS + Web Components
+- ⚡ **Modern Stack** - TypeScript + Vite + Tailwind CSS + Web Components
 - 🎨 **Code Quality** - ESLint + Prettier + Husky hooks
+- 🔷 **TypeScript** - Full type safety with strict mode enabled
 - 📝 **Conventional Commits** - Enforced commit standards
 - 🔒 **Branch Protection** - Protected main branch with required checks
 - ♿ **Accessibility** - WCAG compliant with ARIA labels and tooltips
@@ -99,12 +100,6 @@ npm run test:e2e:report
 | `npm run format` | Format all files with Prettier |
 | `npm run format:check` | Check code formatting |
 
-### Other
-
-| Command | Description |
-|---------|-------------|
-| `npm run health-check` | Start health monitoring API on port 3001 (local only) |
-
 ---
 
 ## 📁 Project Structure
@@ -122,27 +117,29 @@ nekmit/
 │   └── test-reports/           # Generated test reports (after running tests)
 ├── src/
 │   ├── index.html              # Main portfolio page
-│   ├── main.js                 # Entry point
+│   ├── main.ts                 # Entry point (TypeScript)
 │   ├── style.css               # Tailwind styles
-│   ├── api/
-│   │   └── health.js           # Health monitoring API
 │   ├── components/
-│   │   ├── header.js           # Header web component
-│   │   └── footer.js           # Footer web component
-│   └── utils/                  # Utility functions
+│   │   ├── header.ts           # Header web component (TypeScript)
+│   │   ├── footer.ts           # Footer web component (TypeScript)
+│   │   └── icon-card.ts        # Icon card component (TypeScript)
+│   └── utils/
+│       └── tooltip.ts          # Tooltip utilities (TypeScript)
 ├── tests/
-│   ├── homepage-core.spec.js           # Core page elements
-│   ├── homepage-navigation.spec.js     # Navigation icons & links
-│   ├── homepage-accessibility.spec.js  # Accessibility compliance
-│   ├── homepage-interactions.spec.js   # User interactions
-│   ├── homepage-responsive.spec.js     # Responsive design
-│   ├── homepage-badges.spec.js         # Badge functionality
-│   ├── homepage-tooltips.spec.js       # Tooltip behavior
-│   ├── homepage-layout.spec.js         # Visual & layout tests
-│   ├── homepage-icons.spec.js          # Icon functionality
-│   ├── selectors.js                    # Centralized test data
-│   ├── README.md                       # Test documentation
-│   └── IMPROVEMENTS.md                 # Test quality improvements
+│   ├── homepage-core.spec.ts           # Core page elements (TypeScript)
+│   ├── homepage-navigation.spec.ts     # Navigation icons & links (TypeScript)
+│   ├── homepage-accessibility.spec.ts  # Accessibility compliance (TypeScript)
+│   ├── homepage-interactions.spec.ts   # User interactions (TypeScript)
+│   ├── homepage-responsive.spec.ts     # Responsive design (TypeScript)
+│   ├── homepage-badges.spec.ts         # Badge functionality (TypeScript)
+│   ├── homepage-tooltips.spec.ts       # Tooltip behavior (TypeScript)
+│   ├── homepage-layout.spec.ts         # Visual & layout tests (TypeScript)
+│   ├── homepage-icons.spec.ts          # Icon functionality (TypeScript)
+│   ├── landscape-mode.spec.ts          # Landscape mode restriction (TypeScript)
+│   ├── tagline.spec.ts                 # Tagline responsive tests (TypeScript)
+│   └── selectors.ts                    # Centralized test data (TypeScript)
+├── tsconfig.json               # TypeScript configuration
+├── TYPESCRIPT_MIGRATION.md     # TypeScript migration documentation
 ├── CONTRIBUTING.md             # Contribution guidelines
 ├── LICENSE.txt                 # MIT License
 └── package.json                # Dependencies and scripts
@@ -154,21 +151,25 @@ nekmit/
 
 ### Test Suite Overview
 
-**Total: 162 tests** across 9 test files, running on 3 browsers (Chromium, Firefox, WebKit)
+**Total: 240 tests** across 12 test files, running on 3 browsers (Chromium, Firefox, WebKit)
+
+**TypeScript Coverage:** 100% - All source code and tests written in TypeScript
 
 #### Test Files
 
 | Test File | Tests | Description |
 |-----------|-------|-------------|
 | **homepage-core** | ~12 | Page title, heading, tagline, badges |
-| **homepage-navigation** | ~18 | All 6 icons, correct links, external link security |
+| **homepage-navigation** | ~15 | All 5 icons, correct links, external link security |
 | **homepage-accessibility** | ~12 | ARIA labels, tooltips, semantic HTML |
 | **homepage-interactions** | ~9 | Animations, hover effects, badge visibility |
 | **homepage-responsive** | ~12 | Mobile, tablet, desktop layouts |
 | **homepage-badges** | ~21 | All 5 badges, icons, text, hover effects |
-| **homepage-tooltips** | ~15 | Tooltip functionality, library-agnostic |
-| **homepage-layout** | ~30 | Visual behavior, computed styles, positioning |
-| **homepage-icons** | ~33 | Icon functionality, keyboard accessibility |
+| **homepage-tooltips** | ~24 | Tooltip functionality, library-agnostic |
+| **homepage-layout** | ~40 | Visual behavior, computed styles, positioning |
+| **homepage-icons** | ~35 | Icon functionality, keyboard accessibility |
+| **landscape-mode** | ~17 | Landscape mode restriction for mobile/tablet |
+| **tagline** | ~26 | Tagline responsive typography and layout |
 
 ### Running Tests
 
@@ -200,29 +201,40 @@ npx playwright test --project=chromium
 
 ### Centralized Test Selectors
 
-All test data is centralized in `tests/selectors.js` for easy maintenance:
+All test data is centralized in `tests/selectors.ts` for easy maintenance:
 
-```javascript
-// tests/selectors.js
+```typescript
+// tests/selectors.ts
 export const dataTestIds = {
   mainHeading: '[data-testid="main-heading"]',
   iconResume: '[data-testid="icon-resume"]',
   badgeQuality: '[data-testid="badge-quality"]',
   // ... 30+ more selectors
-};
+} as const;
 
 export const links = {
   resume: '/resume',
   projects: 'https://github.com/k1rta?tab=repositories',
   quality: '/test-reports/index.html',
   // ... more links
-};
+} as const;
 
 export const tooltips = {
   resume: 'View resume & skills',
   projects: 'View GitHub projects',
   // ... more tooltips
-};
+} as const;
+
+export interface ViewportSize {
+  width: number;
+  height: number;
+}
+
+export const viewports: Record<'mobile' | 'tablet' | 'desktop', ViewportSize> = {
+  mobile: { width: 375, height: 667 },
+  tablet: { width: 768, height: 1024 },
+  desktop: { width: 1920, height: 1080 },
+} as const;
 ```
 
 **Benefits:**
@@ -231,6 +243,8 @@ export const tooltips = {
 - ✅ Update once, applies everywhere
 - ✅ No hardcoded strings in tests
 - ✅ Easy refactoring
+- ✅ **Type-safe** with TypeScript const assertions
+- ✅ IDE autocomplete for all selectors
 
 ---
 
@@ -362,8 +376,6 @@ Vercel automatically deploys when:
    - **Install Command**: `npm install`
 5. Click "Deploy"
 
-**Note**: The Health API (`/api/health`) is for local development only and won't work on Vercel's static hosting.
-
 ### Alternative: GitHub Pages
 
 ```bash
@@ -408,8 +420,9 @@ export const links = {
 
 ### Customize Colors
 
-```javascript
-// tailwind.config.js
+```typescript
+// tailwind.config.ts
+import type { Config } from 'tailwindcss';
 export default {
   theme: {
     extend: {
@@ -418,21 +431,20 @@ export default {
       },
     },
   },
-};
+} satisfies Config;
 ```
 
 ---
 
 ## 🔗 Functional Icons
 
-The portfolio includes 6 interactive icons with tooltips:
+The portfolio includes 5 interactive icons with tooltips:
 
 | Icon | Links To | Tooltip | Description |
 |------|----------|---------|-------------|
 | 📄 Resume | `/resume` | View resume & skills | Resume and skills page |
 | 💻 Projects | GitHub repositories | View GitHub projects | Portfolio projects on GitHub |
 | 📊 Quality | `/test-reports/` | View test reports | Live Playwright test results |
-| 🖥️ Uptime | `/api/health` | Check system health | System health monitoring |
 | 💼 Business | Estonian Registry | View company details | Nekmit OÜ company info |
 | 📧 Contact | `mailto:` | Send email | Contact via email |
 
@@ -479,9 +491,10 @@ This project is licensed under the MIT License - see [LICENSE.txt](LICENSE.txt) 
 
 ## 🙏 Acknowledgments
 
-- **Vite** - Lightning fast build tool
+- **TypeScript** - Type-safe JavaScript at scale
+- **Vite** - Lightning fast build tool with native TypeScript support
 - **Tailwind CSS** - Utility-first CSS framework
-- **Playwright** - Reliable end-to-end testing
+- **Playwright** - Reliable end-to-end testing with TypeScript support
 - **ESLint & Prettier** - Code quality tools
 - **Husky** - Git hooks made easy
 
@@ -497,6 +510,7 @@ This project is licensed under the MIT License - see [LICENSE.txt](LICENSE.txt) 
 
 ## 🛠️ Built With
 
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white)](https://playwright.dev/)

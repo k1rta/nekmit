@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { dataTestIds, links, text } from './selectors.js';
+import { dataTestIds, text } from './selectors';
 
 test.describe('homepage - core elements', () => {
   test.beforeEach(async ({ page }) => {

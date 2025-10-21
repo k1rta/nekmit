@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { dataTestIds, text } from './selectors.js';
+import { dataTestIds, text } from './selectors';
 
 test.describe('Landscape Mode Restriction', () => {
   test.describe('Mobile Landscape Mode', () => {

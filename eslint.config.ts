@@ -1,15 +1,22 @@
 import js from '@eslint/js';
 import prettier from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
+import tseslint from '@typescript-eslint/eslint-plugin';
+import tsparser from '@typescript-eslint/parser';
+import type { Linter } from 'eslint';
 
 export default [
   js.configs.recommended,
   prettierConfig,
   {
-    files: ['**/*.js'],
+    files: ['**/*.js', '**/*.ts'],
     languageOptions: {
+      parser: tsparser,
       ecmaVersion: 2022,
       sourceType: 'module',
+      parserOptions: {
+        project: './tsconfig.json',
+      },
       globals: {
         window: 'readonly',
         document: 'readonly',
@@ -30,6 +37,7 @@ export default [
     },
     plugins: {
       prettier,
+      '@typescript-eslint': tseslint,
     },
     rules: {
       'prettier/prettier': 'error',
@@ -47,6 +55,7 @@ export default [
       'playwright-report/**',
       'test-results/**',
       '*.config.js',
+      '*.config.ts',
     ],
   },
-];
+] as Linter.Config[];

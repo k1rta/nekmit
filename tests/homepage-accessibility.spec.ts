@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { dataTestIds, ariaLabels, tooltips } from './selectors.js';
+import { dataTestIds, ariaLabels, tooltips } from './selectors';
 
 test.describe('homepage - accessibility', () => {
   test.beforeEach(async ({ page }) => {
@@ -18,10 +18,6 @@ test.describe('homepage - accessibility', () => {
     await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute(
       'aria-label',
       ariaLabels.quality
-    );
-    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute(
-      'aria-label',
-      ariaLabels.uptime
     );
     await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute(
       'aria-label',
@@ -45,10 +41,6 @@ test.describe('homepage - accessibility', () => {
     await expect(page.locator(dataTestIds.iconQuality)).toHaveAttribute(
       'data-tooltip',
       tooltips.quality
-    );
-    await expect(page.locator(dataTestIds.iconUptime)).toHaveAttribute(
-      'data-tooltip',
-      tooltips.uptime
     );
     await expect(page.locator(dataTestIds.iconBusiness)).toHaveAttribute(
       'data-tooltip',

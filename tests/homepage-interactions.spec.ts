@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { dataTestIds } from './selectors.js';
+import { dataTestIds } from './selectors';
 
 test.describe('homepage - interactions', () => {
   test.beforeEach(async ({ page }) => {

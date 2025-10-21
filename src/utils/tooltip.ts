@@ -1,9 +1,12 @@
-import tippy from 'tippy.js';
+import tippy, { type Props as TippyProps } from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
-export function initTooltips() {
+/**
+ * Initialize tooltips for all elements with [data-tooltip] attribute
+ */
+export function initTooltips(): void {
   tippy('[data-tooltip]', {
-    content: reference => reference.getAttribute('data-tooltip'),
+    content: reference => reference.getAttribute('data-tooltip') || '',
     placement: 'bottom',
     animation: 'fade',
     theme: 'custom',
@@ -16,5 +19,5 @@ export function initTooltips() {
     interactive: false, // Prevent tooltip from interfering with touch
     // Better mobile behavior
     trigger: 'mouseenter focus', // Desktop: hover, Mobile: focus/touch
-  });
+  } as Partial<TippyProps>);
 }

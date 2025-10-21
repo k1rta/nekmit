@@ -3,6 +3,9 @@
  * All data-testid attribute selectors used in E2E tests
  */
 
+/**
+ * Data test ID selectors
+ */
 export const dataTestIds = {
   // Main content
   mainHeading: '[data-testid="main-heading"]',
@@ -16,7 +19,6 @@ export const dataTestIds = {
   iconResume: '[data-testid="icon-resume"]',
   iconProjects: '[data-testid="icon-projects"]',
   iconQuality: '[data-testid="icon-quality"]',
-  iconUptime: '[data-testid="icon-uptime"]',
   iconBusiness: '[data-testid="icon-business"]',
   iconContact: '[data-testid="icon-contact"]',
 
@@ -28,7 +30,7 @@ export const dataTestIds = {
   badgeUx: '[data-testid="badge-ux"]',
   badgePerformance: '[data-testid="badge-performance"]',
   badgeAccessibility: '[data-testid="badge-accessibility"]',
-};
+} as const;
 
 /**
  * Expected URLs and links
@@ -37,10 +39,9 @@ export const links = {
   resume: '/resume',
   projects: 'https://github.com/k1rta?tab=repositories',
   quality: '/test-reports/index.html',
-  uptime: '/api/health',
   business: 'https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C',
   contact: 'mailto:kirtalindakarits@icloud.com',
-};
+} as const;
 
 /**
  * Expected text content
@@ -52,7 +53,7 @@ export const text = {
     heading: 'Please Rotate Your Device',
     message: 'This site is optimized for portrait mode',
   },
-};
+} as const;
 
 /**
  * ARIA labels
@@ -61,10 +62,9 @@ export const ariaLabels = {
   resume: 'Resume & Skills',
   projects: 'Portfolio Projects',
   quality: 'Quality Dashboard',
-  uptime: 'System Uptime',
   business: 'About My Business',
   contact: 'Contact & Availability',
-};
+} as const;
 
 /**
  * Tooltips (data-tooltip attributes)
@@ -73,16 +73,20 @@ export const tooltips = {
   resume: 'View resume & skills',
   projects: 'View GitHub projects',
   quality: 'View test reports',
-  uptime: 'Check system health',
   business: 'View company details',
   contact: 'Send email',
-};
+} as const;
 
 /**
- * Viewport sizes for responsive testing
+ * Viewport configuration for responsive testing
  */
-export const viewports = {
+export interface ViewportSize {
+  width: number;
+  height: number;
+}
+
+export const viewports: Record<'mobile' | 'tablet' | 'desktop', ViewportSize> = {
   mobile: { width: 375, height: 667 },
   tablet: { width: 768, height: 1024 },
   desktop: { width: 1920, height: 1080 },
-};
+} as const;
