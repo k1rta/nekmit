@@ -126,7 +126,6 @@ jobs:
               body: comment
             });
 
-
   status-check:
     name: All Checks Passed
     runs-on: ubuntu-latest
