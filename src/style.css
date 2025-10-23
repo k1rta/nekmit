@@ -38,6 +38,21 @@
   margin-right: auto;
 }
 
+html,
+body {
+  min-height: 100dvh;
+}
+
+footer[data-testid='footer'] {
+  bottom: 0; /* keep anchored to bottom */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+.footer-fade {
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
+}
+
 /* Responsive utilities */
 @layer utilities {
   /* Ensure minimum touch target size on mobile */
@@ -87,7 +102,7 @@
 @media (orientation: landscape) and (max-height: 600px) {
   main {
     margin-top: 0 !important;
-    padding-top: 24px !important;
+    padding-top: calc(24px + env(safe-area-inset-top)) !important;
     padding-bottom: 8px !important;
   }
   [data-testid='main-heading'] {
@@ -107,7 +122,7 @@
   }
   nav[data-testid='icon-navigation'] {
     gap: 12px !important;
-    margin-bottom: 96px !important;
+    margin-bottom: 112px !important;
   }
   [data-testid='icon-navigation'] .icon-pulse {
     width: 56px !important;
@@ -117,8 +132,8 @@
     font-size: 1.25rem !important;
   }
   .footer-fade {
-    padding-top: 120px !important;
-    padding-bottom: 14px !important;
+    padding-top: 56px !important; /* smaller gradient so it doesn't overlap icons */
+    padding-bottom: calc(14px + env(safe-area-inset-bottom)) !important;
   }
   [data-testid='badge-bar'] {
     gap: 6px !important;
