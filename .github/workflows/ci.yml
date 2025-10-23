@@ -2,9 +2,10 @@ name: CI/CD Pipeline
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, develop]
   push:
-    branches: [main]
+    branches: [main, develop]
+  workflow_dispatch: # Allow manual trigger
 
 jobs:
   lint:
@@ -44,22 +45,86 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright
-        run: npx playwright install --with-deps
+      - name: Get Playwright version
+        id: playwright-version
+        run: echo "version=$(node -p "require('./package.json').devDependencies['@playwright/test']" | tr -d '^')" >> $GITHUB_OUTPUT
 
-      - name: Build
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+
+      - name: Install Playwright browsers (with deps)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Install Playwright browsers (cached, deps only)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium firefox webkit
+
+      - name: Build application
         run: npm run build
 
-      - name: Run E2E tests and generate reports
+      - name: Run E2E tests
+        id: playwright-tests
         run: npm run test:e2e:report
+        continue-on-error: false
 
-      - name: Upload test reports
+      - name: Upload Playwright HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-reports
+          name: playwright-report
           path: public/test-reports/
           retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-results/
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Comment PR with test results
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const testStatus = '${{ steps.playwright-tests.outcome }}';
+            const emoji = testStatus === 'success' ? '✅' : '❌';
+            const status = testStatus === 'success' ? 'PASSED' : 'FAILED';
+
+            let testSummary = '';
+            try {
+              const resultsPath = 'test-results/results.json';
+              if (fs.existsSync(resultsPath)) {
+                const results = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+                const stats = results.stats || {};
+                testSummary = `\n**Tests:** ${stats.expected || 0} passed, ${stats.unexpected || 0} failed, ${stats.skipped || 0} skipped\n`;
+              }
+            } catch (e) {
+              console.log('Could not read test results:', e.message);
+            }
+
+            const comment = `## ${emoji} Test Results: ${status}\n\n` +
+              `**Status:** ${testStatus}${testSummary}\n` +
+              `**Workflow:** [View Details](${context.payload.repository.html_url}/actions/runs/${context.runId})\n` +
+              `**Artifacts:** Download test reports from workflow artifacts\n\n` +
+              `---\n` +
+              `*Automated by CI/CD Pipeline*`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
 
   status-check:
     name: All Checks Passed

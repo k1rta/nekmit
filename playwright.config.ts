@@ -5,7 +5,7 @@ export default defineConfig({
   fullyParallel: true,
   reporter: [
     ['html', { outputFolder: 'public/test-reports', open: 'never' }],
-    ['json', { outputFile: 'public/test-reports/results.json' }],
+    ['json', { outputFile: 'test-results/results.json' }],
     ['list'],
   ],
   use: {

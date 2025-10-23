@@ -29,6 +29,7 @@
 - [Available Commands](#-available-commands)
 - [Project Structure](#-project-structure)
 - [Testing](#-testing)
+- [CI/CD Pipeline](#-cicd-pipeline)
 - [Development Workflow](#-development-workflow)
 - [Deployment](#-deployment)
 - [Contributing](#-contributing)
@@ -66,9 +67,12 @@ npm run dev
 # Run tests
 npm test
 
-# Generate test reports
+# Generate fresh test reports (auto-cleans old ones)
 npm run test:e2e:report
-# View at http://localhost:3000/test-reports/index.html
+# View at http://localhost:3000/test-reports/
+
+# Update reports and stage for commit
+npm run test:update
 ```
 
 ---
@@ -89,7 +93,9 @@ npm run test:e2e:report
 |---------|-------------|
 | `npm test` | Run all E2E tests |
 | `npm run test:e2e` | Run E2E tests |
-| `npm run test:e2e:report` | Run E2E tests + generate HTML report |
+| `npm run test:e2e:report` | Generate fresh HTML report (auto-cleans old reports) |
+| `npm run test:clean` | Remove old test reports |
+| `npm run test:update` | Generate reports + stage for commit |
 
 ### Code Quality
 
@@ -194,10 +200,26 @@ npx playwright test --project=chromium
 
 ### Test Reports
 
-1. Generate report: `npm run test:e2e:report`
-2. Reports saved to: `public/test-reports/`
-3. View in browser: <http://localhost:3000/test-reports/index.html>
-4. Includes: Screenshots, traces, detailed results
+**Generate Reports:**
+
+```bash
+npm run test:e2e:report  # Auto-cleans old reports, generates fresh ones
+npm run test:update      # Generate + stage for commit
+```
+
+**View Reports:**
+
+- Local: `open public/test-reports/index.html`
+- Live site: Visit `/test-reports/` on deployed site
+- CI artifacts: Download from GitHub Actions
+
+**Automatic Cleanup:**
+
+- Old reports are automatically removed before generating new ones
+- Git only tracks the latest version (no bloat!)
+- Reports are committed to make them accessible on the live site
+
+**CI/CD:** Reports are automatically uploaded as artifacts on every PR.
 
 ### Centralized Test Selectors
 
@@ -248,6 +270,45 @@ export const viewports: Record<'mobile' | 'tablet' | 'desktop', ViewportSize> = 
 
 ---
 
+## 🚀 CI/CD Pipeline
+
+### Automated Checks
+
+Every PR and push to `main`/`develop` triggers:
+
+- ✅ **ESLint** - Code quality validation
+- ✅ **Prettier** - Code formatting check
+- ✅ **Build** - Application build verification
+- ✅ **E2E Tests** - 240 tests across 3 browsers
+
+### Branch Protection
+
+Tests **must pass** before merging:
+
+1. Linting passes ✅
+2. Formatting correct ✅
+3. Build succeeds ✅
+4. All tests pass ✅
+
+### Features
+
+- 📊 Test reports uploaded as artifacts
+- 💬 Automatic PR comments with results
+- ⚡ Playwright browser caching (~60% faster)
+- 🔒 Merge blocking on failures
+
+### Local Testing
+
+```bash
+# Run all CI checks locally
+npm run lint
+npm run format:check
+npm run build
+npm run test:e2e:report
+```
+
+---
+
 ## 🔄 Development Workflow
 
 ### Branch Strategy
@@ -256,7 +317,9 @@ export const viewports: Record<'mobile' | 'tablet' | 'desktop', ViewportSize> = 
 - **`develop`** - Development branch
 - **`feature/*`** - Feature branches
 - **`fix/*`** - Bug fix branches
+- **`test/*`** - Test branches
 - **`chore/*`** - Maintenance branches
+- **`ci/*`** - CI/CD changes
 
 ### Making Changes
 
