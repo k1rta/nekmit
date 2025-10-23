@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { dataTestIds, ariaLabels, tooltips } from './selectors.js';
+import { dataTestIds, ariaLabels, tooltips } from './selectors';
 
 test.describe('homepage - accessibility', () => {
   test.beforeEach(async ({ page }) => {

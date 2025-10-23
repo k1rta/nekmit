@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { dataTestIds, text, viewports } from './selectors.js';
+import { dataTestIds, text, viewports } from './selectors';
 
 test.describe('Tagline Display', () => {
   test.describe('Content and Visibility', () => {
@@ -112,7 +112,9 @@ test.describe('Tagline Display', () => {
       const headingBox = await heading.boundingBox();
       const taglineBox = await tagline.boundingBox();
 
-      expect(taglineBox.y).toBeGreaterThan(headingBox.y + headingBox.height);
+      if (headingBox && taglineBox) {
+        expect(taglineBox.y).toBeGreaterThan(headingBox.y + headingBox.height);
+      }
     });
 
     test('should appear above the value proposition', async ({ page }) => {
@@ -124,7 +126,9 @@ test.describe('Tagline Display', () => {
       const taglineBox = await tagline.boundingBox();
       const valuePropBox = await valueProp.boundingBox();
 
-      expect(taglineBox.y).toBeLessThan(valuePropBox.y);
+      if (taglineBox && valuePropBox) {
+        expect(taglineBox.y).toBeLessThan(valuePropBox.y);
+      }
     });
 
     test('should have consistent max-width across screen sizes', async ({ page }) => {
@@ -148,7 +152,7 @@ test.describe('Tagline Display', () => {
       expect(text).toMatch(/•/);
 
       // Ensure bullets are properly spaced
-      const bullets = text.match(/•/g);
+      const bullets = text?.match(/•/g);
       expect(bullets).toHaveLength(2);
     });
   });

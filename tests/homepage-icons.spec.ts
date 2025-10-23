@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { dataTestIds, links, ariaLabels } from './selectors.js';
+import { dataTestIds, links } from './selectors';
 
 test.describe('homepage - icon functionality', () => {
   test.beforeEach(async ({ page }) => {
@@ -107,9 +107,6 @@ test.describe('homepage - icon functionality', () => {
 
     for (const iconSelector of iconSelectors) {
       const icon = page.locator(iconSelector);
-
-      // Get initial position
-      const initialBox = await icon.boundingBox();
 
       // Hover over icon
       await icon.hover();

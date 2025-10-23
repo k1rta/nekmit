@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { dataTestIds, links } from './selectors.js';
+import { dataTestIds, links } from './selectors';
 
 test.describe('homepage - navigation icons', () => {
   test.beforeEach(async ({ page }) => {

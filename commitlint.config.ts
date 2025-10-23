@@ -1,3 +1,5 @@
+import type { UserConfig } from '@commitlint/types';
+
 export default {
   extends: ['@commitlint/config-conventional'],
   rules: {
@@ -20,4 +22,4 @@ export default {
     ],
     'subject-case': [0], // Allow any case for subject
   },
-};
+} satisfies UserConfig;
