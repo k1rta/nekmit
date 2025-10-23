@@ -126,7 +126,7 @@ jobs:
               body: comment
             });
 
-  # Optional: Add a status check job that summarizes all checks
+
   status-check:
     name: All Checks Passed
     runs-on: ubuntu-latest
