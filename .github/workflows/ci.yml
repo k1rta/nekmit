@@ -2,9 +2,10 @@ name: CI/CD Pipeline
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, develop]
   push:
-    branches: [main]
+    branches: [main, develop]
+  workflow_dispatch: # Allow manual trigger
 
 jobs:
   lint:
@@ -44,19 +45,77 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright
+      - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Build
+      - name: Build application
         run: npm run build
 
-      - name: Run E2E tests and generate reports
+      - name: Run E2E tests
+        id: playwright-tests
         run: npm run test:e2e:report
+        continue-on-error: false # Fail the job if tests fail
 
-      - name: Upload test reports
+      - name: Upload Playwright HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-reports
-          path: public/test-reports/
+          name: playwright-html-report
+          path: playwright-report/
           retention-days: 30
+
+      - name: Upload test results JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-json
+          path: test-results/
+          retention-days: 30
+
+      - name: Publish test results
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: Playwright Test Results
+          path: test-results/*.json
+          reporter: java-junit
+          fail-on-error: true # Block PR merge on test failure
+
+      - name: Comment PR with test results
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const testStatus = '${{ steps.playwright-tests.outcome }}';
+            const emoji = testStatus === 'success' ? '✅' : '❌';
+            const status = testStatus === 'success' ? 'PASSED' : 'FAILED';
+
+            const comment = `## ${emoji} Test Results: ${status}\n\n` +
+              `**Status:** ${testStatus}\n` +
+              `**Workflow:** [View Details](${context.payload.repository.html_url}/actions/runs/${context.runId})\n` +
+              `**Artifacts:** Test reports are available in the workflow artifacts\n\n` +
+              `---\n` +
+              `*Automated comment by CI/CD Pipeline*`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+  # Optional: Add a status check job that summarizes all checks
+  status-check:
+    name: All Checks Passed
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+    if: always()
+    steps:
+      - name: Check if all jobs succeeded
+        run: |
+          if [ "${{ needs.lint.result }}" != "success" ] || [ "${{ needs.test.result }}" != "success" ]; then
+            echo "❌ One or more checks failed"
+            exit 1
+          fi
+          echo "✅ All checks passed!"

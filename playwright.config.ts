@@ -4,8 +4,9 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   reporter: [
-    ['html', { outputFolder: 'public/test-reports', open: 'never' }],
-    ['json', { outputFile: 'public/test-reports/results.json' }],
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ['json', { outputFile: 'test-results/results.json' }],
+    ['junit', { outputFile: 'test-results/junit.xml' }], // For CI test reporting
     ['list'],
   ],
   use: {

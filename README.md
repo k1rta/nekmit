@@ -29,6 +29,7 @@
 - [Available Commands](#-available-commands)
 - [Project Structure](#-project-structure)
 - [Testing](#-testing)
+- [CI/CD Pipeline](#-cicd-pipeline)
 - [Development Workflow](#-development-workflow)
 - [Deployment](#-deployment)
 - [Contributing](#-contributing)
@@ -140,6 +141,7 @@ nekmit/
 │   └── selectors.ts                    # Centralized test data (TypeScript)
 ├── tsconfig.json               # TypeScript configuration
 ├── TYPESCRIPT_MIGRATION.md     # TypeScript migration documentation
+├── CI_CD_GUIDE.md              # CI/CD pipeline documentation
 ├── CONTRIBUTING.md             # Contribution guidelines
 ├── LICENSE.txt                 # MIT License
 └── package.json                # Dependencies and scripts
@@ -195,9 +197,11 @@ npx playwright test --project=chromium
 ### Test Reports
 
 1. Generate report: `npm run test:e2e:report`
-2. Reports saved to: `public/test-reports/`
-3. View in browser: <http://localhost:3000/test-reports/index.html>
+2. Reports saved to: `playwright-report/`
+3. View in browser: `open playwright-report/index.html`
 4. Includes: Screenshots, traces, detailed results
+
+**CI/CD:** Test reports are automatically uploaded as artifacts on every PR. See [CI/CD Guide](./CI_CD_GUIDE.md) for details.
 
 ### Centralized Test Selectors
 
@@ -245,6 +249,57 @@ export const viewports: Record<'mobile' | 'tablet' | 'desktop', ViewportSize> = 
 - ✅ Easy refactoring
 - ✅ **Type-safe** with TypeScript const assertions
 - ✅ IDE autocomplete for all selectors
+
+---
+
+## 🔄 CI/CD Pipeline
+
+### Automated Quality Checks
+
+Every pull request and push triggers:
+
+- ✅ **Linting** - ESLint validation
+- ✅ **Formatting** - Prettier code style check
+- ✅ **Testing** - 240 E2E tests across 3 browsers
+- ✅ **Merge Blocking** - Failed tests prevent PR merging
+
+### Test Failure Blocking
+
+**Tests must pass to merge!** The CI/CD pipeline enforces quality:
+
+1. All tests must pass ✅
+2. Linting must pass ✅
+3. Formatting must be correct ✅
+4. Branch must be up to date ✅
+
+### Features
+
+- 📊 **Automatic test reports** uploaded as artifacts
+- 💬 **PR comments** with test results
+- 🔒 **Branch protection** enforced
+- 🚀 **Manual workflow trigger** for testing
+- ⚡ **Parallel job execution** for speed
+
+### Quick Testing
+
+```bash
+# Test the workflow locally
+npm run lint
+npm run format:check
+npm run test:e2e:report
+
+# Create a test PR with failing tests
+git checkout -b test/failing-tests
+# Modify a test to fail, commit, and push
+# Observe: CI fails, PR cannot be merged
+```
+
+**Full Documentation:** See [CI/CD Guide](./CI_CD_GUIDE.md) for comprehensive details on:
+
+- Setting up branch protection
+- Accessing test reports
+- Debugging failed tests
+- Advanced DevOps features
 
 ---
 
