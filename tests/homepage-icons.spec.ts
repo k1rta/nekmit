@@ -66,7 +66,10 @@ test.describe('homepage - icon functionality', () => {
     await expect(page.locator(dataTestIds.iconContact)).toHaveAttribute('href', links.contact);
   });
 
-  test('icons should be keyboard accessible', async ({ page }) => {
+  test('icons should be keyboard accessible', async ({ page, browserName }) => {
+    // Skip on WebKit due to focus detection issues in headless mode
+    test.skip(browserName === 'webkit', 'WebKit has focus detection issues in headless mode');
+
     // Tab through icons
     await page.keyboard.press('Tab');
     const resumeIcon = page.locator(dataTestIds.iconResume);
