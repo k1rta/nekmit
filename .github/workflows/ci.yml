@@ -45,8 +45,24 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Get Playwright version
+        id: playwright-version
+        run: echo "version=$(node -p "require('./package.json').devDependencies['@playwright/test']" | tr -d '^')" >> $GITHUB_OUTPUT
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Install Playwright system dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps
 
       - name: Build application
         run: npm run build
@@ -54,32 +70,25 @@ jobs:
       - name: Run E2E tests
         id: playwright-tests
         run: npm run test:e2e:report
-        continue-on-error: false # Fail the job if tests fail
+        continue-on-error: false
 
       - name: Upload Playwright HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-html-report
+          name: playwright-report
           path: playwright-report/
           retention-days: 30
+          if-no-files-found: warn
 
-      - name: Upload test results JSON
+      - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-json
+          name: test-results
           path: test-results/
           retention-days: 30
-
-      - name: Publish test results
-        if: always()
-        uses: dorny/test-reporter@v1
-        with:
-          name: Playwright Test Results
-          path: test-results/*.json
-          reporter: java-junit
-          fail-on-error: true # Block PR merge on test failure
+          if-no-files-found: warn
 
       - name: Comment PR with test results
         if: github.event_name == 'pull_request' && always()
@@ -90,14 +99,26 @@ jobs:
             const testStatus = '${{ steps.playwright-tests.outcome }}';
             const emoji = testStatus === 'success' ? '✅' : '❌';
             const status = testStatus === 'success' ? 'PASSED' : 'FAILED';
-
+            
+            let testSummary = '';
+            try {
+              const resultsPath = 'test-results/results.json';
+              if (fs.existsSync(resultsPath)) {
+                const results = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
+                const stats = results.stats || {};
+                testSummary = `\n**Tests:** ${stats.expected || 0} passed, ${stats.unexpected || 0} failed, ${stats.skipped || 0} skipped\n`;
+              }
+            } catch (e) {
+              console.log('Could not read test results:', e.message);
+            }
+            
             const comment = `## ${emoji} Test Results: ${status}\n\n` +
-              `**Status:** ${testStatus}\n` +
+              `**Status:** ${testStatus}${testSummary}\n` +
               `**Workflow:** [View Details](${context.payload.repository.html_url}/actions/runs/${context.runId})\n` +
-              `**Artifacts:** Test reports are available in the workflow artifacts\n\n` +
+              `**Artifacts:** Download test reports from workflow artifacts\n\n` +
               `---\n` +
-              `*Automated comment by CI/CD Pipeline*`;
-
+              `*Automated by CI/CD Pipeline*`;
+            
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
