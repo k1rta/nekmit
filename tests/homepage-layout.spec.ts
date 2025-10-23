@@ -7,7 +7,7 @@ test.describe('homepage - layout and visual', () => {
   });
 
   test('main content should be centered', async ({ page }) => {
-    const main = page.locator('main');
+    const main = page.locator(dataTestIds.main);
     await expect(main).toBeVisible();
 
     // Verify content is centered by checking computed style
@@ -75,7 +75,7 @@ test.describe('homepage - layout and visual', () => {
   });
 
   test('value proposition should be visible', async ({ page }) => {
-    const valueProp = page.locator('[data-testid="value-proposition"]');
+    const valueProp = page.locator(dataTestIds.valueProposition);
     await expect(valueProp).toBeVisible();
     await expect(valueProp).toContainText('fast, maintainable websites');
     await expect(valueProp).toContainText('automated testing');
