@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   reporter: [
-    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ['html', { outputFolder: 'public/test-reports', open: 'never' }],
     ['json', { outputFile: 'test-results/results.json' }],
     ['list'],
   ],
