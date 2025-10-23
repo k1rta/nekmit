@@ -141,7 +141,6 @@ nekmit/
 │   └── selectors.ts                    # Centralized test data (TypeScript)
 ├── tsconfig.json               # TypeScript configuration
 ├── TYPESCRIPT_MIGRATION.md     # TypeScript migration documentation
-├── CI_CD_GUIDE.md              # CI/CD pipeline documentation
 ├── CONTRIBUTING.md             # Contribution guidelines
 ├── LICENSE.txt                 # MIT License
 └── package.json                # Dependencies and scripts
@@ -201,7 +200,7 @@ npx playwright test --project=chromium
 3. View in browser: `open playwright-report/index.html`
 4. Includes: Screenshots, traces, detailed results
 
-**CI/CD:** Test reports are automatically uploaded as artifacts on every PR. See [CI/CD Guide](./CI_CD_GUIDE.md) for details.
+**CI/CD:** Test reports are automatically uploaded as artifacts on every PR and available for download from GitHub Actions.
 
 ### Centralized Test Selectors
 
@@ -252,54 +251,42 @@ export const viewports: Record<'mobile' | 'tablet' | 'desktop', ViewportSize> = 
 
 ---
 
-## 🔄 CI/CD Pipeline
+## 🚀 CI/CD Pipeline
 
-### Automated Quality Checks
+### Automated Checks
 
-Every pull request and push triggers:
+Every PR and push to `main`/`develop` triggers:
 
-- ✅ **Linting** - ESLint validation
-- ✅ **Formatting** - Prettier code style check
-- ✅ **Testing** - 240 E2E tests across 3 browsers
-- ✅ **Merge Blocking** - Failed tests prevent PR merging
+- ✅ **ESLint** - Code quality validation
+- ✅ **Prettier** - Code formatting check
+- ✅ **Build** - Application build verification
+- ✅ **E2E Tests** - 240 tests across 3 browsers
 
-### Test Failure Blocking
+### Branch Protection
 
-**Tests must pass to merge!** The CI/CD pipeline enforces quality:
+Tests **must pass** before merging:
 
-1. All tests must pass ✅
-2. Linting must pass ✅
-3. Formatting must be correct ✅
-4. Branch must be up to date ✅
+1. Linting passes ✅
+2. Formatting correct ✅
+3. Build succeeds ✅
+4. All tests pass ✅
 
 ### Features
 
-- 📊 **Automatic test reports** uploaded as artifacts
-- 💬 **PR comments** with test results
-- 🔒 **Branch protection** enforced
-- 🚀 **Manual workflow trigger** for testing
-- ⚡ **Parallel job execution** for speed
+- 📊 Test reports uploaded as artifacts
+- 💬 Automatic PR comments with results
+- ⚡ Playwright browser caching (~60% faster)
+- 🔒 Merge blocking on failures
 
-### Quick Testing
+### Local Testing
 
 ```bash
-# Test the workflow locally
+# Run all CI checks locally
 npm run lint
 npm run format:check
+npm run build
 npm run test:e2e:report
-
-# Create a test PR with failing tests
-git checkout -b test/failing-tests
-# Modify a test to fail, commit, and push
-# Observe: CI fails, PR cannot be merged
 ```
-
-**Full Documentation:** See [CI/CD Guide](./CI_CD_GUIDE.md) for comprehensive details on:
-
-- Setting up branch protection
-- Accessing test reports
-- Debugging failed tests
-- Advanced DevOps features
 
 ---
 
@@ -311,7 +298,9 @@ git checkout -b test/failing-tests
 - **`develop`** - Development branch
 - **`feature/*`** - Feature branches
 - **`fix/*`** - Bug fix branches
+- **`test/*`** - Test branches
 - **`chore/*`** - Maintenance branches
+- **`ci/*`** - CI/CD changes
 
 ### Making Changes
 
