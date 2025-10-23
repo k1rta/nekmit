@@ -24,34 +24,15 @@
         letter-spacing: 3px;
       }
 
-      @keyframes pulseGlow {
-        0%,
-        100% {
-          opacity: 1;
-          box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
-          border-color: rgb(59, 130, 246);
-        }
-        50% {
-          opacity: 0.85;
-          box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.6);
-          border-color: rgb(96, 165, 250);
-        }
-      }
-
       nav .icon-pulse {
-        animation: pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-      }
-
-      /* Pause all animations when hovering over any icon */
-      nav:hover .icon-pulse {
-        animation-play-state: paused;
+        animation: none;
       }
 
       .icon-pulse:hover {
-        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.6);
-        transform: translateY(-8px) scale(1.1);
+        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
+        transform: translateY(-2px) scale(1.03);
         border-color: rgb(96, 165, 250);
-        background: rgba(59, 130, 246, 0.15);
+        background: rgba(59, 130, 246, 0.08);
       }
 
       /* Badge hover effects */
@@ -63,6 +44,12 @@
       /* Enhanced transitions */
       .icon-pulse {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .icon-pulse {
+          transition: none !important;
+        }
       }
 
       .badge-hover {
@@ -83,20 +70,7 @@
     </style>
   </head>
   <body class="flex items-center justify-center min-h-screen relative overflow-hidden">
-    <!-- Landscape Mode Overlay (Mobile Only) -->
-    <div
-      id="landscape-overlay"
-      class="landscape-warning fixed inset-0 bg-gray-950 z-50 flex flex-col items-center justify-center p-8 text-center"
-      data-testid="landscape-overlay"
-    >
-      <i class="fa-solid fa-mobile-screen-button text-6xl text-blue-400 mb-6 rotate-90"></i>
-      <h2 class="text-2xl font-bold text-blue-300 mb-4">Please Rotate Your Device</h2>
-      <p class="text-gray-300 text-lg max-w-md">
-        This site is optimized for portrait mode. Please rotate your device to portrait orientation
-        for the best experience.
-      </p>
-    </div>
-    <main class="text-center px-4 sm:px-6 md:px-8 py-8 sm:py-0 sm:-mt-12 max-w-7xl mx-auto">
+    <main class="text-center px-4 sm:px-6 md:px-8 pt-12 pb-8 sm:pt-20 max-w-7xl mx-auto">
       <!-- Name and Tagline -->
       <h1
         class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 sm:mb-6 text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-blue-500 bg-clip-text tracking-wide leading-tight"
