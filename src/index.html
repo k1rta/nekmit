@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Kirta-Linda Karits - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -24,34 +24,15 @@
         letter-spacing: 3px;
       }
 
-      @keyframes pulseGlow {
-        0%,
-        100% {
-          opacity: 1;
-          box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
-          border-color: rgb(59, 130, 246);
-        }
-        50% {
-          opacity: 0.85;
-          box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.6);
-          border-color: rgb(96, 165, 250);
-        }
-      }
-
       nav .icon-pulse {
-        animation: pulseGlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-      }
-
-      /* Pause all animations when hovering over any icon */
-      nav:hover .icon-pulse {
-        animation-play-state: paused;
+        animation: none;
       }
 
       .icon-pulse:hover {
-        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.6);
-        transform: translateY(-8px) scale(1.1);
+        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
+        transform: translateY(-2px) scale(1.03);
         border-color: rgb(96, 165, 250);
-        background: rgba(59, 130, 246, 0.15);
+        background: rgba(59, 130, 246, 0.08);
       }
 
       /* Badge hover effects */
@@ -63,6 +44,12 @@
       /* Enhanced transitions */
       .icon-pulse {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .icon-pulse {
+          transition: none !important;
+        }
       }
 
       .badge-hover {
@@ -80,23 +67,43 @@
         padding-top: 80px;
         padding-bottom: 20px;
       }
+
+      /* Hide main content and footer when landscape mode is active */
+      body.landscape-mode-active main,
+      body.landscape-mode-active footer {
+        display: none !important;
+      }
     </style>
   </head>
   <body class="flex items-center justify-center min-h-screen relative overflow-hidden">
     <!-- Landscape Mode Overlay (Mobile Only) -->
     <div
-      id="landscape-overlay"
-      class="landscape-warning fixed inset-0 bg-gray-950 z-50 flex flex-col items-center justify-center p-8 text-center"
-      data-testid="landscape-overlay"
+      id="landscape-banner"
+      class="hidden fixed inset-0 z-50 bg-gradient-to-br from-gray-900 via-blue-900/90 to-purple-900/90 backdrop-blur-md"
+      data-testid="landscape-banner"
     >
-      <i class="fa-solid fa-mobile-screen-button text-6xl text-blue-400 mb-6 rotate-90"></i>
-      <h2 class="text-2xl font-bold text-blue-300 mb-4">Please Rotate Your Device</h2>
-      <p class="text-gray-300 text-lg max-w-md">
-        This site is optimized for portrait mode. Please rotate your device to portrait orientation
-        for the best experience.
-      </p>
+      <div class="absolute inset-0 flex items-center justify-center px-6">
+        <div class="text-center max-w-lg mx-auto">
+          <div class="mb-8">
+            <i class="fa-solid fa-mobile-screen-button text-7xl text-blue-400 animate-pulse"></i>
+          </div>
+          <h2
+            class="text-3xl md:text-4xl font-extrabold mb-6 text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-blue-500 bg-clip-text tracking-wide leading-tight"
+            style="font-family: 'Rajdhani', sans-serif"
+          >
+            Please Rotate Your Device
+          </h2>
+          <p
+            class="text-lg md:text-xl text-blue-200 font-normal leading-relaxed"
+            style="font-family: 'JetBrains Mono', monospace"
+          >
+            For the best experience, please use portrait mode
+          </p>
+        </div>
+      </div>
     </div>
-    <main class="text-center px-4 sm:px-6 md:px-8 py-8 sm:py-0 sm:-mt-12 max-w-7xl mx-auto">
+
+    <main class="text-center px-4 sm:px-6 md:px-8 pt-12 pb-8 sm:pt-20 max-w-7xl mx-auto">
       <!-- Name and Tagline -->
       <h1
         class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold mb-4 sm:mb-6 text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-blue-500 bg-clip-text tracking-wide leading-tight"
@@ -133,93 +140,111 @@
 
       <!-- Functional Icons -->
       <nav
-        class="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 mb-20 sm:mb-24 md:mb-28"
+        class="grid grid-cols-3 xs:flex xs:flex-wrap justify-center gap-3 xs:gap-4 sm:gap-6 md:gap-8 mb-20 sm:mb-24 md:mb-28 max-w-xs xs:max-w-none mx-auto"
         data-testid="icon-navigation"
       >
         <!-- Resume & Skills -->
-        <a
-          href="/resume"
-          target="_blank"
-          class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
-          aria-label="Resume & Skills"
-          data-tooltip="View resume & skills"
-          data-testid="icon-resume"
-        >
-          <i
-            class="fa-solid fa-file-text text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-          ></i>
-        </a>
+        <div class="flex flex-col items-center">
+          <a
+            href="/resume"
+            target="_blank"
+            class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+            aria-label="Resume & Skills"
+            data-tooltip="View resume & skills"
+            data-testid="icon-resume"
+          >
+            <i
+              class="fa-solid fa-file-text text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+            ></i>
+            <span class="sr-only">Resume & Skills</span>
+          </a>
+        </div>
 
         <!-- Portfolio Projects -->
-        <a
-          href="https://github.com/k1rta?tab=repositories"
-          target="_blank"
-          rel="noopener"
-          class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
-          aria-label="Portfolio Projects"
-          data-tooltip="View GitHub projects"
-          data-testid="icon-projects"
-        >
-          <i
-            class="fa-solid fa-code text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-          ></i>
-        </a>
+        <div class="flex flex-col items-center">
+          <a
+            href="https://github.com/k1rta?tab=repositories"
+            target="_blank"
+            rel="noopener"
+            class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+            aria-label="Portfolio Projects"
+            data-tooltip="View GitHub projects"
+            data-testid="icon-projects"
+          >
+            <i
+              class="fa-solid fa-code text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+            ></i>
+            <span class="sr-only">Portfolio Projects</span>
+          </a>
+        </div>
 
         <!-- Quality Dashboard -->
-        <a
-          href="/test-reports/index.html"
-          target="_blank"
-          class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
-          aria-label="Quality Dashboard"
-          data-tooltip="View test reports"
-          data-testid="icon-quality"
-        >
-          <i
-            class="fa-solid fa-chart-line text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-          ></i>
-        </a>
+        <div class="flex flex-col items-center">
+          <a
+            href="/test-reports/index.html"
+            target="_blank"
+            class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+            aria-label="Quality Dashboard"
+            data-tooltip="View test reports"
+            data-testid="icon-quality"
+          >
+            <i
+              class="fa-solid fa-chart-line text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+            ></i>
+            <span class="sr-only">Quality Dashboard</span>
+          </a>
+        </div>
 
         <!-- System Uptime -->
-        <a
-          href="/api/health"
-          target="_blank"
-          class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
-          aria-label="System Uptime"
-          data-tooltip="Check system health"
-          data-testid="icon-uptime"
-        >
-          <i
-            class="fa-solid fa-server text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-          ></i>
-        </a>
+        <div class="flex flex-col items-center">
+          <a
+            href="/api/health"
+            target="_blank"
+            class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+            aria-label="System Uptime"
+            data-tooltip="Check system health"
+            data-testid="icon-uptime"
+          >
+            <i
+              class="fa-solid fa-server text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+            ></i>
+            <span class="sr-only">System Uptime</span>
+          </a>
+        </div>
 
         <!-- About My Business -->
-        <a
-          href="https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C"
-          target="_blank"
-          rel="noopener"
-          class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
-          aria-label="About My Business"
-          data-tooltip="View company details"
-          data-testid="icon-business"
-        >
-          <i
-            class="fa-solid fa-briefcase text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-          ></i>
-        </a>
+        <div class="flex flex-col items-center">
+          <a
+            href="https://ariregister.rik.ee/eng/company/14401168/Nekmit-O%C3%9C"
+            target="_blank"
+            rel="noopener"
+            class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+            aria-label="About My Business"
+            data-tooltip="View company details"
+            data-testid="icon-business"
+          >
+            <i
+              class="fa-solid fa-briefcase text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+            ></i>
+            <span class="sr-only">About My Business</span>
+          </a>
+        </div>
 
         <!-- Contact & Availability -->
-        <a
-          href="mailto:kirtalindakarits@icloud.com"
-          class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
-          aria-label="Contact & Availability"
-          data-tooltip="Send email"
-          data-testid="icon-contact"
-        >
-          <i
-            class="fa-solid fa-building text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-          ></i>
-        </a>
+        <div class="flex flex-col items-center">
+          <a
+            href="mailto:kirtalindakarits@icloud.com"
+            class="icon-pulse group flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-transparent bg-gradient-to-r from-blue-500/20 to-purple-600/20 hover:from-blue-500/40 hover:to-purple-600/40 transition-all"
+            aria-label="Contact & Availability"
+            data-tooltip="Send email"
+            data-testid="icon-contact"
+          >
+            <i
+              class="fa-solid fa-building text-2xl sm:text-3xl bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+            ></i>
+            <span class="sr-only">Contact & Availability</span>
+          </a>
+        </div>
       </nav>
     </main>
 
@@ -229,48 +254,56 @@
       data-testid="footer"
     >
       <div
-        class="flex flex-wrap justify-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 px-2 sm:px-4 md:px-6"
+        class="flex justify-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-3 lg:gap-4 px-1 xs:px-2 sm:px-4 md:px-6"
         data-testid="badge-bar"
       >
         <span
-          class="badge-hover inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-emerald-500/20 to-green-500/20 text-emerald-300 border border-emerald-500/40 shadow-lg"
+          class="badge-hover inline-flex items-center px-1.5 xs:px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[9px] xs:text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-emerald-500/20 to-green-500/20 text-emerald-300 border border-emerald-500/40 shadow-lg whitespace-nowrap"
           data-testid="badge-deployment"
         >
-          <i class="fa-solid fa-rocket mr-1 sm:mr-1.5 text-emerald-400 text-[10px] sm:text-xs"></i>
+          <i
+            class="fa-solid fa-rocket mr-0.5 xs:mr-1 sm:mr-1.5 text-emerald-400 text-[9px] xs:text-[10px] sm:text-xs"
+          ></i>
           <span class="hidden sm:inline">Automated Deployment</span>
           <span class="sm:hidden">Auto Deploy</span>
         </span>
         <span
-          class="badge-hover inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 border border-blue-500/40 shadow-lg"
+          class="badge-hover inline-flex items-center px-1.5 xs:px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[9px] xs:text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 border border-blue-500/40 shadow-lg whitespace-nowrap"
           data-testid="badge-quality"
         >
           <i
-            class="fa-solid fa-vial-circle-check mr-1 sm:mr-1.5 text-blue-400 text-[10px] sm:text-xs"
+            class="fa-solid fa-vial-circle-check mr-0.5 xs:mr-1 sm:mr-1.5 text-blue-400 text-[9px] xs:text-[10px] sm:text-xs"
           ></i>
           <span class="hidden sm:inline">Quality Assured</span>
           <span class="sm:hidden">QA</span>
         </span>
         <span
-          class="badge-hover inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 border border-purple-500/40 shadow-lg"
+          class="badge-hover inline-flex items-center px-1.5 xs:px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[9px] xs:text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-300 border border-purple-500/40 shadow-lg whitespace-nowrap"
           data-testid="badge-ux"
         >
-          <i class="fa-solid fa-heart mr-1 sm:mr-1.5 text-purple-400 text-[10px] sm:text-xs"></i>
+          <i
+            class="fa-solid fa-heart mr-0.5 xs:mr-1 sm:mr-1.5 text-purple-400 text-[9px] xs:text-[10px] sm:text-xs"
+          ></i>
           <span class="hidden sm:inline">User-Centered Design</span>
           <span class="sm:hidden">UX Design</span>
         </span>
         <span
-          class="badge-hover inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 border border-orange-500/40 shadow-lg"
+          class="badge-hover inline-flex items-center px-1.5 xs:px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[9px] xs:text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 border border-orange-500/40 shadow-lg whitespace-nowrap"
           data-testid="badge-performance"
         >
-          <i class="fa-solid fa-zap mr-1 sm:mr-1.5 text-orange-400 text-[10px] sm:text-xs"></i>
+          <i
+            class="fa-solid fa-zap mr-0.5 xs:mr-1 sm:mr-1.5 text-orange-400 text-[9px] xs:text-[10px] sm:text-xs"
+          ></i>
           <span class="hidden sm:inline">Lightning Fast</span>
           <span class="sm:hidden">Fast</span>
         </span>
         <span
-          class="badge-hover inline-flex items-center px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-teal-500/20 to-cyan-500/20 text-teal-300 border border-teal-500/40 shadow-lg"
+          class="badge-hover inline-flex items-center px-1.5 xs:px-2 py-0.5 sm:px-2.5 sm:py-1 md:px-3 md:py-1 rounded-full text-[9px] xs:text-[10px] sm:text-xs font-semibold bg-gradient-to-r from-teal-500/20 to-cyan-500/20 text-teal-300 border border-teal-500/40 shadow-lg whitespace-nowrap"
           data-testid="badge-accessibility"
         >
-          <i class="fa-solid fa-globe mr-1 sm:mr-1.5 text-teal-400 text-[10px] sm:text-xs"></i>
+          <i
+            class="fa-solid fa-globe mr-0.5 xs:mr-1 sm:mr-1.5 text-teal-400 text-[9px] xs:text-[10px] sm:text-xs"
+          ></i>
           <span class="hidden sm:inline">Globally Accessible</span>
           <span class="sm:hidden">Global</span>
         </span>

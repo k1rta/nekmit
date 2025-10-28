@@ -18,6 +18,7 @@
 - 📝 **Conventional Commits** - Enforced commit standards
 - 🔒 **Branch Protection** - Protected main branch with required checks
 - ♿ **Accessibility** - WCAG compliant with ARIA labels and tooltips
+- 📱 **Mobile Optimized** - Portrait-only design with landscape orientation guidance
 - 🎯 **100% Test Coverage** - All interactive elements have data-testids
 - 🏅 **Quality Badges** - 5 visual badges showcasing key features
 
@@ -150,6 +151,26 @@ nekmit/
 ├── LICENSE.txt                 # MIT License
 └── package.json                # Dependencies and scripts
 ```
+
+---
+
+## 📱 Mobile Experience
+
+### Portrait-Only Design
+
+This portfolio is optimized for **portrait orientation** on mobile devices to ensure the best user experience. When users access the site in landscape mode on mobile devices (screen width ≤ 900px and height ≤ 600px), they see a full-screen overlay with:
+
+- **Elegant Typography**: Uses the same fonts as the homepage (Rajdhani for headings, JetBrains Mono for body text)
+- **Centered Layout**: Clean, centered design with animated mobile icon
+- **Clear Messaging**: "Please Rotate Your Device" with explanation text
+- **No Bypass Option**: Users must rotate to portrait to access the portfolio content
+
+### Technical Implementation
+
+- **CSS-Based Hiding**: Main content and footer are completely hidden when landscape overlay is active
+- **JavaScript Detection**: Automatic orientation detection with real-time updates
+- **Responsive Breakpoints**: Only applies to mobile devices, tablets and desktops are unaffected
+- **Comprehensive Testing**: 45 dedicated tests ensure landscape mode works across all browsers
 
 ---
 

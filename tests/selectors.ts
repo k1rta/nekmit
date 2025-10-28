@@ -8,11 +8,14 @@
  */
 export const dataTestIds = {
   // Main content
+  main: 'main',
   mainHeading: '[data-testid="main-heading"]',
   taglineContainer: '[data-testid="tagline-container"]',
   tagline: '[data-testid="tagline"]',
   valueProposition: '[data-testid="value-proposition"]',
-  landscapeOverlay: '[data-testid="landscape-overlay"]',
+  landscapeOverlay: '[data-testid="landscape-banner"]',
+  landscapeBanner: '[data-testid="landscape-banner"]',
+  landscapeDismiss: '[data-testid="landscape-dismiss"]',
 
   // Navigation
   iconNavigation: '[data-testid="icon-navigation"]',
