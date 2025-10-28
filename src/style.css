@@ -57,7 +57,7 @@ footer[data-testid='footer'] {
 @layer utilities {
   /* Ensure minimum touch target size on mobile */
   @media (max-width: 640px) {
-    .icon-pulse {
+    .nav-icon {
       min-width: 64px;
       min-height: 64px;
     }
@@ -110,7 +110,7 @@ footer[data-testid='footer'] {
     margin-right: auto !important;
   }
 
-  [data-testid='icon-navigation'] .icon-pulse {
+  [data-testid='icon-navigation'] .nav-icon {
     width: 60px !important;
     height: 60px !important;
   }
@@ -132,7 +132,7 @@ footer[data-testid='footer'] {
     margin-bottom: 80px !important;
   }
 
-  [data-testid='icon-navigation'] .icon-pulse {
+  [data-testid='icon-navigation'] .nav-icon {
     width: 50px !important;
     height: 50px !important;
   }
@@ -240,7 +240,7 @@ footer[data-testid='footer'] {
     gap: 12px !important;
     margin-bottom: 112px !important;
   }
-  [data-testid='icon-navigation'] .icon-pulse {
+  [data-testid='icon-navigation'] .nav-icon {
     width: 56px !important;
     height: 56px !important;
   }

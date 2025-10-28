@@ -6,6 +6,7 @@ export default defineConfig({
   reporter: [
     ['html', { outputFolder: 'public/test-reports', open: 'never' }],
     ['json', { outputFile: 'test-results/results.json' }],
+    ['allure-playwright', { outputFolder: 'allure-results' }],
     ['list'],
   ],
   use: {

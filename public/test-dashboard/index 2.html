@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Dashboard - Portfolio Quality Metrics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .metric-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 1rem;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .metric-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #3b82f6;
+        }
+        
+        .metric-value {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .status-good { color: #10b981; }
+        .status-warning { color: #f59e0b; }
+        .status-error { color: #ef4444; }
+        
+        .chart-container {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .test-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .test-type {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .test-type h4 {
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+        
+        .test-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #334155;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            transition: width 0.3s ease;
+        }
+        
+        .links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .link-button {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+        
+        .link-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Test Dashboard</h1>
+            <p>Comprehensive Quality Metrics & Test Coverage</p>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3>Overall Pass Rate</h3>
+                <div class="metric-value status-good" id="passRate">--</div>
+                <div class="metric-label">Tests Passing</div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Total Tests</h3>
+                <div class="metric-value" id="totalTests">--</div>
+                <div class="metric-label">Test Cases</div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Coverage</h3>
+                <div class="metric-value status-good" id="coverage">--</div>
+                <div class="metric-label">Code Coverage</div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>Performance</h3>
+                <div class="metric-value status-good" id="performance">--</div>
+                <div class="metric-label">Avg Load Time</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h3 style="margin-bottom: 2rem; color: #3b82f6;">Test Results Overview</h3>
+            <canvas id="testChart" width="400" height="200"></canvas>
+        </div>
+        
+        <div class="test-types">
+            <div class="test-type">
+                <h4>Unit Tests</h4>
+                <div class="test-stats">
+                    <span>Passed: <span id="unitPassed">0</span></span>
+                    <span>Total: <span id="unitTotal">0</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="unitProgress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="test-type">
+                <h4>Integration Tests</h4>
+                <div class="test-stats">
+                    <span>Passed: <span id="integrationPassed">0</span></span>
+                    <span>Total: <span id="integrationTotal">0</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="integrationProgress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="test-type">
+                <h4>E2E Tests</h4>
+                <div class="test-stats">
+                    <span>Passed: <span id="e2ePassed">0</span></span>
+                    <span>Total: <span id="e2eTotal">0</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="e2eProgress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="test-type">
+                <h4>Performance Tests</h4>
+                <div class="test-stats">
+                    <span>Passed: <span id="perfPassed">0</span></span>
+                    <span>Total: <span id="perfTotal">0</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="perfProgress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="test-type">
+                <h4>Accessibility Tests</h4>
+                <div class="test-stats">
+                    <span>Passed: <span id="a11yPassed">0</span></span>
+                    <span>Total: <span id="a11yTotal">0</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="a11yProgress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <div class="test-type">
+                <h4>API Tests</h4>
+                <div class="test-stats">
+                    <span>Passed: <span id="apiPassed">0</span></span>
+                    <span>Total: <span id="apiTotal">0</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="apiProgress" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="links">
+            <a href="/test-reports/index.html" class="link-button">Playwright Reports</a>
+            <a href="/allure-report/index.html" class="link-button">Allure Reports</a>
+            <a href="/api/health" class="link-button">Health Check</a>
+            <a href="/" class="link-button">Back to Portfolio</a>
+        </div>
+    </div>
+    
+    <script>
+        // Mock data - in real implementation, this would fetch from test results
+        const testData = {
+            unit: { passed: 0, total: 0 },
+            integration: { passed: 0, total: 0 },
+            e2e: { passed: 15, total: 16 },
+            performance: { passed: 5, total: 5 },
+            accessibility: { passed: 8, total: 8 },
+            api: { passed: 2, total: 2 }
+        };
+        
+        function updateMetrics() {
+            const totalPassed = Object.values(testData).reduce((sum, test) => sum + test.passed, 0);
+            const totalTests = Object.values(testData).reduce((sum, test) => sum + test.total, 0);
+            const passRate = totalTests > 0 ? ((totalPassed / totalTests) * 100).toFixed(1) : 0;
+            
+            document.getElementById('passRate').textContent = passRate + '%';
+            document.getElementById('totalTests').textContent = totalTests;
+            document.getElementById('coverage').textContent = '95%'; // Mock coverage
+            document.getElementById('performance').textContent = '1.2s'; // Mock performance
+            
+            // Update individual test type metrics
+            Object.entries(testData).forEach(([type, data]) => {
+                const percentage = data.total > 0 ? (data.passed / data.total) * 100 : 0;
+                document.getElementById(type + 'Passed').textContent = data.passed;
+                document.getElementById(type + 'Total').textContent = data.total;
+                document.getElementById(type + 'Progress').style.width = percentage + '%';
+            });
+        }
+        
+        function createChart() {
+            const ctx = document.getElementById('testChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Passed', 'Failed', 'Skipped'],
+                    datasets: [{
+                        data: [30, 1, 1],
+                        backgroundColor: [
+                            '#10b981',
+                            '#ef4444',
+                            '#f59e0b'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#f8fafc',
+                                padding: 20
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Initialize dashboard
+        updateMetrics();
+        createChart();
+        
+        // Auto-refresh every 30 seconds
+        setInterval(updateMetrics, 30000);
+    </script>
+</body>
+</html>
